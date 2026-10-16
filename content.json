@@ -21,7 +21,7 @@
     "location": "Doha, Qatar",
     "city": "Doha",
     "countryCode": "QA",
-    "nationality": "Pakistan",
+    "nationality": "",
     "photo": "muhammad-awais-rustam.jpg",
     "photoAlt": "Muhammad Awais Rustam, Digital Marketer, in Doha",
     "email": "awaisrustam001@gmail.com",
@@ -145,10 +145,6 @@
       {
         "label": "Based in",
         "value": "Doha, Qatar"
-      },
-      {
-        "label": "From",
-        "value": "Pakistan"
       },
       {
         "label": "Role",
@@ -311,7 +307,7 @@
         "start": "2021",
         "current": false,
         "title": "Marketing Executive",
-        "org": "Agencies · Pakistan",
+        "org": "Marketing agencies",
         "bullets": [
           "Performance marketing and brand positioning for education, retail, real estate and e-commerce clients.",
           "Media and entertainment work for HUM TV, Dew Music, Gaane Shaane and artist channels on YouTube, Facebook and Instagram."
