@@ -1,0 +1,643 @@
+{
+  "site": {
+    "url": "https://muhammadawaisrustam.github.io/",
+    "title": "Muhammad Awais Rustam | Digital Marketer & Graphic Designer",
+    "description": "Muhammad Awais Rustam is a Digital Marketer in Doha with 7+ years in B2B lead generation, Meta & Google Ads, SEO, social media and graphic design.",
+    "keywords": "Muhammad Awais Rustam, Awais Rustam, digital marketer, digital marketing specialist, B2B lead generation, Meta Ads, Google Ads, SEO, graphic designer, social media marketing",
+    "ogImage": "images/og-avatar.jpg",
+    "googleVerification": ""
+  },
+  "theme": {
+    "bg": "#081633",
+    "bg2": "#0D1F45",
+    "accent": "#4A86FF",
+    "highlight": "#F2C46D"
+  },
+  "profile": {
+    "name": "Muhammad Awais Rustam",
+    "shortName": "Awais Rustam",
+    "monogram": "MAR",
+    "jobTitle": "Digital Marketing Specialist & Graphic Designer",
+    "location": "Doha, Qatar",
+    "city": "Doha",
+    "countryCode": "QA",
+    "nationality": "Pakistan",
+    "photo": "images/muhammad-awais-rustam.jpg",
+    "photoAlt": "Muhammad Awais Rustam, Digital Marketer, in Doha",
+    "email": "awaisrustam001@gmail.com",
+    "phone": "+974 3337 0737",
+    "whatsapp": "97433370737",
+    "linkedin": "https://www.linkedin.com/in/muhammad-awais-rustam-malik-4251a7258/",
+    "instagram": "",
+    "behance": "",
+    "employer": "Target Trading & Contracting",
+    "employerUrl": "https://targetqatar.com",
+    "university": "Sarhad University",
+    "alternateNames": "Awais Rustam, Muhammad Awais Rustam Malik"
+  },
+  "sections": [
+    {
+      "id": "about",
+      "nav": "About",
+      "visible": true
+    },
+    {
+      "id": "results",
+      "nav": "Results",
+      "visible": true
+    },
+    {
+      "id": "experience",
+      "nav": "Experience",
+      "visible": true
+    },
+    {
+      "id": "services",
+      "nav": "Services",
+      "visible": true
+    },
+    {
+      "id": "design",
+      "nav": "Design",
+      "visible": true
+    },
+    {
+      "id": "brands",
+      "nav": "",
+      "visible": true
+    },
+    {
+      "id": "credentials",
+      "nav": "",
+      "visible": true
+    },
+    {
+      "id": "contact",
+      "nav": "Contact",
+      "visible": true
+    }
+  ],
+  "hero": {
+    "status": "Open to projects & collaborations",
+    "roleLine1": "Digital",
+    "roleLine2": "Marketer",
+    "lede": "I plan and run performance campaigns that turn ad spend into qualified leads. Seven years across B2B, education, retail and real estate, with the design skills to build every creative in-house.",
+    "cta1Label": "See the results",
+    "cta1Link": "#results",
+    "cta2Label": "View my designs",
+    "cta2Link": "#design",
+    "navButton": "Let’s talk",
+    "readoutTitle": "Campaign readout",
+    "readoutPeriod": "Monthly",
+    "readout": [
+      {
+        "account": "Target Group",
+        "detail": "B2B lead generation",
+        "channel": "Meta · Google · WhatsApp",
+        "result": "200+ leads",
+        "live": true
+      },
+      {
+        "account": "Leaders Training Centre",
+        "detail": "QAR 60,000 / month budget",
+        "channel": "Meta · Google",
+        "result": "6,000+ leads",
+        "live": false
+      },
+      {
+        "account": "Fashion & accessories",
+        "detail": "Seasonal collections",
+        "channel": "Meta remarketing",
+        "result": "3x+ ROAS",
+        "live": false
+      }
+    ],
+    "photoCaptionLeft": "Doha, Qatar",
+    "photoCaptionRight": "7+ yrs"
+  },
+  "stats": [
+    {
+      "value": "7+",
+      "label": "years in digital marketing and design"
+    },
+    {
+      "value": "200+",
+      "label": "B2B leads generated every month at Target Group"
+    },
+    {
+      "value": "6,000+",
+      "label": "leads a month at Leaders Training Centre"
+    },
+    {
+      "value": "60K",
+      "label": "QAR monthly ad budget managed"
+    }
+  ],
+  "about": {
+    "eyebrow": "About",
+    "heading": "Strategy, media buying and design in one person.",
+    "paragraphs": [
+      "I’m Muhammad Awais Rustam, a Digital Marketing Specialist and Graphic Designer based in Doha, Qatar. For more than seven years I’ve helped brands grow through paid social, search, SEO, email and WhatsApp marketing, always measured against leads and revenue rather than likes.",
+      "Today I lead digital marketing and design for Target Group, a Qatari group of three industrial companies: Target Metal Forming, Target Furniture Factory and Target Trading & Contracting. My focus there is B2B: contractors, fit-out firms and designers who buy stainless steel, wood panels and hardware. I generate more than 200 qualified B2B leads a month and work them through to sales.",
+      "Because I design my own creatives, campaigns move fast. The idea, the visual, the targeting and the reporting all come from the same desk."
+    ],
+    "facts": [
+      {
+        "label": "Based in",
+        "value": "Doha, Qatar"
+      },
+      {
+        "label": "From",
+        "value": "Pakistan"
+      },
+      {
+        "label": "Role",
+        "value": "Digital Marketing Specialist & Graphic Designer, Target Group"
+      },
+      {
+        "label": "Also",
+        "value": "Freelance projects for brands worldwide"
+      },
+      {
+        "label": "Education",
+        "value": "Bachelor’s in Marketing, Sarhad University"
+      },
+      {
+        "label": "Focus",
+        "value": "B2B lead generation, paid media, content"
+      }
+    ]
+  },
+  "results": {
+    "eyebrow": "Selected results",
+    "heading": "Case studies",
+    "intro": "Three engagements that show how I work: clear goals, disciplined budgets and numbers you can check.",
+    "items": [
+      {
+        "client": "Target Group · Qatar · 2025–present",
+        "big": "200+",
+        "bigLabel": "qualified B2B leads every month",
+        "title": "Building a B2B lead engine for an industrial group",
+        "paragraphs": [
+          "Target supplies stainless steel, wood panels, fit-out systems and CNC metal fabrication to Qatar’s construction and interiors market. Its buyers are contractors, fit-out companies and interior designers, not consumers. I run the full funnel for all three group companies: lead campaigns on Meta and Google, WhatsApp follow-up, lead qualification and hand-off to the sales team.",
+          "I also design every post on the group’s Instagram, keeping one consistent look across metals, wood and hardware product lines."
+        ],
+        "splitLabelA": "",
+        "splitPctA": 0,
+        "splitLabelB": "",
+        "splitNote": "",
+        "metrics": [
+          {
+            "label": "Audience",
+            "value": "B2B buyers"
+          },
+          {
+            "label": "Companies",
+            "value": "3 brands"
+          },
+          {
+            "label": "Role",
+            "value": "Marketing + design"
+          }
+        ],
+        "tags": [
+          "Meta Ads",
+          "Google Ads",
+          "WhatsApp Business",
+          "Lead nurturing",
+          "Social design"
+        ]
+      },
+      {
+        "client": "Leaders Training Centre · Qatar · 2024–2025",
+        "big": "6,000+",
+        "bigLabel": "leads a month across all courses",
+        "title": "Scaling enrolments on a QAR 60,000 monthly budget",
+        "paragraphs": [
+          "Leaders runs professional, safety, IT and language courses. I managed four ad accounts and a monthly budget of QAR 60,000, planned bottom-up from lead targets and cost per lead. I analysed more than 50 campaigns on CTR, CPC, CPL, ROAS and lead-to-sale ratio, and shifted budget and creative based on what converted."
+        ],
+        "splitLabelA": "Meta · QAR 45,000",
+        "splitPctA": 75,
+        "splitLabelB": "Google · 15K",
+        "splitNote": "Monthly budget split, 75% Meta and 25% Google. Meta delivered 4,000–4,500 leads a month and Google 1,500–2,000.",
+        "metrics": [
+          {
+            "label": "Ad accounts",
+            "value": "4 managed"
+          },
+          {
+            "label": "Lead growth",
+            "value": "20%+ monthly"
+          },
+          {
+            "label": "CPL",
+            "value": "Reduced steadily"
+          }
+        ],
+        "tags": []
+      },
+      {
+        "client": "Retail & e-commerce · Fashion, food, FMCG",
+        "big": "3x+",
+        "bigLabel": "return on ad spend on collection launches",
+        "title": "Retail campaigns that sell",
+        "paragraphs": [
+          "For fashion and jewellery brands including RJ’s Pret and Funky Fish, I ran Facebook and Instagram campaigns for seasonal and limited-edition collections that consistently returned more than three times their ad spend. Remarketing and product-focused content lifted conversion rates by 20%.",
+          "For Qatar retail brands such as Habari Hypermarket, I planned daily and seasonal campaign calendars for Ramadan, Eid and National Day, and ran hyperlocal ads that brought customers into stores."
+        ],
+        "splitLabelA": "",
+        "splitPctA": 0,
+        "splitLabelB": "",
+        "splitNote": "",
+        "metrics": [
+          {
+            "label": "ROAS",
+            "value": "3x and above"
+          },
+          {
+            "label": "Conversion",
+            "value": "+20%"
+          },
+          {
+            "label": "Channels",
+            "value": "Meta · TikTok · Google"
+          }
+        ],
+        "tags": []
+      }
+    ]
+  },
+  "experience": {
+    "eyebrow": "Experience",
+    "heading": "Where I’ve worked",
+    "items": [
+      {
+        "dates": "Oct 2025 – Present",
+        "start": "2025-10",
+        "current": true,
+        "title": "Digital Marketing Specialist & Graphic Designer",
+        "org": "Target Trading & Contracting (Target Group) · Doha, Qatar",
+        "bullets": [
+          "Generate 200+ B2B leads a month for Target Metal Forming, Target Furniture Factory and Target Trading & Contracting.",
+          "Qualify and follow up leads with the sales team, including WhatsApp nurturing.",
+          "Design all social media content for the group’s channels."
+        ]
+      },
+      {
+        "dates": "2024 – 2025",
+        "start": "2024",
+        "current": false,
+        "title": "Digital Marketing Specialist & Graphic Designer",
+        "org": "Leaders Training Centre · Qatar",
+        "bullets": [
+          "Managed a QAR 60,000 monthly budget across Meta, Google, TikTok and LinkedIn.",
+          "Generated 6,000+ leads a month with 20%+ growth and falling cost per lead.",
+          "Produced social creatives, workshop materials and course promotions."
+        ]
+      },
+      {
+        "dates": "2023 – 2024",
+        "start": "2023",
+        "current": false,
+        "title": "Digital Marketer & Graphic Designer",
+        "org": "Al Habari Group & My Daar Real Estate · Qatar",
+        "bullets": [
+          "Handled social media for five brands across retail, hypermarket and real estate.",
+          "Ran cross-channel property campaigns and seasonal retail promotions."
+        ]
+      },
+      {
+        "dates": "2021 – 2023",
+        "start": "2021",
+        "current": false,
+        "title": "Marketing Executive",
+        "org": "Agencies · Pakistan",
+        "bullets": [
+          "Performance marketing and brand positioning for education, retail, real estate and e-commerce clients.",
+          "Media and entertainment work for HUM TV, Dew Music, Gaane Shaane and artist channels on YouTube, Facebook and Instagram."
+        ]
+      }
+    ]
+  },
+  "services": {
+    "eyebrow": "Services",
+    "heading": "What I can do for you",
+    "intro": "Available for in-house roles and freelance projects. Every service is planned around one number you care about.",
+    "items": [
+      {
+        "tag": "Leads",
+        "title": "B2B lead generation",
+        "text": "Campaigns, forms and follow-up flows that bring in qualified buyers, then hand clean leads to sales."
+      },
+      {
+        "tag": "Paid media",
+        "title": "Meta & Google Ads",
+        "text": "Account structure, targeting, creative testing and budget pacing tied to cost per lead and ROAS."
+      },
+      {
+        "tag": "Social",
+        "title": "Social media management",
+        "text": "Content calendars, community management and reporting across Instagram, Facebook, TikTok, LinkedIn and YouTube."
+      },
+      {
+        "tag": "Search",
+        "title": "SEO",
+        "text": "Keyword research, on-page optimisation and content that brings in organic traffic you don’t pay for."
+      },
+      {
+        "tag": "Content",
+        "title": "Content strategy",
+        "text": "Messaging and formats matched to each stage of the funnel, from awareness to the sales call."
+      },
+      {
+        "tag": "Retention",
+        "title": "Email & WhatsApp marketing",
+        "text": "Nurture sequences, broadcasts and WhatsApp Business follow-ups that keep leads warm."
+      }
+    ],
+    "process": [
+      {
+        "title": "Audit",
+        "text": "Review accounts, tracking and past results to find what is working and what is wasting budget."
+      },
+      {
+        "title": "Plan",
+        "text": "Set targets for leads and cost per lead, then build the channel mix and budget from them."
+      },
+      {
+        "title": "Create",
+        "text": "Design the creatives and write the copy in-house, so testing starts in days, not weeks."
+      },
+      {
+        "title": "Optimise",
+        "text": "Read the data weekly, move budget to what converts and report results in plain numbers."
+      }
+    ]
+  },
+  "design": {
+    "eyebrow": "Graphic design",
+    "heading": "Design portfolio",
+    "intro": "Social media posts, flyers and brand campaigns I designed for B2B, retail, real estate and tech brands.",
+    "services": [
+      "Branding",
+      "Social media posts",
+      "Flyers",
+      "Packaging"
+    ],
+    "categories": [
+      {
+        "id": "b2b",
+        "label": "Target Group · B2B"
+      },
+      {
+        "id": "retail",
+        "label": "Retail & FMCG"
+      },
+      {
+        "id": "property",
+        "label": "Real estate"
+      },
+      {
+        "id": "tech",
+        "label": "Tech & services"
+      },
+      {
+        "id": "other",
+        "label": "Other brands"
+      }
+    ],
+    "items": [
+      {
+        "image": "images/target/t05-cnc-laser-cutting.jpg",
+        "title": "CNC laser cutting service post",
+        "client": "Target Metal Forming",
+        "category": "b2b"
+      },
+      {
+        "image": "images/target/t07-polylac-table.jpg",
+        "title": "Digital Polylac MDF table launch",
+        "client": "Target Furniture Factory",
+        "category": "b2b"
+      },
+      {
+        "image": "images/target/t02-wall-solutions.jpg",
+        "title": "Wall solutions product post",
+        "client": "Target Trading & Contracting",
+        "category": "b2b"
+      },
+      {
+        "image": "images/target/t03-melamine-wood-panels.jpg",
+        "title": "Melamine wood panels post",
+        "client": "Target Trading & Contracting",
+        "category": "b2b"
+      },
+      {
+        "image": "images/target/t06-curved-panels.jpg",
+        "title": "Curved wall panels campaign",
+        "client": "Target Trading & Contracting",
+        "category": "b2b"
+      },
+      {
+        "image": "images/target/t09-kastamonu-panels.jpg",
+        "title": "Kastamonu panels new arrivals",
+        "client": "Target Trading & Contracting",
+        "category": "b2b"
+      },
+      {
+        "image": "images/target/t01-hettich-accessories.jpg",
+        "title": "Hettich accessories post",
+        "client": "Target Trading & Contracting",
+        "category": "b2b"
+      },
+      {
+        "image": "images/target/t08-emaks-handles.jpg",
+        "title": "EMAKS furniture handles post",
+        "client": "Target Trading & Contracting",
+        "category": "b2b"
+      },
+      {
+        "image": "images/target/t04-kms-handles.jpg",
+        "title": "KMS furniture hardware post",
+        "client": "Target Trading & Contracting",
+        "category": "b2b"
+      },
+      {
+        "image": "images/target/t10-furniture-legs.jpg",
+        "title": "Furniture legs product post",
+        "client": "Target Trading & Contracting",
+        "category": "b2b"
+      },
+      {
+        "image": "images/designs/12-habari-rohu-fish.jpg",
+        "title": "Weekend price promotion",
+        "client": "Habari Hypermarket",
+        "category": "retail"
+      },
+      {
+        "image": "images/designs/02-franks-ramadan.jpg",
+        "title": "Ramadan campaign for Frank’s RedHot",
+        "client": "Food & beverage",
+        "category": "retail"
+      },
+      {
+        "image": "images/designs/06-habari-perfume.jpg",
+        "title": "Smart perfume collection offer",
+        "client": "Habari Hypermarket",
+        "category": "retail"
+      },
+      {
+        "image": "images/designs/13-habari-sunflower-oil.jpg",
+        "title": "Royal sunflower oil offer",
+        "client": "Habari Hypermarket",
+        "category": "retail"
+      },
+      {
+        "image": "images/designs/14-habari-dettol.jpg",
+        "title": "Dettol soap offer",
+        "client": "Habari Hypermarket",
+        "category": "retail"
+      },
+      {
+        "image": "images/designs/07-habari-realestate.jpg",
+        "title": "Brand awareness post",
+        "client": "Habari Real Estate",
+        "category": "property"
+      },
+      {
+        "image": "images/designs/08-mydaar-apartment.jpg",
+        "title": "Furnished apartment for rent",
+        "client": "My Daar Real Estate",
+        "category": "property"
+      },
+      {
+        "image": "images/designs/10-habari-accommodation.jpg",
+        "title": "Staff accommodation listing",
+        "client": "Habari Real Estate",
+        "category": "property"
+      },
+      {
+        "image": "images/designs/11-habari-office.jpg",
+        "title": "Office space listing",
+        "client": "Habari Real Estate",
+        "category": "property"
+      },
+      {
+        "image": "images/designs/03-khaleej-macbook.jpg",
+        "title": "MacBook Pro product post",
+        "client": "Khaleej Electronics",
+        "category": "tech"
+      },
+      {
+        "image": "images/designs/04-khaleej-fixer.jpg",
+        "title": "Computer repair services flyer",
+        "client": "Khaleej Fixer",
+        "category": "tech"
+      },
+      {
+        "image": "images/designs/05-khaleej-recycle.jpg",
+        "title": "E-waste awareness post",
+        "client": "Khaleej Fixer",
+        "category": "tech"
+      },
+      {
+        "image": "images/designs/09-regal-residency.jpg",
+        "title": "Travel package flyer",
+        "client": "Regal Residency",
+        "category": "other"
+      },
+      {
+        "image": "images/designs/15-aquagreen-water.jpg",
+        "title": "Home delivery ad",
+        "client": "Aqua Green",
+        "category": "other"
+      },
+      {
+        "image": "images/designs/01-dyl-motorcycle.jpg",
+        "title": "Junoon motorcycle launch",
+        "client": "DYL Motorcycles",
+        "category": "other"
+      }
+    ],
+    "noteText": "More of my current B2B work is live on Target’s Instagram,",
+    "noteLinkLabel": "@targettradingqatar",
+    "noteLink": "https://www.instagram.com/targettradingqatar/"
+  },
+  "brands": {
+    "eyebrow": "Brands",
+    "heading": "Brands I’ve worked with",
+    "items": [
+      "Target Group",
+      "Leaders Training Centre",
+      "Al Habari Group",
+      "Habari Hypermarket",
+      "Habari Real Estate",
+      "My Daar",
+      "HUM TV",
+      "Dew Music",
+      "Khaleej Electronics",
+      "RJ’s Pret",
+      "Funky Fish",
+      "Regal Residency"
+    ],
+    "toolkit": [
+      {
+        "title": "Ads & analytics",
+        "items": [
+          "Meta Ads Manager",
+          "Google Ads",
+          "Google Analytics",
+          "HubSpot",
+          "SEMrush",
+          "Ahrefs",
+          "YouTube Studio"
+        ]
+      },
+      {
+        "title": "Design",
+        "items": [
+          "Adobe Photoshop",
+          "Adobe Illustrator",
+          "Canva"
+        ]
+      },
+      {
+        "title": "Channels",
+        "items": [
+          "Facebook",
+          "Instagram",
+          "TikTok",
+          "LinkedIn",
+          "YouTube",
+          "WhatsApp Business",
+          "Email"
+        ]
+      }
+    ]
+  },
+  "credentials": {
+    "eyebrow": "Credentials",
+    "heading": "Education & certifications",
+    "education": [
+      {
+        "title": "Bachelor’s in Marketing",
+        "meta": "Sarhad University · 2015–2019"
+      },
+      {
+        "title": "Intermediate in Computer Science",
+        "meta": "502 Model College · 2012–2014"
+      }
+    ],
+    "certifications": [],
+    "certificationsEmpty": "Full list with credential links on LinkedIn",
+    "linkedinButton": "View certifications on LinkedIn"
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "heading": "Need more leads?",
+    "headingAccent": "Let’s talk."
+  },
+  "footer": {
+    "left": "Digital Marketer & Graphic Designer",
+    "right": "Doha, Qatar · Working worldwide"
+  }
+}
