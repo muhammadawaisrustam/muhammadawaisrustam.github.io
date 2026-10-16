@@ -4,7 +4,7 @@
     "title": "Muhammad Awais Rustam | Digital Marketer & Graphic Designer",
     "description": "Muhammad Awais Rustam is a Digital Marketer in Doha with 7+ years in B2B lead generation, Meta & Google Ads, SEO, social media and graphic design.",
     "keywords": "Muhammad Awais Rustam, Awais Rustam, digital marketer, digital marketing specialist, B2B lead generation, Meta Ads, Google Ads, SEO, graphic designer, social media marketing",
-    "ogImage": "images/og-avatar.jpg",
+    "ogImage": "og-avatar.jpg",
     "googleVerification": ""
   },
   "theme": {
@@ -22,7 +22,7 @@
     "city": "Doha",
     "countryCode": "QA",
     "nationality": "Pakistan",
-    "photo": "images/muhammad-awais-rustam.jpg",
+    "photo": "muhammad-awais-rustam.jpg",
     "photoAlt": "Muhammad Awais Rustam, Digital Marketer, in Doha",
     "email": "awaisrustam001@gmail.com",
     "phone": "+974 3337 0737",
@@ -408,151 +408,151 @@
     ],
     "items": [
       {
-        "image": "images/target/t05-cnc-laser-cutting.jpg",
+        "image": "t05-cnc-laser-cutting.jpg",
         "title": "CNC laser cutting service post",
         "client": "Target Metal Forming",
         "category": "b2b"
       },
       {
-        "image": "images/target/t07-polylac-table.jpg",
+        "image": "t07-polylac-table.jpg",
         "title": "Digital Polylac MDF table launch",
         "client": "Target Furniture Factory",
         "category": "b2b"
       },
       {
-        "image": "images/target/t02-wall-solutions.jpg",
+        "image": "t02-wall-solutions.jpg",
         "title": "Wall solutions product post",
         "client": "Target Trading & Contracting",
         "category": "b2b"
       },
       {
-        "image": "images/target/t03-melamine-wood-panels.jpg",
+        "image": "t03-melamine-wood-panels.jpg",
         "title": "Melamine wood panels post",
         "client": "Target Trading & Contracting",
         "category": "b2b"
       },
       {
-        "image": "images/target/t06-curved-panels.jpg",
+        "image": "t06-curved-panels.jpg",
         "title": "Curved wall panels campaign",
         "client": "Target Trading & Contracting",
         "category": "b2b"
       },
       {
-        "image": "images/target/t09-kastamonu-panels.jpg",
+        "image": "t09-kastamonu-panels.jpg",
         "title": "Kastamonu panels new arrivals",
         "client": "Target Trading & Contracting",
         "category": "b2b"
       },
       {
-        "image": "images/target/t01-hettich-accessories.jpg",
+        "image": "t01-hettich-accessories.jpg",
         "title": "Hettich accessories post",
         "client": "Target Trading & Contracting",
         "category": "b2b"
       },
       {
-        "image": "images/target/t08-emaks-handles.jpg",
+        "image": "t08-emaks-handles.jpg",
         "title": "EMAKS furniture handles post",
         "client": "Target Trading & Contracting",
         "category": "b2b"
       },
       {
-        "image": "images/target/t04-kms-handles.jpg",
+        "image": "t04-kms-handles.jpg",
         "title": "KMS furniture hardware post",
         "client": "Target Trading & Contracting",
         "category": "b2b"
       },
       {
-        "image": "images/target/t10-furniture-legs.jpg",
+        "image": "t10-furniture-legs.jpg",
         "title": "Furniture legs product post",
         "client": "Target Trading & Contracting",
         "category": "b2b"
       },
       {
-        "image": "images/designs/12-habari-rohu-fish.jpg",
+        "image": "12-habari-rohu-fish.jpg",
         "title": "Weekend price promotion",
         "client": "Habari Hypermarket",
         "category": "retail"
       },
       {
-        "image": "images/designs/02-franks-ramadan.jpg",
+        "image": "02-franks-ramadan.jpg",
         "title": "Ramadan campaign for Frank’s RedHot",
         "client": "Food & beverage",
         "category": "retail"
       },
       {
-        "image": "images/designs/06-habari-perfume.jpg",
+        "image": "06-habari-perfume.jpg",
         "title": "Smart perfume collection offer",
         "client": "Habari Hypermarket",
         "category": "retail"
       },
       {
-        "image": "images/designs/13-habari-sunflower-oil.jpg",
+        "image": "13-habari-sunflower-oil.jpg",
         "title": "Royal sunflower oil offer",
         "client": "Habari Hypermarket",
         "category": "retail"
       },
       {
-        "image": "images/designs/14-habari-dettol.jpg",
+        "image": "14-habari-dettol.jpg",
         "title": "Dettol soap offer",
         "client": "Habari Hypermarket",
         "category": "retail"
       },
       {
-        "image": "images/designs/07-habari-realestate.jpg",
+        "image": "07-habari-realestate.jpg",
         "title": "Brand awareness post",
         "client": "Habari Real Estate",
         "category": "property"
       },
       {
-        "image": "images/designs/08-mydaar-apartment.jpg",
+        "image": "08-mydaar-apartment.jpg",
         "title": "Furnished apartment for rent",
         "client": "My Daar Real Estate",
         "category": "property"
       },
       {
-        "image": "images/designs/10-habari-accommodation.jpg",
+        "image": "10-habari-accommodation.jpg",
         "title": "Staff accommodation listing",
         "client": "Habari Real Estate",
         "category": "property"
       },
       {
-        "image": "images/designs/11-habari-office.jpg",
+        "image": "11-habari-office.jpg",
         "title": "Office space listing",
         "client": "Habari Real Estate",
         "category": "property"
       },
       {
-        "image": "images/designs/03-khaleej-macbook.jpg",
+        "image": "03-khaleej-macbook.jpg",
         "title": "MacBook Pro product post",
         "client": "Khaleej Electronics",
         "category": "tech"
       },
       {
-        "image": "images/designs/04-khaleej-fixer.jpg",
+        "image": "04-khaleej-fixer.jpg",
         "title": "Computer repair services flyer",
         "client": "Khaleej Fixer",
         "category": "tech"
       },
       {
-        "image": "images/designs/05-khaleej-recycle.jpg",
+        "image": "05-khaleej-recycle.jpg",
         "title": "E-waste awareness post",
         "client": "Khaleej Fixer",
         "category": "tech"
       },
       {
-        "image": "images/designs/09-regal-residency.jpg",
+        "image": "09-regal-residency.jpg",
         "title": "Travel package flyer",
         "client": "Regal Residency",
         "category": "other"
       },
       {
-        "image": "images/designs/15-aquagreen-water.jpg",
+        "image": "15-aquagreen-water.jpg",
         "title": "Home delivery ad",
         "client": "Aqua Green",
         "category": "other"
       },
       {
-        "image": "images/designs/01-dyl-motorcycle.jpg",
+        "image": "01-dyl-motorcycle.jpg",
         "title": "Junoon motorcycle launch",
         "client": "DYL Motorcycles",
         "category": "other"
