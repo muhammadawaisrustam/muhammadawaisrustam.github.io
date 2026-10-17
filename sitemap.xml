@@ -2,32 +2,39 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://muhammadawaisrustam.github.io/</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-10-17</lastmod>
+    <priority>1.0</priority>
     <image:image><image:loc>https://muhammadawaisrustam.github.io/muhammad-awais-rustam.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://muhammadawaisrustam.github.io/designs.html</loc>
+    <lastmod>2026-10-17</lastmod>
+    <priority>0.8</priority>
     <image:image><image:loc>https://muhammadawaisrustam.github.io/t05-cnc-laser-cutting.jpg</image:loc></image:image>
     <image:image><image:loc>https://muhammadawaisrustam.github.io/t07-polylac-table.jpg</image:loc></image:image>
     <image:image><image:loc>https://muhammadawaisrustam.github.io/t02-wall-solutions.jpg</image:loc></image:image>
-    <image:image><image:loc>https://muhammadawaisrustam.github.io/t03-melamine-wood-panels.jpg</image:loc></image:image>
     <image:image><image:loc>https://muhammadawaisrustam.github.io/t06-curved-panels.jpg</image:loc></image:image>
+    <image:image><image:loc>https://muhammadawaisrustam.github.io/t03-melamine-wood-panels.jpg</image:loc></image:image>
     <image:image><image:loc>https://muhammadawaisrustam.github.io/t09-kastamonu-panels.jpg</image:loc></image:image>
     <image:image><image:loc>https://muhammadawaisrustam.github.io/t01-hettich-accessories.jpg</image:loc></image:image>
     <image:image><image:loc>https://muhammadawaisrustam.github.io/t08-emaks-handles.jpg</image:loc></image:image>
-    <image:image><image:loc>https://muhammadawaisrustam.github.io/t04-kms-handles.jpg</image:loc></image:image>
-    <image:image><image:loc>https://muhammadawaisrustam.github.io/t10-furniture-legs.jpg</image:loc></image:image>
-    <image:image><image:loc>https://muhammadawaisrustam.github.io/12-habari-rohu-fish.jpg</image:loc></image:image>
-    <image:image><image:loc>https://muhammadawaisrustam.github.io/02-franks-ramadan.jpg</image:loc></image:image>
-    <image:image><image:loc>https://muhammadawaisrustam.github.io/06-habari-perfume.jpg</image:loc></image:image>
-    <image:image><image:loc>https://muhammadawaisrustam.github.io/13-habari-sunflower-oil.jpg</image:loc></image:image>
-    <image:image><image:loc>https://muhammadawaisrustam.github.io/14-habari-dettol.jpg</image:loc></image:image>
-    <image:image><image:loc>https://muhammadawaisrustam.github.io/07-habari-realestate.jpg</image:loc></image:image>
+    <image:image><image:loc>https://muhammadawaisrustam.github.io/rs-new-noori-foods-posts.jpg</image:loc></image:image>
+    <image:image><image:loc>https://muhammadawaisrustam.github.io/rs-mandi-sultan-instagram.jpg</image:loc></image:image>
+    <image:image><image:loc>https://muhammadawaisrustam.github.io/rs-new-noori-foods-instagram.jpg</image:loc></image:image>
+    <image:image><image:loc>https://muhammadawaisrustam.github.io/rs-mandi-sultan-cover.jpg</image:loc></image:image>
+    <image:image><image:loc>https://muhammadawaisrustam.github.io/rs-new-noori-foods-cover.jpg</image:loc></image:image>
     <image:image><image:loc>https://muhammadawaisrustam.github.io/08-mydaar-apartment.jpg</image:loc></image:image>
+    <image:image><image:loc>https://muhammadawaisrustam.github.io/07-habari-realestate.jpg</image:loc></image:image>
     <image:image><image:loc>https://muhammadawaisrustam.github.io/10-habari-accommodation.jpg</image:loc></image:image>
     <image:image><image:loc>https://muhammadawaisrustam.github.io/11-habari-office.jpg</image:loc></image:image>
-    <image:image><image:loc>https://muhammadawaisrustam.github.io/03-khaleej-macbook.jpg</image:loc></image:image>
-    <image:image><image:loc>https://muhammadawaisrustam.github.io/04-khaleej-fixer.jpg</image:loc></image:image>
-    <image:image><image:loc>https://muhammadawaisrustam.github.io/05-khaleej-recycle.jpg</image:loc></image:image>
-    <image:image><image:loc>https://muhammadawaisrustam.github.io/09-regal-residency.jpg</image:loc></image:image>
-    <image:image><image:loc>https://muhammadawaisrustam.github.io/15-aquagreen-water.jpg</image:loc></image:image>
-    <image:image><image:loc>https://muhammadawaisrustam.github.io/01-dyl-motorcycle.jpg</image:loc></image:image>
+    <image:image><image:loc>https://muhammadawaisrustam.github.io/tc-leaders-training-instagram.jpg</image:loc></image:image>
+    <image:image><image:loc>https://muhammadawaisrustam.github.io/tc-leaders-languages-instagram.jpg</image:loc></image:image>
+    <image:image><image:loc>https://muhammadawaisrustam.github.io/tc-leaders-training-cover.jpg</image:loc></image:image>
+    <image:image><image:loc>https://muhammadawaisrustam.github.io/tc-leaders-languages-cover.jpg</image:loc></image:image>
+    <image:image><image:loc>https://muhammadawaisrustam.github.io/12-habari-rohu-fish.jpg</image:loc></image:image>
+    <image:image><image:loc>https://muhammadawaisrustam.github.io/13-habari-sunflower-oil.jpg</image:loc></image:image>
+    <image:image><image:loc>https://muhammadawaisrustam.github.io/14-habari-dettol.jpg</image:loc></image:image>
+    <image:image><image:loc>https://muhammadawaisrustam.github.io/06-habari-perfume.jpg</image:loc></image:image>
+    <image:image><image:loc>https://muhammadawaisrustam.github.io/02-franks-ramadan.jpg</image:loc></image:image>
   </url>
 </urlset>
