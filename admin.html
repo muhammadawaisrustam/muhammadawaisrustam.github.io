@@ -160,7 +160,7 @@ code{font-family:var(--mono);font-size:.85em;background:var(--bg);border:1px sol
 "use strict";
 /* ============ state ============ */
 var C=null, PUBLISHED="", CSS="", cur="seo", DRAFT_KEY="mar-dashboard-draft-v2", CONN_KEY="mar-dashboard-github";
-var DEFAULT_THEME={bg:"#060D22",bg2:"#0A1533",accent:"#5B8CFF",highlight:"#E8C27A"};
+var DEFAULT_THEME={bg:"#F5F3EE",bg2:"#FFFFFF",accent:"#2747E0",highlight:"#14161B"};
 function ls(k,v){try{if(v===undefined)return localStorage.getItem(k);if(v===null)localStorage.removeItem(k);else localStorage.setItem(k,v);return true}catch(x){return false}}
 function clone(o){return JSON.parse(JSON.stringify(o))}
 function get(o,p){return p.split(".").reduce(function(x,k){return x==null?undefined:x[k]},o)}
@@ -182,17 +182,17 @@ var PANELS=[
    {k:"site.serviceName",t:"text",label:"Service name (for Google and AI tools)",help:"How your marketing service is named in structured data, e.g. “Muhammad Awais Rustam – Digital Marketing Services”."},
    {k:"site.areaServed",t:"text",label:"Areas served",help:"Comma separated countries. Add “Worldwide” for remote work, e.g. Qatar, Worldwide."}
  ],after:seoTools},
- {g:"Website",id:"menu",i:"☰",title:"Header menu",desc:"The buttons in your header. Drag to reorder. Use #about, #projects, #skills, #contact for homepage sections, designs.html for the Designs page, or a full https:// link (opens in a new tab).",fields:[
+ {g:"Website",id:"menu",i:"☰",title:"Header menu",desc:"The buttons in your header. Drag to reorder. Use #about, #skills, #projects, #experience, #credentials, #contact for homepage sections, designs.html for the Designs page, or a full https:// link (opens in a new tab).",fields:[
    {k:"nav",t:"list",label:"Menu buttons",add:"Add button",sum:function(x){return x.label+"  →  "+x.href},tpl:{label:"New",href:"#"},fields:[{row:[{k:"label",t:"text",label:"Button text"},{k:"href",t:"text",label:"Goes to"}]}]},
    {k:"hero.navButton",t:"text",label:"Highlighted button (right side)",help:"Links to your Contact section. Leave empty to hide."}]},
  {g:"Website",id:"layout",i:"≡",title:"Homepage sections",desc:"Drag sections to change their order on the homepage. Untick to hide one.",fields:[{k:"sections",t:"sections"}]},
- {g:"Website",id:"theme",i:"◐",title:"Colours",desc:"Your brand colours. The site is designed around a dark blue base.",fields:[
-   {k:"theme.bg",t:"color",label:"Page background"},{k:"theme.bg2",t:"color",label:"Raised section background"},
-   {k:"theme.accent",t:"color",label:"Accent (buttons, links)"},{k:"theme.highlight",t:"color",label:"Highlight (results numbers)"}],after:function(box){box.appendChild(el("button",{class:"btn small",type:"button",onclick:function(){C.theme=clone(DEFAULT_THEME);changed();renderPanel()}},"Reset to default colours"))}},
+ {g:"Website",id:"theme",i:"◐",title:"Colours",desc:"Your brand colours. The site is designed around a warm off-white page, charcoal text and one accent colour.",fields:[
+   {k:"theme.bg",t:"color",label:"Page background"},{k:"theme.bg2",t:"color",label:"Card background"},
+   {k:"theme.accent",t:"color",label:"Accent (buttons, links)"},{k:"theme.highlight",t:"color",label:"Text and dark buttons"}],after:function(box){box.appendChild(el("button",{class:"btn small",type:"button",onclick:function(){C.theme=clone(DEFAULT_THEME);changed();renderPanel()}},"Reset to default colours"))}},
  {g:"Homepage",id:"profile",i:"P",title:"Profile & contact",desc:"Your personal details. These also tell Google and AI assistants who you are.",fields:[
    {k:"profile.name",t:"text",label:"Full name"},{row:[{k:"profile.shortName",t:"text",label:"Short name (logo)"},{k:"profile.monogram",t:"text",label:"Monogram",max:4}]},
    {k:"profile.jobTitle",t:"text",label:"Job title"},
-   {k:"profile.photo",t:"image",label:"Profile photo",max:1600},{k:"profile.photoAlt",t:"text",label:"Photo description (for Google Images)",help:"Include your name."},
+   {k:"profile.photo",t:"image",label:"Profile photo",max:1600},{k:"profile.cutout",t:"image",label:"Cut-out portrait for the top of the page",max:1400,help:"A PNG or WebP of you with a transparent background. Your name appears behind it. Leave empty to use the profile photo instead."},{k:"profile.photoAlt",t:"text",label:"Photo description (for Google Images)",help:"Include your name."},
    {row:[{k:"profile.email",t:"email",label:"Email"},{k:"profile.phone",t:"text",label:"Phone (as shown)"}]},
    {row:[{k:"profile.whatsapp",t:"text",label:"WhatsApp number",help:"Digits with country code, e.g. 97433370737"},{k:"profile.location",t:"text",label:"Location"}]},
    {k:"profile.linkedin",t:"url",label:"LinkedIn URL"},{row:[{k:"profile.instagram",t:"url",label:"Instagram URL (optional)"},{k:"profile.behance",t:"url",label:"Behance URL (optional)"}]},
@@ -201,41 +201,35 @@ var PANELS=[
    {k:"profile.university",t:"text",label:"University"},
    {k:"profile.alternateNames",t:"text",label:"Other names people search",help:"Comma separated."},
    {k:"profile.knowsAbout",t:"textarea",label:"Topics you are an expert in",help:"Comma separated. Tells Google and AI assistants what to recommend you for, e.g. Digital marketing, Lead generation, SEO."}]},
- {g:"Homepage",id:"hero",i:"H",title:"Top of page",desc:"The first thing visitors see.",fields:[
-   {k:"hero.status",t:"text",label:"Status line",help:"Leave empty to hide."},
-   {row:[{k:"hero.roleLine1",t:"text",label:"Headline (white)"},{k:"hero.roleLine2",t:"text",label:"Headline (blue)"}]},
-   {k:"hero.lede",t:"textarea",label:"Introduction",max:260},
-   {row:[{k:"hero.cta1Label",t:"text",label:"Button 1 text"},{k:"hero.cta1Link",t:"text",label:"Button 1 link"}]},
-   {row:[{k:"hero.cta2Label",t:"text",label:"Button 2 text"},{k:"hero.cta2Link",t:"text",label:"Button 2 link"}]},
-   {row:[{k:"hero.readoutTitle",t:"text",label:"Results panel title"},{k:"hero.readoutPeriod",t:"text",label:"Results panel period"}]},
-   {k:"hero.readout",t:"list",label:"Results panel rows",sum:function(x){return x.account+" · "+x.result},tpl:{account:"New account",detail:"",channel:"",result:"",live:false},fields:[
-     {row:[{k:"account",t:"text",label:"Account"},{k:"result",t:"text",label:"Result"}]},{row:[{k:"detail",t:"text",label:"Detail"},{k:"channel",t:"text",label:"Channels"}]},{k:"live",t:"check",label:"Show as active (green dot)"}]},
-   {row:[{k:"hero.photoCaptionLeft",t:"text",label:"Photo caption left"},{k:"hero.photoCaptionRight",t:"text",label:"Photo caption right"}]},
-   {k:"stats",t:"list",label:"Key numbers bar",sum:function(x){return x.value+" "+x.label},tpl:{value:"0",label:"New number"},fields:[{row:[{k:"value",t:"text",label:"Number"},{k:"label",t:"text",label:"Label"}]}]}]},
- {g:"Homepage",id:"about",i:"A",title:"About me",desc:"Keep the first paragraph as a direct answer to “Who is Muhammad Awais Rustam?”. Google and AI assistants quote it.",fields:[
+ {g:"Homepage",id:"hero",i:"H",title:"Top of page",desc:"The first thing visitors see: headline, buttons, your portrait with your name behind it, and three highlight cards.",fields:[
+   {k:"hero.label",t:"text",label:"Small label above the headline"},
+   {k:"hero.headline",t:"text",label:"Headline"},{k:"hero.accentWords",t:"text",label:"Words in the accent colour",help:"Copy the exact words from the headline, e.g. Meaningful Business Growth."},
+   {k:"hero.lede",t:"textarea",label:"Introduction",max:320},
+   {row:[{k:"hero.cta1Label",t:"text",label:"Main button text"},{k:"hero.cta1Link",t:"text",label:"Main button link"}]},
+   {row:[{k:"hero.cta2Label",t:"text",label:"Second button text"},{k:"hero.cta2Link",t:"text",label:"Second button link"}]},
+   {row:[{k:"hero.frameWordLeft",t:"text",label:"Big word left of your portrait"},{k:"hero.frameWordRight",t:"text",label:"Big word right of your portrait"}]},
+   {k:"hero.location",t:"text",label:"Black label under your portrait",help:"e.g. Marketing Specialist | Qatar. Don’t say you’re available for freelance work unless you are."},
+   {k:"hero.cards",t:"list",label:"Three highlight cards",sum:function(x){return x.title},tpl:{kicker:"Label",title:"New card",text:"",icon:"spark"},fields:[
+     {row:[{k:"kicker",t:"text",label:"Small label"},{k:"icon",t:"text",label:"Icon",help:"target, growth, spark, ads, search, social, design, message, chart"}]},{k:"title",t:"text",label:"Title"},{k:"text",t:"textarea",label:"Description"}]}]},
+ {g:"Homepage",id:"about",i:"A",title:"About",desc:"Keep the first paragraph as a direct answer to “Who is Muhammad Awais Rustam?”. Google and AI assistants quote it.",fields:[
    {row:[{k:"about.eyebrow",t:"text",label:"Small label"},{k:"about.heading",t:"text",label:"Heading"}]},
    {k:"about.paragraphs",t:"strings",label:"Paragraphs",multi:true,add:"Add paragraph"},
    {k:"about.facts",t:"list",label:"Quick facts",sum:function(x){return x.label+": "+x.value},tpl:{label:"Label",value:""},fields:[{row:[{k:"label",t:"text",label:"Label"},{k:"value",t:"text",label:"Value"}]}]}]},
- {g:"Homepage",id:"projects",i:"R",title:"Projects",fields:[
-   {row:[{k:"projects.eyebrow",t:"text",label:"Small label"},{k:"projects.heading",t:"text",label:"Heading"}]},{k:"projects.intro",t:"textarea",label:"Intro"},
-   {k:"projects.items",t:"list",label:"Projects",add:"Add project",sum:function(x){return x.title},tpl:{client:"Client · Country · Year",big:"0",bigLabel:"",title:"New project",paragraphs:[""],splitLabelA:"",splitPctA:0,splitLabelB:"",splitNote:"",metrics:[],tags:[]},fields:[
-     {k:"title",t:"text",label:"Title"},{k:"client",t:"text",label:"Client line"},
-     {row:[{k:"big",t:"text",label:"Big number"},{k:"bigLabel",t:"text",label:"Big number label"}]},
-     {k:"paragraphs",t:"strings",label:"Story",multi:true,add:"Add paragraph"},
-     {k:"metrics",t:"list",label:"Metrics",sum:function(x){return x.label+": "+x.value},tpl:{label:"Metric",value:""},fields:[{row:[{k:"label",t:"text",label:"Label"},{k:"value",t:"text",label:"Value"}]}]},
-     {k:"tags",t:"strings",label:"Tags",add:"Add tag"},
-     {group:"Budget split bar (optional)",fields:[{row:[{k:"splitLabelA",t:"text",label:"Part A label"},{k:"splitPctA",t:"number",label:"Part A %",help:"0 hides the bar"}]},{k:"splitLabelB",t:"text",label:"Part B label"},{k:"splitNote",t:"text",label:"Note under bar"}]}]}]},
- {g:"Homepage",id:"skills",i:"S",title:"Skills",fields:[
+ {g:"Homepage",id:"projects",i:"R",title:"Projects",desc:"The project cards on the homepage come from Case studies (in the Results & case studies group). Edit or add projects there.",fields:[
+   {row:[{k:"projects.eyebrow",t:"text",label:"Small label"},{k:"projects.heading",t:"text",label:"Heading"}]},{k:"projects.intro",t:"textarea",label:"Intro"}]},
+ {g:"Homepage",id:"skills",i:"S",title:"Expertise",desc:"Your areas of expertise. No percentages: just what you work on.",fields:[
    {row:[{k:"skills.eyebrow",t:"text",label:"Small label"},{k:"skills.heading",t:"text",label:"Heading"}]},{k:"skills.intro",t:"textarea",label:"Intro"},
-   {k:"skills.items",t:"list",label:"Skills / services",add:"Add skill",sum:function(x){return x.title},tpl:{tag:"Tag",title:"New skill",text:""},fields:[{row:[{k:"title",t:"text",label:"Skill"},{k:"tag",t:"text",label:"Small tag"}]},{k:"text",t:"textarea",label:"Description"}]},
-   {k:"skills.toolkit",t:"list",label:"Tools",add:"Add group",sum:function(x){return x.title},tpl:{title:"New group",items:[]},fields:[{k:"title",t:"text",label:"Group name"},{k:"items",t:"strings",label:"Tools",add:"Add tool"}]},
-   {k:"skills.process",t:"list",label:"How I work (steps)",add:"Add step",sum:function(x){return x.title},tpl:{title:"Step",text:""},fields:[{k:"title",t:"text",label:"Step name"},{k:"text",t:"textarea",label:"Description"}]}]},
+   {k:"skills.items",t:"list",label:"Areas",add:"Add area",sum:function(x){return x.title},tpl:{icon:"spark",title:"New area",text:"",list:[]},fields:[
+     {row:[{k:"title",t:"text",label:"Area"},{k:"icon",t:"text",label:"Icon",help:"ads, search, social, design, message, chart, target, growth, spark"}]},{k:"text",t:"textarea",label:"One-line description"},
+     {k:"list",t:"strings",label:"Skills in this area",add:"Add skill"}]}]},
  {g:"Homepage",id:"experience",i:"E",title:"Experience",fields:[
    {row:[{k:"experience.eyebrow",t:"text",label:"Small label"},{k:"experience.heading",t:"text",label:"Heading"}]},
-   {k:"experience.items",t:"list",label:"Jobs (newest first)",add:"Add job",sum:function(x){return x.dates+" · "+x.title},tpl:{dates:"2026 – Present",start:"2026",current:false,title:"Job title",org:"Company · City",bullets:[""]},fields:[
+   {k:"experience.items",t:"list",label:"Jobs (newest first)",add:"Add job",sum:function(x){return x.dates+" · "+x.title},tpl:{dates:"2026 – Present",start:"2026",current:false,title:"Job title",org:"Company · City",steps:[],note:"",bullets:[""]},fields:[
      {k:"title",t:"text",label:"Job title"},{k:"org",t:"text",label:"Company · Location"},
-     {row:[{k:"dates",t:"text",label:"Dates shown"},{k:"start",t:"text",label:"Start (YYYY or YYYY-MM)"}]},{k:"current",t:"check",label:"Current job"},
-     {k:"bullets",t:"strings",label:"Achievements",multi:true,add:"Add achievement"}]}]},
+     {row:[{k:"dates",t:"text",label:"Dates shown",help:"Only real dates, e.g. Jun 2024 – May 2025"},{k:"start",t:"text",label:"Start (YYYY or YYYY-MM)"}]},{k:"current",t:"check",label:"Current job"},
+     {k:"steps",t:"strings",label:"Role progression (optional)",add:"Add role",help:"Oldest first, e.g. Digital Marketing Executive, then Marketing Specialist."},
+     {k:"note",t:"textarea",label:"Context (optional)"},
+     {k:"bullets",t:"strings",label:"Responsibilities",multi:true,add:"Add responsibility"}]}]},
  {g:"Homepage",id:"brands",i:"B",title:"Clients",fields:[
    {row:[{k:"brands.eyebrow",t:"text",label:"Small label"},{k:"brands.heading",t:"text",label:"Heading"}]},
    {k:"brands.items",t:"strings",label:"Brands",add:"Add brand"}]},
@@ -247,14 +241,20 @@ var PANELS=[
  {g:"Homepage",id:"faq",i:"?",title:"FAQ",desc:"Questions people type into Google or ask AI assistants. Start each answer with the direct answer in one sentence.",fields:[
    {row:[{k:"faq.eyebrow",t:"text",label:"Small label"},{k:"faq.heading",t:"text",label:"Heading"}]},
    {k:"faq.items",t:"list",label:"Questions",add:"Add question",sum:function(x){return x.q},tpl:{q:"New question?",a:""},fields:[{k:"q",t:"text",label:"Question"},{k:"a",t:"textarea",label:"Answer"}]}]},
- {g:"Homepage",id:"credentials",i:"C",title:"Education & certificates",fields:[
-   {row:[{k:"credentials.eyebrow",t:"text",label:"Small label"},{k:"credentials.heading",t:"text",label:"Heading"}]},
-   {k:"credentials.certifications",t:"list",label:"Certifications",add:"Add certification",sum:function(x){return x.title},tpl:{title:"Certificate name",meta:"Issuer · Year",url:"",date:"",expires:"",id:""},fields:[{k:"title",t:"text",label:"Certificate"},{row:[{k:"meta",t:"text",label:"Issuer · Year"},{k:"url",t:"url",label:"Credential link (optional)"}]},{row:[{k:"date",t:"text",label:"Issued (YYYY-MM-DD)"},{k:"expires",t:"text",label:"Expires (optional)"},{k:"id",t:"text",label:"Certificate ID (optional)"}]}]},
-   {k:"credentials.education",t:"list",label:"Education",add:"Add education",sum:function(x){return x.title},tpl:{title:"Degree",meta:"Institution · Years"},fields:[{row:[{k:"title",t:"text",label:"Qualification"},{k:"meta",t:"text",label:"Institution · Years"}]}]},
+ {g:"Homepage",id:"credentials",i:"C",title:"Certifications",fields:[
+   {row:[{k:"credentials.eyebrow",t:"text",label:"Small label"},{k:"credentials.heading",t:"text",label:"Heading"}]},{k:"credentials.intro",t:"textarea",label:"Intro"},
+   {k:"credentials.certifications",t:"list",label:"Certifications",add:"Add certification",sum:function(x){return x.title},tpl:{title:"Certificate name",issuer:"",meta:"Issuer · Month Year",url:"",date:"",expires:"",id:"",image:""},fields:[{k:"title",t:"text",label:"Certificate"},{row:[{k:"issuer",t:"text",label:"Issuer"},{k:"meta",t:"text",label:"Line under the title",help:"e.g. Coursera · Sep 2026"}]},{k:"url",t:"url",label:"Credential link (optional)"},{row:[{k:"date",t:"text",label:"Issued (YYYY-MM-DD)"},{k:"expires",t:"text",label:"Expires (optional)"},{k:"id",t:"text",label:"Certificate ID (optional)"}]},{k:"image",t:"image",label:"Certificate image",max:1400}]},
+   {k:"credentials.education",t:"list",label:"Education (optional)",add:"Add education",sum:function(x){return x.title},tpl:{title:"Degree",meta:"Institution · Years"},fields:[{row:[{k:"title",t:"text",label:"Qualification"},{k:"meta",t:"text",label:"Institution · Years"}]}]},
    {row:[{k:"credentials.certificationsEmpty",t:"text",label:"Text when no certificates listed"},{k:"credentials.linkedinButton",t:"text",label:"LinkedIn button text"}]}]},
- {g:"Homepage",id:"contact",i:"@",title:"Contact & footer",desc:"Email, phone and links come from Profile & contact.",fields:[
-   {k:"contact.eyebrow",t:"text",label:"Small label"},{row:[{k:"contact.heading",t:"text",label:"Heading (white)"},{k:"contact.headingAccent",t:"text",label:"Heading (blue)"}]},
-   {row:[{k:"footer.left",t:"text",label:"Footer left"},{k:"footer.right",t:"text",label:"Footer right"}]}]},
+ {g:"Homepage",id:"approach",i:"→",title:"Marketing approach",desc:"Your process (Understand, Plan, Execute, Measure, Improve) and a short note on how you judge lead quality.",fields:[
+   {row:[{k:"approach.eyebrow",t:"text",label:"Small label"},{k:"approach.heading",t:"text",label:"Heading"}]},{k:"approach.intro",t:"textarea",label:"Intro"},
+   {k:"approach.steps",t:"list",label:"Steps",add:"Add step",sum:function(x){return x.title},tpl:{title:"Step",text:""},fields:[{k:"title",t:"text",label:"Step"},{k:"text",t:"textarea",label:"Description"}]},
+   {k:"approach.noteTitle",t:"text",label:"Note title"},{k:"approach.note",t:"textarea",label:"Note"}]},
+ {g:"Homepage",id:"contact",i:"@",title:"Contact & footer",desc:"Email, phone and LinkedIn come from Profile & contact. To receive form messages directly, create a free form at formspree.io and paste its link below. Without it, the form opens the visitor’s email app with the message filled in.",fields:[
+   {k:"contact.eyebrow",t:"text",label:"Small label"},{k:"contact.heading",t:"text",label:"Heading"},{k:"contact.text",t:"textarea",label:"Text under the heading"},
+   {k:"contact.formEndpoint",t:"url",label:"Form service link (optional)",help:"e.g. https://formspree.io/f/abcdwxyz. Messages then arrive in your email, and visitors see “sent” only after a real send."},
+   {k:"contact.enquiryTypes",t:"strings",label:"Enquiry types",add:"Add type"},
+   {row:[{k:"footer.left",t:"text",label:"Footer line 1"},{k:"footer.right",t:"text",label:"Footer line 2"}]}]},
  {g:"Designs page",id:"designs",i:"D",title:"Designs page",desc:"Your separate design portfolio. Each category has its own Instagram buttons. Drop images onto a category to add designs; drag cards to reorder.",fields:[
    {row:[{k:"designsPage.title",t:"text",label:"Google headline",max:60},{k:"designsPage.eyebrow",t:"text",label:"Small label"}]},
    {k:"designsPage.description",t:"textarea",label:"Google description",max:160},
@@ -281,15 +281,21 @@ var PANELS=[
    {row:[{k:"caseStudies.title",t:"text",label:"Google headline",max:60},{k:"caseStudies.eyebrow",t:"text",label:"Small label"}]},
    {k:"caseStudies.description",t:"textarea",label:"Google description",max:160},
    {k:"caseStudies.heading",t:"text",label:"Page heading"},{k:"caseStudies.intro",t:"textarea",label:"Intro"},
-   {k:"caseStudies.items",t:"list",label:"Case studies",add:"Add case study",sum:function(x){return (x.date||"")+" · "+x.title},tpl:{slug:"",date:new Date().toISOString().slice(0,10),title:"New case study",client:"",industry:"",image:"",summary:"",challenge:"",approach:[""],results:[{value:"",label:""}],body:[""],tags:[],linkedin:""},fields:[
-     {k:"title",t:"text",label:"Title"},{row:[{k:"date",t:"text",label:"Date (YYYY-MM-DD)"},{k:"slug",t:"text",label:"Page link",help:"Lowercase-with-dashes. Don’t change it after publishing."}]},
-     {row:[{k:"client",t:"text",label:"Client"},{k:"industry",t:"text",label:"Industry"}]},
+   {k:"caseStudies.items",t:"list",label:"Case studies",add:"Add case study",sum:function(x){return (x.date||"")+" · "+x.title},tpl:{slug:"",date:new Date().toISOString().slice(0,10),order:9,draft:true,title:"New case study",client:"",industry:"",image:"",summary:"",objective:"",challenge:"",responsibilities:[""],approach:[""],tools:[],gallery:[],results:[],lessons:"",url:"",tags:[],linkedin:""},fields:[
+     {k:"title",t:"text",label:"Project name"},{row:[{k:"date",t:"text",label:"Date (YYYY-MM-DD)"},{k:"slug",t:"text",label:"Page link",help:"Lowercase-with-dashes. Don’t change it after publishing."}]},
+     {row:[{k:"order",t:"number",label:"Position on homepage",help:"1 shows first"},{k:"draft",t:"check",label:"Mark as editable draft"}]},
+     {row:[{k:"client",t:"text",label:"Client or company"},{k:"industry",t:"text",label:"Industry"}]},
      {k:"image",t:"image",label:"Cover image",max:1600},
-     {k:"summary",t:"textarea",label:"Summary (1–2 sentences, used by Google)",max:200},
-     {k:"challenge",t:"textarea",label:"The challenge"},
-     {k:"approach",t:"strings",label:"What I did (steps)",multi:true,add:"Add step"},
-     {k:"results",t:"list",label:"Results",add:"Add result",sum:function(x){return x.value+" "+x.label},tpl:{value:"",label:""},fields:[{row:[{k:"value",t:"text",label:"Number"},{k:"label",t:"text",label:"Label"}]}]},
-     {k:"body",t:"strings",label:"Outcome (paragraphs)",multi:true,add:"Add paragraph"},
+     {k:"summary",t:"textarea",label:"Summary (1–2 sentences, used by Google)",max:220},
+     {k:"objective",t:"textarea",label:"Business objective"},
+     {k:"challenge",t:"textarea",label:"Marketing challenge"},
+     {k:"responsibilities",t:"strings",label:"My responsibilities",multi:true,add:"Add responsibility"},
+     {k:"approach",t:"strings",label:"Strategy and execution (steps)",multi:true,add:"Add step"},
+     {k:"tools",t:"strings",label:"Tools and platforms",add:"Add tool"},
+     {k:"gallery",t:"gallery",label:"Creative assets and campaign screenshots"},
+     {k:"results",t:"list",label:"Results",add:"Add result",help:"Kind: verified (real, documented result), budget (budget managed, not a result) or note.",sum:function(x){return (x.kind||"note")+": "+x.value+" "+x.label},tpl:{value:"",label:"",kind:"verified"},fields:[{row:[{k:"value",t:"text",label:"Number"},{k:"label",t:"text",label:"Label"},{k:"kind",t:"text",label:"Kind (verified, budget, note)"}]}]},
+     {k:"lessons",t:"textarea",label:"Lessons learned"},
+     {row:[{k:"url",t:"text",label:"Project link (optional)"},{k:"urlLabel",t:"text",label:"Link text"}]},
      {k:"tags",t:"strings",label:"Tags",add:"Add tag"},
      {k:"linkedin",t:"url",label:"LinkedIn post link (optional)"}]}]},
  {g:"Publishing",id:"connect",i:"⇪",title:"Connect & backup",desc:"Connect this dashboard to your GitHub website once. After that, the Publish button updates your live site.",fields:[],after:connectPanel}
@@ -412,7 +418,7 @@ function fList(f,p,v){
     el("button",{class:"add",type:"button",style:"margin-top:10px",onclick:function(){var arr=get(C,p);arr.push(clone(f.tpl||{}));OPEN[p+"."+(arr.length-1)]=true;changed();renderPanel()}},"+ "+(f.add||"Add")));
 }
 function fSections(f,p,v){
-  var names={about:"About me",projects:"Projects",skills:"Skills",experience:"Experience",brands:"Clients",guide:"Digital marketing guide",faq:"FAQ",credentials:"Education & certificates",contact:"Contact"};
+  var names={about:"About",projects:"Projects",skills:"Expertise",experience:"Experience",brands:"Clients",guide:"Digital marketing guide",faq:"FAQ",credentials:"Certifications",approach:"Marketing approach",contact:"Contact"};
   var list=el("div",{class:"items"});
   v.forEach(function(s,i){
     var h=el("span",{class:"handle",title:"Drag to reorder",text:"⋮⋮"});
@@ -423,7 +429,7 @@ function fSections(f,p,v){
     armHandle(h,item);list.appendChild(item);
   });
   sortable(list,p,".item");
-  return el("div",{},el("div",{class:"help",style:"margin-bottom:10px",text:"The top of the page and the key numbers bar always come first."}),list);
+  return el("div",{},el("div",{class:"help",style:"margin-bottom:10px",text:"The top of the page (headline, portrait and highlight cards) always comes first."}),list);
 }
 function fGallery(f,p,v){
   if(!Array.isArray(v)){v=[];set(C,p,v)}
@@ -553,7 +559,7 @@ function renderPreview(scrollTo){
   var po={preview:true,css:CSS};
   f.srcdoc=cur==="designs"?SiteRenderer.renderDesigns(C,po):cur==="results"?SiteRenderer.renderResults(C,po):cur==="cases"?SiteRenderer.renderCases(C,po):SiteRenderer.renderSite(C,po);
 }
-var TARGET={seo:null,menu:null,layout:null,theme:null,profile:"contact",hero:null,about:"about",projects:"projects",skills:"skills",experience:"experience",brands:"brands",guide:"guide",faq:"faq",credentials:"credentials",contact:"contact",designs:null,results:null,cases:null,connect:null};
+var TARGET={seo:null,menu:null,layout:null,theme:null,profile:"contact",hero:null,about:"about",projects:"projects",skills:"skills",experience:"experience",brands:"brands",guide:"guide",faq:"faq",credentials:"credentials",approach:"approach",contact:"contact",designs:null,results:null,cases:null,connect:null};
 
 /* ============ UI ============ */
 function renderRail(){
