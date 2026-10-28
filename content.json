@@ -44,24 +44,24 @@
       "href": "#about"
     },
     {
-      "label": "Projects",
-      "href": "#projects"
-    },
-    {
       "label": "Services",
       "href": "#skills"
     },
     {
-      "label": "Guide",
-      "href": "#guide"
+      "label": "Results",
+      "href": "results.html"
+    },
+    {
+      "label": "Case studies",
+      "href": "case-studies.html"
     },
     {
       "label": "Designs",
       "href": "designs.html"
     },
     {
-      "label": "LinkedIn",
-      "href": "https://www.linkedin.com/in/muhammad-awais-rustam-malik-4251a7258/"
+      "label": "Guide",
+      "href": "#guide"
     },
     {
       "label": "Contact",
@@ -587,7 +587,7 @@
     "description": "Social media and ad designs by Muhammad Awais Rustam for restaurants, real estate, training centres, household brands and Target Group in Qatar.",
     "eyebrow": "Design portfolio",
     "heading": "Designs that sell",
-    "intro": "Social media posts, ad creatives and page designs I made for brands across five industries. Open each brand’s Instagram to see the full feed.",
+    "intro": "Social media posts, ad creatives and page designs I made for brands across five industries. Scroll each category sideways, and tap any design to zoom in.",
     "services": [
       "Branding",
       "Social media posts",
@@ -598,7 +598,7 @@
     "categories": [
       {
         "id": "target",
-        "name": "Target Group",
+        "name": "Target Trading & Contracting",
         "description": "B2B product and service posts for Qatar’s stainless steel, wood panel and furniture hardware market. I design every post on the group’s Instagram.",
         "instagram": [
           {
@@ -935,6 +935,277 @@
           "A specialist usually costs less and moves faster because strategy, ads and creative sit with one person.",
           "Ask any candidate for real numbers from past campaigns, such as leads, CPL and ROAS."
         ]
+      }
+    ]
+  },
+  "results": {
+    "title": "Digital Marketing Results | Muhammad Awais Rustam",
+    "description": "Campaign results by Muhammad Awais Rustam: 6,000+ leads a month, 200+ B2B leads a month, 3x+ ROAS and a QAR 60,000 monthly budget managed in Qatar.",
+    "eyebrow": "Results",
+    "heading": "Numbers that moved the business",
+    "intro": "Real results from campaigns I planned, ran and designed in Qatar, measured in leads, cost per lead and return on ad spend.",
+    "kpis": [
+      {
+        "value": "6,000+",
+        "label": "leads every month",
+        "source": "Leaders Training Centre"
+      },
+      {
+        "value": "200+",
+        "label": "qualified B2B leads every month",
+        "source": "Target Group"
+      },
+      {
+        "value": "QAR 60K",
+        "label": "monthly ad budget managed",
+        "source": "Leaders Training Centre"
+      },
+      {
+        "value": "3x+",
+        "label": "return on ad spend on collection launches",
+        "source": "Fashion & jewellery brands"
+      },
+      {
+        "value": "20%+",
+        "label": "month-on-month lead growth",
+        "source": "Leaders Training Centre"
+      },
+      {
+        "value": "+20%",
+        "label": "conversion rate from remarketing",
+        "source": "Retail & e-commerce"
+      },
+      {
+        "value": "50+",
+        "label": "campaigns analysed and optimised",
+        "source": "Leaders Training Centre"
+      },
+      {
+        "value": "4",
+        "label": "ad accounts run at the same time",
+        "source": "Leaders Training Centre"
+      }
+    ],
+    "chartsEyebrow": "In numbers",
+    "chartsHeading": "Campaign performance",
+    "chartsIntro": "How budget, channels and leads fit together on my largest account.",
+    "charts": [
+      {
+        "type": "donut",
+        "tag": "Leaders Training Centre",
+        "title": "Monthly ad budget split",
+        "caption": "QAR 60,000 a month, planned bottom-up from lead targets and cost per lead.",
+        "unit": "",
+        "wide": false,
+        "items": [
+          {
+            "label": "Meta Ads",
+            "value": 45000,
+            "display": "QAR 45,000 · 75%"
+          },
+          {
+            "label": "Google Ads",
+            "value": 15000,
+            "display": "QAR 15,000 · 25%"
+          }
+        ]
+      },
+      {
+        "type": "hbar",
+        "tag": "Leaders Training Centre",
+        "title": "Leads per month by channel",
+        "caption": "Meta brought volume; Google captured people already searching for courses.",
+        "unit": "",
+        "wide": false,
+        "items": [
+          {
+            "label": "Meta Ads",
+            "value": 4250,
+            "display": "4,000–4,500"
+          },
+          {
+            "label": "Google Ads",
+            "value": 1750,
+            "display": "1,500–2,000"
+          }
+        ]
+      },
+      {
+        "type": "bar",
+        "tag": "Leaders Training Centre",
+        "title": "Approximate cost per lead",
+        "caption": "Monthly budget divided by monthly leads for each channel.",
+        "unit": "",
+        "wide": false,
+        "items": [
+          {
+            "label": "Meta Ads",
+            "value": 10.6,
+            "display": "≈ QAR 10–11"
+          },
+          {
+            "label": "Google Ads",
+            "value": 8.6,
+            "display": "≈ QAR 7.5–10"
+          }
+        ]
+      }
+    ],
+    "tableHeading": "Results by account",
+    "table": [
+      {
+        "account": "Target Group",
+        "period": "Oct 2025 – present",
+        "channels": "Meta · Google · WhatsApp",
+        "goal": "B2B lead generation",
+        "result": "200+ qualified leads / month"
+      },
+      {
+        "account": "Leaders Training Centre",
+        "period": "2024 – 2025",
+        "channels": "Meta · Google · TikTok · LinkedIn",
+        "goal": "Course enrolments",
+        "result": "6,000+ leads / month"
+      },
+      {
+        "account": "RJ’s Pret, Funky Fish",
+        "period": "Collection launches",
+        "channels": "Facebook · Instagram",
+        "goal": "Online sales",
+        "result": "3x+ ROAS, +20% conversion"
+      },
+      {
+        "account": "Habari Hypermarket",
+        "period": "2023 – 2024",
+        "channels": "Meta · hyperlocal ads",
+        "goal": "Store visits",
+        "result": "Ramadan, Eid & National Day campaigns"
+      }
+    ]
+  },
+  "caseStudies": {
+    "title": "Digital Marketing Case Studies | Muhammad Awais Rustam",
+    "description": "Case studies by Muhammad Awais Rustam: B2B lead generation, scaling course enrolments and retail campaigns in Qatar with Meta Ads, Google Ads and WhatsApp.",
+    "eyebrow": "Case studies",
+    "heading": "How the results were made",
+    "intro": "The goal, what I did and what happened, for each campaign. New case studies are added regularly.",
+    "items": [
+      {
+        "slug": "target-group-b2b-lead-generation",
+        "date": "2026-10-28",
+        "title": "Building a B2B lead engine for an industrial group in Qatar",
+        "client": "Target Group",
+        "industry": "B2B · Construction & interiors",
+        "image": "t05-cnc-laser-cutting.jpg",
+        "summary": "How I generate 200+ qualified B2B leads a month for three industrial companies with Meta, Google and WhatsApp follow-up.",
+        "challenge": "Target supplies stainless steel, wood panels, fit-out systems and CNC metal fabrication. Its buyers are contractors, fit-out companies and interior designers, not consumers, so the campaigns had to reach a small professional audience and bring leads the sales team could actually close.",
+        "approach": [
+          "Ran lead campaigns on Meta and Google for Target Metal Forming, Target Furniture Factory and Target Trading & Contracting.",
+          "Followed up every enquiry on WhatsApp within the working day.",
+          "Qualified each lead before handing it to the sales team.",
+          "Designed every post on the group’s Instagram, keeping one look across metals, wood and hardware."
+        ],
+        "results": [
+          {
+            "value": "200+",
+            "label": "qualified B2B leads a month"
+          },
+          {
+            "value": "3",
+            "label": "companies in one funnel"
+          },
+          {
+            "value": "100%",
+            "label": "of creatives designed in-house"
+          }
+        ],
+        "body": [
+          "The group now has a steady flow of qualified B2B enquiries every month, and sales follows up on leads that already know the products."
+        ],
+        "tags": [
+          "Meta Ads",
+          "Google Ads",
+          "WhatsApp Business",
+          "B2B",
+          "Lead nurturing"
+        ],
+        "linkedin": ""
+      },
+      {
+        "slug": "leaders-training-centre-6000-leads",
+        "date": "2026-10-21",
+        "title": "Scaling course enrolments to 6,000+ leads a month",
+        "client": "Leaders Training Centre",
+        "industry": "Education & training",
+        "image": "tc-leaders-training-instagram.jpg",
+        "summary": "Managing a QAR 60,000 monthly budget across four ad accounts to produce more than 6,000 leads a month with 20%+ monthly growth.",
+        "challenge": "Leaders runs professional, safety, IT and language courses, each with its own audience. The budget had to be split across many courses and channels without letting cost per lead rise as spend grew.",
+        "approach": [
+          "Planned the budget bottom-up from lead targets and cost per lead: 75% Meta, 25% Google.",
+          "Managed four ad accounts across Meta, Google, TikTok and LinkedIn.",
+          "Analysed more than 50 campaigns on CTR, CPC, CPL, ROAS and lead-to-sale ratio.",
+          "Moved budget and creative every week toward what converted."
+        ],
+        "results": [
+          {
+            "value": "6,000+",
+            "label": "leads a month"
+          },
+          {
+            "value": "20%+",
+            "label": "monthly lead growth"
+          },
+          {
+            "value": "QAR 60K",
+            "label": "monthly budget"
+          }
+        ],
+        "body": [
+          "Meta delivered 4,000–4,500 leads a month and Google 1,500–2,000, while cost per lead kept falling as the account scaled."
+        ],
+        "tags": [
+          "Meta Ads",
+          "Google Ads",
+          "Budget planning",
+          "Analytics"
+        ],
+        "linkedin": ""
+      },
+      {
+        "slug": "retail-campaigns-3x-roas",
+        "date": "2026-10-14",
+        "title": "Retail campaigns that return 3x their ad spend",
+        "client": "RJ’s Pret, Funky Fish, Habari Hypermarket",
+        "industry": "Retail & e-commerce",
+        "image": "06-habari-perfume.jpg",
+        "summary": "Seasonal and collection-launch campaigns for fashion and retail brands that returned more than three times their ad spend.",
+        "challenge": "Fashion and jewellery brands needed limited-edition collections to sell out quickly, and a Qatar hypermarket needed footfall around Ramadan, Eid and National Day.",
+        "approach": [
+          "Ran Facebook and Instagram campaigns for each seasonal and limited-edition collection.",
+          "Used remarketing and product-focused content to bring back people who had already shown interest.",
+          "Planned daily and seasonal campaign calendars for Habari Hypermarket.",
+          "Ran hyperlocal ads to bring nearby customers into stores."
+        ],
+        "results": [
+          {
+            "value": "3x+",
+            "label": "return on ad spend"
+          },
+          {
+            "value": "+20%",
+            "label": "conversion rate"
+          }
+        ],
+        "body": [
+          "Collection launches consistently returned more than three times their ad spend, and remarketing lifted conversion rates by 20%."
+        ],
+        "tags": [
+          "Meta Ads",
+          "Remarketing",
+          "Retail",
+          "Seasonal campaigns"
+        ],
+        "linkedin": ""
       }
     ]
   }

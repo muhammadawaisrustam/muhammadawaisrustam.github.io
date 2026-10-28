@@ -265,6 +265,33 @@ var PANELS=[
      {k:"description",t:"textarea",label:"Description"},
      {k:"instagram",t:"list",label:"Instagram buttons",add:"Add Instagram link",sum:function(x){return x.label},tpl:{label:"@handle",url:"https://www.instagram.com/"},fields:[{row:[{k:"label",t:"text",label:"Button text"},{k:"url",t:"url",label:"Instagram link"}]}]},
      {k:"items",t:"gallery",label:"Designs"}]}]},
+ {g:"Results & case studies",id:"results",i:"▥",title:"Results page",desc:"Your campaign numbers and charts. Chart types: bar, hbar (horizontal bars), donut or line (best for monthly trends). The number in “Value” sets the bar size; “Shown as” is the text people see, e.g. 6,000+.",fields:[
+   {row:[{k:"results.title",t:"text",label:"Google headline",max:60},{k:"results.eyebrow",t:"text",label:"Small label"}]},
+   {k:"results.description",t:"textarea",label:"Google description",max:160},
+   {k:"results.heading",t:"text",label:"Page heading"},{k:"results.intro",t:"textarea",label:"Intro"},
+   {k:"results.kpis",t:"list",label:"Headline numbers",add:"Add number",sum:function(x){return x.value+" "+x.label},tpl:{value:"0",label:"New result",source:""},fields:[{row:[{k:"value",t:"text",label:"Number"},{k:"label",t:"text",label:"Label"}]},{k:"source",t:"text",label:"Account / source (optional)"}]},
+   {row:[{k:"results.chartsHeading",t:"text",label:"Charts heading"},{k:"results.chartsEyebrow",t:"text",label:"Charts small label"}]},{k:"results.chartsIntro",t:"textarea",label:"Charts intro"},
+   {k:"results.charts",t:"list",label:"Charts",add:"Add chart",sum:function(x){return (x.type||"bar")+" · "+x.title},tpl:{type:"line",tag:"Account",title:"Monthly leads",caption:"",unit:"",wide:false,items:[{label:"Jan",value:0,display:""}]},fields:[
+     {k:"title",t:"text",label:"Chart title"},{row:[{k:"type",t:"text",label:"Type (bar, hbar, donut, line)"},{k:"tag",t:"text",label:"Small tag"}]},
+     {k:"caption",t:"textarea",label:"Caption"},{row:[{k:"unit",t:"text",label:"Unit (optional)"},{k:"wide",t:"check",label:"Full width"}]},
+     {k:"items",t:"list",label:"Data",add:"Add data point",sum:function(x){return x.label+": "+(x.display||x.value)},tpl:{label:"Label",value:0,display:""},fields:[{row:[{k:"label",t:"text",label:"Label"},{k:"value",t:"number",label:"Value"},{k:"display",t:"text",label:"Shown as (optional)"}]}]}]},
+   {k:"results.tableHeading",t:"text",label:"Scorecard heading"},
+   {k:"results.table",t:"list",label:"Scorecard rows",add:"Add row",sum:function(x){return x.account+" · "+x.result},tpl:{account:"Account",period:"",channels:"",goal:"",result:""},fields:[{row:[{k:"account",t:"text",label:"Account"},{k:"period",t:"text",label:"Period"}]},{row:[{k:"channels",t:"text",label:"Channels"},{k:"goal",t:"text",label:"Goal"},{k:"result",t:"text",label:"Result"}]}]}]},
+ {g:"Results & case studies",id:"cases",i:"✎",title:"Case studies",desc:"Post a new case study whenever you share one on LinkedIn. Each one gets its own page that Google and AI assistants can find. Newest date shows first.",fields:[
+   {row:[{k:"caseStudies.title",t:"text",label:"Google headline",max:60},{k:"caseStudies.eyebrow",t:"text",label:"Small label"}]},
+   {k:"caseStudies.description",t:"textarea",label:"Google description",max:160},
+   {k:"caseStudies.heading",t:"text",label:"Page heading"},{k:"caseStudies.intro",t:"textarea",label:"Intro"},
+   {k:"caseStudies.items",t:"list",label:"Case studies",add:"Add case study",sum:function(x){return (x.date||"")+" · "+x.title},tpl:{slug:"",date:new Date().toISOString().slice(0,10),title:"New case study",client:"",industry:"",image:"",summary:"",challenge:"",approach:[""],results:[{value:"",label:""}],body:[""],tags:[],linkedin:""},fields:[
+     {k:"title",t:"text",label:"Title"},{row:[{k:"date",t:"text",label:"Date (YYYY-MM-DD)"},{k:"slug",t:"text",label:"Page link",help:"Lowercase-with-dashes. Don’t change it after publishing."}]},
+     {row:[{k:"client",t:"text",label:"Client"},{k:"industry",t:"text",label:"Industry"}]},
+     {k:"image",t:"image",label:"Cover image",max:1600},
+     {k:"summary",t:"textarea",label:"Summary (1–2 sentences, used by Google)",max:200},
+     {k:"challenge",t:"textarea",label:"The challenge"},
+     {k:"approach",t:"strings",label:"What I did (steps)",multi:true,add:"Add step"},
+     {k:"results",t:"list",label:"Results",add:"Add result",sum:function(x){return x.value+" "+x.label},tpl:{value:"",label:""},fields:[{row:[{k:"value",t:"text",label:"Number"},{k:"label",t:"text",label:"Label"}]}]},
+     {k:"body",t:"strings",label:"Outcome (paragraphs)",multi:true,add:"Add paragraph"},
+     {k:"tags",t:"strings",label:"Tags",add:"Add tag"},
+     {k:"linkedin",t:"url",label:"LinkedIn post link (optional)"}]}]},
  {g:"Publishing",id:"connect",i:"⇪",title:"Connect & backup",desc:"Connect this dashboard to your GitHub website once. After that, the Publish button updates your live site.",fields:[],after:connectPanel}
 ];
 
@@ -496,7 +523,8 @@ function publish(){
   btn.disabled=true;btn.textContent="Publishing…";
   var final=clone(C),uploads=[],n=0,stamp=Date.now().toString(36);
   (function walk(o){for(var k in o){var v=o[k];if(typeof v==="string"&&/^data:image\//.test(v)){n++;var path="images/uploads/"+stamp+"-"+n+".jpg";uploads.push({path:path,b64:v.split(",")[1]});o[k]=path}else if(v&&typeof v==="object")walk(v)}})(final);
-  var files=[{path:"content.json",b64:b64(JSON.stringify(final,null,2))},{path:"index.html",b64:b64(SiteRenderer.renderSite(final))},{path:"designs.html",b64:b64(SiteRenderer.renderDesigns(final))},{path:"llms.txt",b64:b64(SiteRenderer.llms(final))},{path:"sitemap.xml",b64:b64(SiteRenderer.sitemap(final))},{path:"robots.txt",b64:b64(SiteRenderer.robots(final))}].concat(uploads);
+  var gen=SiteRenderer.pages(final),files=[{path:"content.json",b64:b64(JSON.stringify(final,null,2))}];
+  Object.keys(gen).forEach(function(k){files.push({path:k,b64:b64(gen[k])})});files=files.concat(uploads);
   var head,baseTree;
   gh(c,"GET","/git/ref/heads/"+encodeURIComponent(c.branch)).then(function(ref){head=ref.object.sha;return gh(c,"GET","/git/commits/"+head)})
   .then(function(cm){baseTree=cm.tree.sha;var i=0;btn.textContent="Uploading 0/"+files.length;
@@ -522,9 +550,10 @@ function renderPreview(scrollTo){
   f.onload=function(){try{var w=f.contentWindow,d=f.contentDocument;d.querySelectorAll(".reveal").forEach(function(n){n.style.animation="none"});
     d.addEventListener("click",function(ev){var a=ev.target.closest("a");if(a&&!/^#/.test(a.getAttribute("href")||"")){ev.preventDefault()}},true);
     if(scrollTo){var go=function(){var t=d.getElementById(scrollTo);if(t)t.scrollIntoView();else w.scrollTo(0,0)};go();setTimeout(go,350)}else w.scrollTo(0,y)}catch(x){}fitPv()};
-  f.srcdoc=cur==="designs"?SiteRenderer.renderDesigns(C,{preview:true,css:CSS}):SiteRenderer.renderSite(C,{preview:true,css:CSS});
+  var po={preview:true,css:CSS};
+  f.srcdoc=cur==="designs"?SiteRenderer.renderDesigns(C,po):cur==="results"?SiteRenderer.renderResults(C,po):cur==="cases"?SiteRenderer.renderCases(C,po):SiteRenderer.renderSite(C,po);
 }
-var TARGET={seo:null,menu:null,layout:null,theme:null,profile:"contact",hero:null,about:"about",projects:"projects",skills:"skills",experience:"experience",brands:"brands",guide:"guide",faq:"faq",credentials:"credentials",contact:"contact",designs:null,connect:null};
+var TARGET={seo:null,menu:null,layout:null,theme:null,profile:"contact",hero:null,about:"about",projects:"projects",skills:"skills",experience:"experience",brands:"brands",guide:"guide",faq:"faq",credentials:"credentials",contact:"contact",designs:null,results:null,cases:null,connect:null};
 
 /* ============ UI ============ */
 function renderRail(){
