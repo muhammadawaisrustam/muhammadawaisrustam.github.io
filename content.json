@@ -10,10 +10,10 @@
     "areaServed": "Qatar, Worldwide"
   },
   "theme": {
-    "bg": "#081633",
-    "bg2": "#0D1F45",
-    "accent": "#4A86FF",
-    "highlight": "#F2C46D"
+    "bg": "#060D22",
+    "bg2": "#0A1533",
+    "accent": "#5B8CFF",
+    "highlight": "#E8C27A"
   },
   "profile": {
     "name": "Muhammad Awais Rustam",
@@ -107,7 +107,7 @@
     }
   ],
   "hero": {
-    "status": "Open to projects & collaborations",
+    "status": "Open to projects & collaborations · Doha, Qatar",
     "roleLine1": "Digital",
     "roleLine2": "Marketer",
     "lede": "I help businesses in Qatar and worldwide turn ad spend into qualified leads, with Meta and Google Ads, SEO for Google and AI search, and ad creatives I design myself.",

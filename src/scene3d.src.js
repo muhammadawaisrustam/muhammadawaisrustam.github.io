@@ -1,28 +1,27 @@
 /*
-  3D background for the portfolio (Three.js).
+  "Digital runway": the 3D scene behind the portfolio (Three.js).
 
-  - A star/data field that drifts with scroll and mouse.
-  - Around the profile photo: orbit rings with one node per page section.
-    Clicking a node scrolls to that section. Gold "lead" particles spiral in
-    toward the photo (ad spend in, leads out).
-  - Wireframe shapes floating beside the content at different depths.
+  The camera flies down a lit runway as the visitor scrolls. Every page
+  section (any element with data-gate) has a gate on the runway, and the
+  camera passes through it as that section reaches the middle of the screen.
+  Sequenced centre lights run toward the horizon, like an approach path.
 
-  All text stays in the HTML. This file only draws pictures behind it.
+  All text stays in the HTML; this file only draws pictures behind it.
   Build:  npx esbuild src/scene3d.src.js --bundle --format=esm --minify --outfile=scene3d.js
 */
 import {
   WebGLRenderer, Scene, PerspectiveCamera, Group, BufferGeometry, Float32BufferAttribute,
-  Points, PointsMaterial, LineLoop, LineBasicMaterial, Sprite, SpriteMaterial, CanvasTexture,
-  Color, AdditiveBlending, FogExp2, Mesh, MeshBasicMaterial, IcosahedronGeometry,
-  OctahedronGeometry, TorusKnotGeometry, TorusGeometry, DodecahedronGeometry, Vector3, SRGBColorSpace
+  Points, PointsMaterial, LineSegments, LineBasicMaterial, Sprite, SpriteMaterial, CanvasTexture,
+  Color, AdditiveBlending, FogExp2, Mesh, MeshBasicMaterial, PlaneGeometry, SRGBColorSpace, Vector3
 } from "three";
 
 export function start(canvas) {
   const root = document.documentElement;
   const css = getComputedStyle(root);
-  const COBALT = new Color((css.getPropertyValue("--cobalt") || "#4A86FF").trim());
-  const SIGNAL = new Color((css.getPropertyValue("--signal") || "#F2C46D").trim());
-  const NAVY = new Color((css.getPropertyValue("--navy") || "#081633").trim());
+  const BLUE = new Color((css.getPropertyValue("--cobalt") || "#4A86FF").trim());
+  const GOLD = new Color((css.getPropertyValue("--signal") || "#F2C46D").trim());
+  const NAVY = new Color((css.getPropertyValue("--navy") || "#060D22").trim());
+  const IVORY = new Color("#F4EFE6");
   const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const small = matchMedia("(max-width: 760px)").matches;
   const weak = small || (navigator.hardwareConcurrency || 8) <= 4;
@@ -35,256 +34,190 @@ export function start(canvas) {
   renderer.setClearColor(0x000000, 0);
 
   const scene = new Scene();
-  scene.fog = new FogExp2(NAVY, 0.022);
-  const FOV = 40, D = 14;
-  const camera = new PerspectiveCamera(FOV, 1, 0.1, 200);
-  camera.position.set(0, 0, D);
+  scene.fog = new FogExp2(NAVY, 0.021);
+  const camera = new PerspectiveCamera(small ? 62 : 50, 1, 0.1, 400);
 
-  let W = 1, H = 1, k = 0.01; // k = world units per CSS pixel on the z=0 plane
-  function resize() {
-    W = window.innerWidth; H = window.innerHeight;
-    renderer.setSize(W, H, false);
-    camera.aspect = W / H; camera.updateProjectionMatrix();
-    k = (2 * D * Math.tan((FOV * Math.PI) / 360)) / H;
-    layoutCluster(); layoutShapes();
-  }
-
-  /* ---------- textures drawn in code (no image downloads) ---------- */
-  function dotTexture() {
+  /* ---------- textures drawn in code ---------- */
+  function glowTexture() {
     const c = document.createElement("canvas"); c.width = c.height = 64;
     const g = c.getContext("2d"), r = g.createRadialGradient(32, 32, 0, 32, 32, 32);
-    r.addColorStop(0, "rgba(255,255,255,1)"); r.addColorStop(0.25, "rgba(255,255,255,.7)"); r.addColorStop(1, "rgba(255,255,255,0)");
+    r.addColorStop(0, "rgba(255,255,255,1)"); r.addColorStop(0.2, "rgba(255,255,255,.75)"); r.addColorStop(1, "rgba(255,255,255,0)");
     g.fillStyle = r; g.fillRect(0, 0, 64, 64);
     const t = new CanvasTexture(c); t.colorSpace = SRGBColorSpace; return t;
   }
-  const DOT = dotTexture();
-
-  function labelTexture(text, hot) {
-    const s = 2, fs = 12 * s, padX = 12 * s, h = 30 * s;
-    const c = document.createElement("canvas"), g = c.getContext("2d");
-    const font = "500 " + fs + 'px "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace';
-    g.font = font;
-    const w = Math.ceil(g.measureText(text.toUpperCase()).width + padX * 2 + 14 * s);
-    c.width = w; c.height = h;
-    g.font = font; g.textBaseline = "middle";
-    const r = h / 2;
-    g.beginPath(); g.moveTo(r, 1); g.lineTo(w - r, 1); g.arc(w - r, r, r - 1, -Math.PI / 2, Math.PI / 2); g.lineTo(r, h - 1); g.arc(r, r, r - 1, Math.PI / 2, Math.PI * 1.5); g.closePath();
-    g.fillStyle = hot ? "rgba(242,196,109,.16)" : "rgba(8,22,51,.82)"; g.fill();
-    g.lineWidth = 2; g.strokeStyle = hot ? "rgba(242,196,109,.95)" : "rgba(74,134,255,.55)"; g.stroke();
-    g.fillStyle = hot ? "#F2C46D" : "#4A86FF"; g.beginPath(); g.arc(padX + 3 * s, h / 2, 3 * s, 0, Math.PI * 2); g.fill();
-    g.fillStyle = hot ? "#FFE3A8" : "#E9EFFB"; g.fillText(text.toUpperCase(), padX + 12 * s, h / 2 + 1);
+  const GLOW = glowTexture();
+  function gateLabel(num, text) {
+    const s = 2, c = document.createElement("canvas"), g = c.getContext("2d");
+    const serif = "italic " + 64 * s + 'px "Instrument Serif", Georgia, "Times New Roman", serif';
+    const mono = "500 " + 15 * s + 'px "JetBrains Mono", ui-monospace, Menlo, monospace';
+    g.font = serif; const tw = g.measureText(text).width;
+    c.width = Math.ceil(tw + 40 * s); c.height = 120 * s;
+    g.textAlign = "center";
+    g.font = mono; g.fillStyle = "rgba(242,196,109,.95)"; g.fillText("GATE " + num, c.width / 2, 24 * s);
+    g.font = serif; g.fillStyle = "#F4EFE6"; g.fillText(text, c.width / 2, 92 * s);
     const t = new CanvasTexture(c); t.colorSpace = SRGBColorSpace;
-    return { tex: t, w: w / s, h: h / s };
+    return { tex: t, aspect: c.width / c.height };
   }
 
-  /* ---------- star / data field ---------- */
-  const field = new Group(); scene.add(field);
+  /* ---------- runway layout ---------- */
+  const gateEls = [].slice.call(document.querySelectorAll("[data-gate]"));
+  const SPACING = 16, START = 8, HALF = 3.2;
+  const gateZ = gateEls.map((_, i) => -(i + 1) * SPACING);
+  const END = (gateZ.length ? gateZ[gateZ.length - 1] : 0) - 90;
+
+  // ground grid: long lines along the runway and cross lines, fading into fog
   {
-    const N = weak ? 700 : 1600, pos = [], col = [];
-    const c = new Color();
-    for (let i = 0; i < N; i++) {
-      const r = 16 + Math.random() * 46, th = Math.random() * Math.PI * 2, ph = Math.acos(2 * Math.random() - 1);
-      pos.push(r * Math.sin(ph) * Math.cos(th), r * Math.sin(ph) * Math.sin(th), r * Math.cos(ph));
-      const m = Math.random();
-      c.copy(m < 0.12 ? SIGNAL : m < 0.7 ? COBALT : new Color(0xdfe8ff)).multiplyScalar(0.55 + Math.random() * 0.6);
-      col.push(c.r, c.g, c.b);
-    }
-    const g = new BufferGeometry();
-    g.setAttribute("position", new Float32BufferAttribute(pos, 3));
-    g.setAttribute("color", new Float32BufferAttribute(col, 3));
-    field.add(new Points(g, new PointsMaterial({ size: 0.32, map: DOT, vertexColors: true, transparent: true, depthWrite: false, blending: AdditiveBlending, opacity: 0.9 })));
+    const v = [];
+    for (let x = -60; x <= 60; x += 4) { if (Math.abs(x) < HALF + 1) continue; v.push(x, 0, START + 20, x, 0, END); }
+    for (let z = START + 20; z > END; z -= 4) v.push(-60, 0, z, 60, 0, z);
+    const g = new BufferGeometry(); g.setAttribute("position", new Float32BufferAttribute(v, 3));
+    scene.add(new LineSegments(g, new LineBasicMaterial({ color: BLUE, transparent: true, opacity: 0.16, depthWrite: false })));
   }
-
-  /* ---------- floating wireframe shapes beside the content ---------- */
-  const shapes = [];
+  // runway surface and edge stripes
   {
-    const geos = [new IcosahedronGeometry(1, 1), new OctahedronGeometry(1, 0), new TorusKnotGeometry(0.7, 0.22, 90, 10), new TorusGeometry(0.85, 0.28, 10, 36), new DodecahedronGeometry(1, 0)];
-    const count = weak ? 6 : 10;
-    for (let i = 0; i < count; i++) {
-      const mat = new MeshBasicMaterial({ color: i % 3 === 2 ? SIGNAL : COBALT, wireframe: true, transparent: true, opacity: 0.22, depthWrite: false });
-      const m = new Mesh(geos[i % geos.length], mat);
-      m.userData = { side: i % 2 ? 1 : -1, slot: i, z: -2 - Math.random() * 6, s: 0.7 + Math.random() * 0.9, spin: (Math.random() - 0.5) * 0.4 };
-      shapes.push(m); scene.add(m);
-    }
-  }
-  function layoutShapes() {
-    const halfW = (W / 2) * k;
-    shapes.forEach((m) => {
-      const u = m.userData, depth = (D - u.z) / D; // farther shapes cover more world units
-      u.x = u.side * halfW * depth * (small ? 0.95 : 0.82 + (u.slot % 3) * 0.05);
-      u.baseY = -(u.slot + 1) * H * 0.85 * k * depth;
-      u.depth = depth;
-      m.scale.setScalar(u.s * (small ? 0.7 : 1));
+    const len = START + 20 - END;
+    const surf = new Mesh(new PlaneGeometry(HALF * 2, len), new MeshBasicMaterial({ color: 0x0a1430, transparent: true, opacity: 0.55, depthWrite: false }));
+    surf.rotation.x = -Math.PI / 2; surf.position.set(0, -0.01, (START + 20 + END) / 2); scene.add(surf);
+    [-HALF, HALF].forEach((x) => {
+      const st = new Mesh(new PlaneGeometry(0.05, len), new MeshBasicMaterial({ color: IVORY, transparent: true, opacity: 0.35, depthWrite: false }));
+      st.rotation.x = -Math.PI / 2; st.position.set(x, 0, (START + 20 + END) / 2); scene.add(st);
     });
   }
-
-  /* ---------- orbit cluster around the profile photo ---------- */
-  const anchor = document.getElementById("orbit");
-  const avatar = anchor && anchor.querySelector(".avatar img");
-  const hero = document.querySelector(".hero");
-  let segs = [];
-  try { segs = JSON.parse(canvas.getAttribute("data-segments") || "[]"); } catch (e) { segs = []; }
-  const cluster = new Group(), tilt = new Group(); cluster.add(tilt);
-  const rings = [], nodes = [], labels = [];
-  let stream = null, halo = null, r0 = 1;
-  // rx keeps each ring's front arc below the photo, so nodes in front are never hidden by it
-  const RING = [
-    { f: 1.42, rx: -0.72, rz: 0.3, speed: 0.11 },
-    { f: 1.76, rx: -0.8, rz: -0.24, speed: -0.075 },
-    { f: 2.1, rx: -0.66, rz: 0.08, speed: 0.055 }
-  ];
-  const RS = small ? 0.86 : 1;
-  if (anchor && segs.length) {
-    scene.add(cluster);
-    halo = new Sprite(new SpriteMaterial({ map: DOT, color: COBALT, transparent: true, opacity: 0.55, depthWrite: false, blending: AdditiveBlending }));
-    tilt.add(halo);
-    RING.forEach((cfg, i) => {
-      const g = new Group(); g.rotation.set(cfg.rx, 0, cfg.rz); tilt.add(g);
-      const pts = []; for (let j = 0; j <= 128; j++) { const t = (j / 128) * Math.PI * 2; pts.push(Math.cos(t), Math.sin(t), 0); }
-      const geo = new BufferGeometry(); geo.setAttribute("position", new Float32BufferAttribute(pts, 3));
-      const line = new LineLoop(geo, new LineBasicMaterial({ color: i === 1 ? SIGNAL : COBALT, transparent: true, opacity: i === 1 ? 0.28 : 0.4, depthWrite: false }));
-      g.add(line);
-      rings.push({ g, line, cfg, nodes: [] });
-    });
-    segs.forEach((s, i) => {
-      const ring = rings[i % rings.length];
-      const dot = new Sprite(new SpriteMaterial({ map: DOT, color: i % 3 === 1 ? SIGNAL : 0xbfd3ff, transparent: true, depthWrite: false, blending: AdditiveBlending }));
-      ring.g.add(dot);
-      const n = { dot, ring, seg: s, angle: 0, hot: false, world: new Vector3(), screen: { x: 0, y: 0 }, visible: true };
-      ring.nodes.push(n); nodes.push(n);
-      const a = labelTexture(s.label, false), b = labelTexture(s.label, true);
-      const sp = new Sprite(new SpriteMaterial({ map: a.tex, transparent: true, depthWrite: false, depthTest: false }));
-      sp.renderOrder = 10; sp.userData = { a, b };
-      scene.add(sp); labels.push(sp); n.label = sp;
-    });
-    rings.forEach((r, ri) => r.nodes.forEach((n, j) => { n.angle = (j / r.nodes.length) * Math.PI * 2 + ri * 0.9 + 0.4; }));
-
-    // lead particles spiralling into the photo
-    const M = weak ? 110 : 240, pos = new Float32Array(M * 3), col = new Float32Array(M * 3), st = [];
-    for (let i = 0; i < M; i++) st.push({ t: Math.random(), th: Math.random() * Math.PI * 2, sp: 0.05 + Math.random() * 0.08, z: (Math.random() - 0.5) * 0.25 });
-    const g = new BufferGeometry();
-    g.setAttribute("position", new Float32BufferAttribute(pos, 3));
+  // edge lights (steady) and centre lights (sequenced pulse running toward the horizon)
+  const edge = [], centre = [];
+  for (let z = START + 20; z > END; z -= 2) { edge.push(-HALF - 0.25, 0.06, z, HALF + 0.25, 0.06, z); }
+  for (let z = START + 20; z > END; z -= 3) centre.push(0, 0.03, z);
+  function lights(arr, color, size) {
+    const g = new BufferGeometry(); g.setAttribute("position", new Float32BufferAttribute(arr, 3));
+    const col = new Float32Array(arr.length); for (let i = 0; i < arr.length; i += 3) { col[i] = color.r; col[i + 1] = color.g; col[i + 2] = color.b; }
     g.setAttribute("color", new Float32BufferAttribute(col, 3));
-    const pts = new Points(g, new PointsMaterial({ size: 0.14, map: DOT, vertexColors: true, transparent: true, depthWrite: false, blending: AdditiveBlending }));
-    const holder = new Group(); holder.rotation.set(-1.12, 0, 0.18); holder.add(pts); tilt.add(holder);
-    stream = { pts, st, M };
+    const p = new Points(g, new PointsMaterial({ size, map: GLOW, vertexColors: true, transparent: true, depthWrite: false, blending: AdditiveBlending }));
+    scene.add(p); return p;
   }
-  function layoutCluster() {
-    if (!avatar) return;
-    const rect = avatar.getBoundingClientRect();
-    r0 = Math.max(40, rect.width / 2) * k;
-    rings.forEach((r) => r.g.scale.setScalar(r0 * r.cfg.f * RS));
-    nodes.forEach((n) => { n.dot.scale.setScalar(0.11 / (r0 * n.ring.cfg.f * RS)); });
-    if (halo) halo.scale.setScalar(r0 * 4.2);
-    labels.forEach((sp) => { const a = sp.userData.a, f = small ? 0.82 : 1; sp.scale.set(a.w * k * f, a.h * k * f, 1); });
-    if (stream) stream.pts.material.size = small ? 0.11 : 0.14;
+  const edgePts = lights(edge, GOLD, 0.42);
+  const centrePts = lights(centre, IVORY, 0.32);
+
+  // gates: two posts and a beam per section, with a serif label above
+  const gates = gateEls.map((el, i) => {
+    const grp = new Group(); grp.position.z = gateZ[i];
+    const mat = new MeshBasicMaterial({ color: BLUE, transparent: true, opacity: 0.85, depthWrite: false, blending: AdditiveBlending });
+    const W = HALF * 2 + 2.2, H = 5.2, T = 0.06;
+    const left = new Mesh(new PlaneGeometry(T, H), mat); left.position.set(-W / 2, H / 2, 0);
+    const right = left.clone(); right.position.x = W / 2;
+    const beam = new Mesh(new PlaneGeometry(W + T, T), mat); beam.position.set(0, H, 0);
+    const inner = new Mesh(new PlaneGeometry(W - 1.2, T * 0.6), mat); inner.position.set(0, H - 0.5, 0);
+    grp.add(left, right, beam, inner);
+    [-W / 2, W / 2].forEach((x) => {
+      const cap = new Sprite(new SpriteMaterial({ map: GLOW, color: GOLD, transparent: true, depthWrite: false, blending: AdditiveBlending }));
+      cap.position.set(x, H, 0); cap.scale.setScalar(0.9); grp.add(cap);
+    });
+    const lab = gateLabel(String(i + 1).padStart(2, "0"), el.getAttribute("data-gate") || "");
+    const sp = new Sprite(new SpriteMaterial({ map: lab.tex, transparent: true, depthWrite: false }));
+    const lh = 1.5; sp.scale.set(lh * lab.aspect, lh, 1); sp.position.set(0, H + 1.25, 0);
+    grp.add(sp);
+    scene.add(grp);
+    return { grp, mat, sp, label: el.getAttribute("data-gate") || "", num: i + 1, lab };
+  });
+
+  // horizon glow and a sky of stars
+  const sun = new Sprite(new SpriteMaterial({ map: GLOW, color: GOLD, transparent: true, opacity: 0.55, depthWrite: false, blending: AdditiveBlending, fog: false }));
+  sun.scale.set(140, 46, 1); scene.add(sun);
+  const sun2 = new Sprite(new SpriteMaterial({ map: GLOW, color: BLUE, transparent: true, opacity: 0.45, depthWrite: false, blending: AdditiveBlending, fog: false }));
+  sun2.scale.set(260, 90, 1); scene.add(sun2);
+  {
+    const N = weak ? 500 : 1100, v = [];
+    for (let i = 0; i < N; i++) v.push((Math.random() - 0.5) * 400, 6 + Math.random() * 90, END - 20 + (Math.random() - 0.3) * 260);
+    const g = new BufferGeometry(); g.setAttribute("position", new Float32BufferAttribute(v, 3));
+    scene.add(new Points(g, new PointsMaterial({ size: 0.9, map: GLOW, color: 0xcfdcff, transparent: true, opacity: 0.7, depthWrite: false, blending: AdditiveBlending, fog: false })));
+  }
+  // drifting dust near the camera for depth
+  const dustN = weak ? 140 : 320, dustPos = new Float32Array(dustN * 3);
+  for (let i = 0; i < dustN; i++) { dustPos[i * 3] = (Math.random() - 0.5) * 30; dustPos[i * 3 + 1] = Math.random() * 9; dustPos[i * 3 + 2] = -Math.random() * 60; }
+  const dustG = new BufferGeometry(); dustG.setAttribute("position", new Float32BufferAttribute(dustPos, 3));
+  const dust = new Points(dustG, new PointsMaterial({ size: 0.07, map: GLOW, color: GOLD, transparent: true, opacity: 0.55, depthWrite: false, blending: AdditiveBlending }));
+  scene.add(dust);
+
+  /* ---------- scroll → camera position ---------- */
+  let W = 1, H = 1, knotsY = [0], knotsZ = [START];
+  function measure() {
+    knotsY = [0]; knotsZ = [START];
+    gateEls.forEach((el, i) => {
+      const y = el.getBoundingClientRect().top + window.scrollY - H * 0.55;
+      if (y > knotsY[knotsY.length - 1] + 1) { knotsY.push(y); knotsZ.push(gateZ[i] - 0.6); }
+    });
+    const maxY = Math.max(1, root.scrollHeight - H);
+    if (maxY > knotsY[knotsY.length - 1]) { knotsY.push(maxY); knotsZ.push(knotsZ[knotsZ.length - 1] - SPACING * 0.75); }
+  }
+  function zFor(y) {
+    if (y <= 0) return knotsZ[0];
+    for (let i = 1; i < knotsY.length; i++) {
+      if (y <= knotsY[i]) { const t = (y - knotsY[i - 1]) / (knotsY[i] - knotsY[i - 1]); const e = t * t * (3 - 2 * t); return knotsZ[i - 1] + (knotsZ[i] - knotsZ[i - 1]) * e; }
+    }
+    return knotsZ[knotsZ.length - 1];
+  }
+  function resize() {
+    W = window.innerWidth; H = window.innerHeight;
+    renderer.setSize(W, H, false);
+    camera.aspect = W / H; camera.fov = W / H < 0.8 ? 64 : 50; camera.updateProjectionMatrix();
+    measure();
   }
 
   /* ---------- input ---------- */
-  const mouse = { x: 0, y: 0, tx: 0, ty: 0, px: -1, py: -1 };
-  let hovered = null;
-  window.addEventListener("pointermove", (e) => {
-    mouse.tx = (e.clientX / W) * 2 - 1; mouse.ty = (e.clientY / H) * 2 - 1;
-    mouse.px = e.clientX; mouse.py = e.clientY;
-    if (reduced) request();
-  }, { passive: true });
-  function hitTest(x, y) {
-    let best = null;
-    labels.forEach((sp, i) => {
-      const n = nodes[i]; if (!n.visible || !cluster.visible) return;
-      const a = sp.userData.a, sx = n.screen.x, sy = n.screen.y - 22;
-      if (Math.abs(x - sx) < a.w / 2 + 6 && Math.abs(y - sy) < a.h / 2 + 8) best = n;
-    });
-    return best;
-  }
-  window.addEventListener("click", (e) => {
-    if (e.target.closest && e.target.closest("a,button,input,textarea,select,summary,label,.avatar,.readout")) return;
-    const n = hitTest(e.clientX, e.clientY);
-    if (!n) return;
-    const href = n.seg.href;
-    if (href.charAt(0) === "#") {
-      const el = document.querySelector(href);
-      if (el) { el.scrollIntoView({ behavior: reduced ? "auto" : "smooth" }); history.replaceState(null, "", href); }
-    } else location.href = href;
-  });
+  const mouse = { x: 0, y: 0, tx: 0, ty: 0 };
+  window.addEventListener("pointermove", (e) => { mouse.tx = (e.clientX / W) * 2 - 1; mouse.ty = (e.clientY / H) * 2 - 1; }, { passive: true });
 
-  /* ---------- per-frame update ---------- */
-  const tmp = new Vector3();
-  let last = performance.now(), time = 0;
+  /* ---------- per-frame ---------- */
+  let camZ = zFor(window.scrollY || 0), time = 0;
+  const look = new Vector3();
+  const cc = centrePts.geometry.attributes.color.array;
   function update(dt) {
     time += dt;
-    mouse.x += (mouse.tx - mouse.x) * Math.min(1, dt * 3);
-    mouse.y += (mouse.ty - mouse.y) * Math.min(1, dt * 3);
-    const sy = window.scrollY || 0;
+    const target = zFor(window.scrollY || 0);
+    camZ += (target - camZ) * (reduced ? 1 : Math.min(1, dt * 2.6)); // cinematic easing
+    const speed = target - camZ;
+    mouse.x += (mouse.tx - mouse.x) * Math.min(1, dt * 2);
+    mouse.y += (mouse.ty - mouse.y) * Math.min(1, dt * 2);
 
-    field.rotation.y = time * 0.012 + mouse.x * 0.06;
-    field.rotation.x = sy * 0.00022 + mouse.y * 0.04;
-    field.children[0].material.opacity = Math.max(0.5, 0.95 - (sy / H) * 0.4);
+    const sway = Math.sin(camZ * 0.045) * 0.9;
+    camera.position.set(sway + mouse.x * 0.5, 1.7 - mouse.y * 0.25 + Math.sin(time * 0.6) * 0.03, camZ);
+    look.set(sway * 0.4 + mouse.x * 1.2, 2.0 - mouse.y * 0.6, camZ - 20);
+    camera.lookAt(look);
+    camera.rotation.z += Math.max(-0.05, Math.min(0.05, speed * 0.004)) + Math.cos(camZ * 0.045) * 0.015;
 
-    shapes.forEach((m) => {
-      const u = m.userData;
-      m.position.set(u.x - mouse.x * 0.3 * u.depth, u.baseY + sy * k * u.depth * 0.75 + Math.sin(time * 0.4 + u.slot) * 0.25, u.z);
-      m.rotation.x = time * u.spin + u.slot; m.rotation.y = time * u.spin * 1.3 + sy * 0.0006;
+    sun.position.set(0, 4, camZ - 150); sun2.position.set(0, 10, camZ - 170);
+
+    // sequenced centre lights: a bright pulse runs away from the camera
+    for (let i = 0, n = cc.length / 3; i < n; i++) {
+      const z = centre[i * 3 + 2];
+      const ph = ((camZ - z) * 0.08 - time * 1.6) % 1;
+      const b = 0.25 + Math.pow(1 - Math.abs(((ph + 1) % 1) - 0.5) * 2, 10) * 1.6;
+      cc[i * 3] = IVORY.r * b; cc[i * 3 + 1] = IVORY.g * b; cc[i * 3 + 2] = IVORY.b * b;
+    }
+    centrePts.geometry.attributes.color.needsUpdate = true;
+
+    // gates light up gold as you approach, then fade once passed
+    gates.forEach((g) => {
+      const d = g.grp.position.z - camZ; // negative = ahead
+      const near = Math.max(0, 1 - Math.abs(d + 6) / 22);
+      g.mat.color.copy(BLUE).lerp(GOLD, near);
+      g.mat.opacity = d > 1 ? Math.max(0, 0.6 - d * 0.2) : 0.35 + near * 0.6;
+      g.sp.material.opacity = d > -2 ? Math.max(0, 1 - (d + 2) * 0.5) : Math.min(1, near * 1.25);
     });
 
-    if (!anchor || !segs.length) return;
-    const ar = avatar.getBoundingClientRect();
-    const hr = hero ? hero.getBoundingClientRect() : ar;
-    cluster.visible = hr.bottom > 0 && ar.width > 0;
-    if (!cluster.visible) { labels.forEach((l) => (l.visible = false)); return; }
-    const cx = ar.left + ar.width / 2, cy = ar.top + ar.height / 2;
-    cluster.position.set((cx - W / 2) * k, -(cy - H / 2) * k, 0);
-    tilt.rotation.x = mouse.y * 0.12; tilt.rotation.y = mouse.x * 0.18;
-    if (halo) halo.material.opacity = 0.42 + Math.sin(time * 1.4) * 0.08;
-
-    // hovered node (pointer over its label) slows the orbit so it is easy to click
-    const h = mouse.px >= 0 ? hitTest(mouse.px, mouse.py) : null;
-    if (h !== hovered) {
-      if (hovered) { hovered.label.material.map = hovered.label.userData.a.tex; hovered.hot = false; }
-      hovered = h;
-      if (h) { h.label.material.map = h.label.userData.b.tex; h.hot = true; }
-      if (hero) hero.style.cursor = h ? "pointer" : "";
+    // dust drifts toward the camera and loops
+    for (let i = 0; i < dustN; i++) {
+      let z = dustPos[i * 3 + 2] + dt * (0.6 + Math.abs(speed) * 0.3);
+      if (z > camZ + 2) z -= 60; if (z < camZ - 60) z += 60;
+      dustPos[i * 3 + 2] = z;
     }
-    const slow = hovered ? 0.15 : 1;
-    const avR = ar.width / 2;
-    rings.forEach((r) => r.nodes.forEach((n) => {
-      n.angle += r.cfg.speed * dt * slow;
-      n.dot.position.set(Math.cos(n.angle), Math.sin(n.angle), 0);
-      n.dot.getWorldPosition(n.world);
-      tmp.copy(n.world).project(camera);
-      n.screen.x = (tmp.x + 1) / 2 * W; n.screen.y = (1 - tmp.y) / 2 * H;
-      // hidden while passing behind the photo
-      const dx = n.screen.x - cx, dy = n.screen.y - cy;
-      n.visible = !(n.world.z < 0 && dx * dx + dy * dy < avR * avR * 1.1);
-      n.label.visible = n.visible;
-      const s = n.hot ? 1.12 : 1, a = n.label.userData.a, f = small ? 0.82 : 1;
-      // keep labels on screen on narrow phones
-      const half = (a.w * f) / 2 + 6;
-      n.screen.x = Math.max(half, Math.min(W - half, n.screen.x));
-      n.label.position.set((n.screen.x - W / 2) * k, n.world.y + 22 * k, 0.5);
-      n.label.scale.set(a.w * k * f * s, a.h * k * f * s, 1);
-      n.label.material.opacity = n.world.z < 0 ? 0.55 : 1;
-    }));
-
-    if (stream) {
-      const p = stream.pts.geometry.attributes.position.array, c = stream.pts.geometry.attributes.color.array;
-      stream.st.forEach((q, i) => {
-        q.t += q.sp * dt; if (q.t > 1) { q.t = 0; q.th = Math.random() * Math.PI * 2; }
-        const r = (2.3 - q.t * 1.45) * r0, th = q.th + q.t * 2.6;
-        p[i * 3] = Math.cos(th) * r; p[i * 3 + 1] = Math.sin(th) * r; p[i * 3 + 2] = q.z * r0;
-        const b = Math.sin(q.t * Math.PI) * 0.95;
-        c[i * 3] = SIGNAL.r * b; c[i * 3 + 1] = SIGNAL.g * b; c[i * 3 + 2] = SIGNAL.b * b;
-      });
-      stream.pts.geometry.attributes.position.needsUpdate = true;
-      stream.pts.geometry.attributes.color.needsUpdate = true;
-    }
+    dustG.attributes.position.needsUpdate = true;
   }
 
   /* ---------- loop ---------- */
-  let raf = 0, frameNo = 0, shown = false;
+  let raf = 0, frameNo = 0, shown = false, last = performance.now();
   function draw() {
     const now = performance.now(), dt = Math.min(0.05, (now - last) / 1000); last = now;
-    update(reduced ? 0 : dt);
+    update(reduced ? 0.016 : dt);
     renderer.render(scene, camera);
     if (!shown) { shown = true; root.classList.add("has3d"); }
   }
@@ -299,18 +232,21 @@ export function start(canvas) {
 
   window.addEventListener("resize", () => { resize(); if (reduced) request(); });
   if (reduced) window.addEventListener("scroll", request, { passive: true });
+  window.addEventListener("load", measure);
+  if ("ResizeObserver" in window) new ResizeObserver(() => measure()).observe(document.body);
   canvas.addEventListener("webglcontextlost", (e) => { e.preventDefault(); cancelAnimationFrame(raf); root.classList.remove("has3d"); });
 
-  const fontsReady = document.fonts && document.fonts.load ? Promise.race([document.fonts.load('500 12px "JetBrains Mono"'), new Promise((r) => setTimeout(r, 1200))]) : Promise.resolve();
-  fontsReady.then(() => {
-    // redraw labels once the font is in
-    labels.forEach((sp, i) => {
-      const s = segs[i].label;
-      sp.userData.a.tex.dispose(); sp.userData.b.tex.dispose();
-      sp.userData.a = labelTexture(s, false); sp.userData.b = labelTexture(s, true);
-      sp.material.map = sp.userData.a.tex;
+  const fonts = document.fonts && document.fonts.load
+    ? Promise.race([Promise.all([document.fonts.load('italic 64px "Instrument Serif"'), document.fonts.load('500 15px "JetBrains Mono"')]), new Promise((r) => setTimeout(r, 1500))])
+    : Promise.resolve();
+  fonts.then(() => {
+    gates.forEach((g) => {
+      g.lab.tex.dispose();
+      g.lab = gateLabel(String(g.num).padStart(2, "0"), g.label);
+      g.sp.material.map = g.lab.tex; g.sp.scale.set(1.5 * g.lab.aspect, 1.5, 1);
     });
     resize();
+    camZ = zFor(window.scrollY || 0);
     if (reduced) draw(); else loop();
   });
 }

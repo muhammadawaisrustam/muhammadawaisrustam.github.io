@@ -31,7 +31,7 @@
   var FONTS =
     '<link rel="preconnect" href="https://fonts.googleapis.com">' +
     '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>' +
-    '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..900' +
+    '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1' +
     '&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap">';
 
   /* ---------------- structured data ---------------- */
@@ -222,10 +222,16 @@
     "function f(v){var s=v.toFixed(dec);return comma?Number(s).toLocaleString('en-US',{minimumFractionDigits:dec}):s}" +
     "(function tick(now){var k=Math.min(1,(now-t0)/1400),e=1-Math.pow(1-k,3);el.textContent=k<1?t.replace(raw,f(n*e)):t;if(k<1)requestAnimationFrame(tick)})(t0)})},{threshold:.6});" +
     "document.querySelectorAll('[data-count]').forEach(function(x){co.observe(x)})}" +
+    /* flight readout: current gate (section) and progress; slow parallax on the portrait */
+    "var gates=[].slice.call(document.querySelectorAll('[data-gate]')),hn=document.getElementById('hudN'),hl=document.getElementById('hudL'),hp=document.getElementById('hudP'),pt=document.getElementById('portrait'),tk=0;" +
+    "function hud(){tk=0;var y=scrollY,H=innerHeight,cur=-1;gates.forEach(function(g,i){if(g.getBoundingClientRect().top<H*.55)cur=i});" +
+    "if(hn){hn.textContent=cur<0?'00':String(cur+1).padStart(2,'0');hl.textContent=cur<0?'Runway':gates[cur].getAttribute('data-gate');hp.style.width=Math.min(100,y/Math.max(1,document.documentElement.scrollHeight-H)*100).toFixed(1)+'%'}" +
+    "if(pt&&!still)pt.style.setProperty('--py',(y*.1).toFixed(1)+'px')}" +
+    "addEventListener('scroll',function(){if(!tk)tk=requestAnimationFrame(hud)},{passive:true});hud();" +
     /* 3D tilt on cards (mouse and trackpad only) */
     "if(!still&&matchMedia('(hover:hover) and (pointer:fine)').matches){document.querySelectorAll('[data-tilt]').forEach(function(c){" +
     "c.addEventListener('pointermove',function(ev){var r=c.getBoundingClientRect(),x=(ev.clientX-r.left)/r.width-.5,y=(ev.clientY-r.top)/r.height-.5;" +
-    "c.style.transform='perspective(900px) rotateX('+(-y*6).toFixed(2)+'deg) rotateY('+(x*8).toFixed(2)+'deg) translateZ(0)';c.style.setProperty('--mx',(x+.5)*100+'%');c.style.setProperty('--my',(y+.5)*100+'%')});" +
+    "c.style.transform='perspective(900px) rotateX('+(-y*4).toFixed(2)+'deg) rotateY('+(x*5).toFixed(2)+'deg) translateZ(0)';c.style.setProperty('--mx',(x+.5)*100+'%');c.style.setProperty('--my',(y+.5)*100+'%')});" +
     "c.addEventListener('pointerleave',function(){c.style.transform=''})})}" +
     "})();";
 
@@ -236,16 +242,16 @@
     "function go(){import('./scene3d.js').then(function(m){m.start(c)}).catch(function(){})}" +
     "function idle(){'requestIdleCallback' in window?requestIdleCallback(go,{timeout:1200}):setTimeout(go,200)}" +
     "document.readyState==='complete'?idle():addEventListener('load',idle)})();";
-  var SEG_LABELS = { about: "About", projects: "Projects", skills: "Services", experience: "Experience", brands: "Clients",
-    guide: "Guide", faq: "FAQ", credentials: "Certificates", contact: "Contact" };
-  function bg3d(c, onDesigns) {
-    var segs = [];
-    if (!onDesigns) {
-      a(c.sections).forEach(function (x) { if (x.visible !== false && SEG_LABELS[x.id]) segs.push({ label: SEG_LABELS[x.id], href: "#" + x.id }); });
-      segs.splice(Math.min(3, segs.length), 0, { label: "Designs", href: "designs.html" });
-    }
-    return '<div class="bg3d" aria-hidden="true"><canvas id="bg3d"' + (segs.length ? " data-segments='" + e(JSON.stringify(segs)) + "'" : "") + "></canvas></div>";
+  var GATE_LABELS = { about: "About", projects: "Projects", skills: "Services", experience: "Experience", brands: "Clients",
+    guide: "Guide", faq: "FAQ", credentials: "Credentials", contact: "Contact" };
+  /* Fixed layers behind and above the page: the 3D runway canvas, a film-grain overlay,
+     an opening "curtain" and a small flight-progress readout. All decorative (aria-hidden). */
+  function bg3d() {
+    return '<div class="bg3d" aria-hidden="true"><canvas id="bg3d"></canvas></div>' +
+      '<div class="grain" aria-hidden="true"></div><div class="curtain" aria-hidden="true"></div>' +
+      '<div class="hud" aria-hidden="true"><span class="hud-gate">Gate <b id="hudN">00</b></span><span id="hudL">Runway</span><span class="hud-bar"><i id="hudP"></i></span></div>';
   }
+  function gate(html, label) { return html.replace(/^<section /, '<section data-gate="' + e(label) + '" '); }
 
   /* ---------------- homepage sections ---------------- */
   function hero(c) {
@@ -254,32 +260,23 @@
       return "<tr><td><span class=\"dot" + (r.live ? "" : " off") + "\"></span>" + e(r.account) + "<small>" + e(r.detail) +
         "</small></td><td class=\"hide-sm\">" + e(r.channel) + "</td><td class=\"n\">" + e(r.result) + "</td></tr>";
     }).join("");
-    return '<section class="hero" aria-labelledby="hero-title"><div class="wrap hero-grid"><div class="hero-copy">' +
+    return '<section class="hero" aria-labelledby="hero-title"><div class="wrap"><div class="hero-grid"><div class="hero-copy">' +
       (h.status ? '<span class="status reveal"><i></i>' + e(h.status) + "</span>" : "") +
-      '<h1 id="hero-title" class="reveal d2"><span class="name">' + e(p.name) + '</span><span class="role">' + e(h.roleLine1) + " <em>" + e(h.roleLine2) + "</em></span></h1>" +
+      '<h1 id="hero-title"><span class="name reveal d1">' + e(p.name) + '</span><span class="role"><span class="ln"><span>' + e(h.roleLine1) +
+        '</span></span> <span class="ln"><em>' + e(h.roleLine2) + "</em></span></span></h1>" +
       '<p class="lede reveal d3">' + e(h.lede) + "</p>" +
-      '<div class="cta-row reveal d3">' +
-      (h.cta1Label ? '<a class="btn primary" href="' + e(h.cta1Link) + '"' + ext(h.cta1Link) + ">" + e(h.cta1Label) + "</a>" : "") +
+      '<div class="cta-row reveal d4">' +
+      (h.cta1Label ? '<a class="btn primary" href="' + e(h.cta1Link) + '"' + ext(h.cta1Link) + ">" + e(h.cta1Label) + ' <span aria-hidden="true">→</span></a>' : "") +
       (h.cta2Label ? '<a class="btn ghost" href="' + e(h.cta2Link) + '"' + ext(h.cta2Link) + ">" + e(h.cta2Label) + "</a>" : "") +
+      "</div></div>" +
+      (p.photo ? '<figure class="portrait" id="portrait"><div class="frame"><img src="' + e(p.photo) + '" width="1086" height="1448" alt="' + e(p.photoAlt || p.name) +
+        '" fetchpriority="high"></div><figcaption><span>' + e(h.photoCaptionLeft) + "</span><span>" + e(h.photoCaptionRight) + "</span></figcaption></figure>" : "") +
       "</div>" +
-      (rows ? '<div class="readout reveal d4" role="group" aria-label="Campaign highlights"><header><span>' + e(h.readoutTitle) +
+      (rows ? '<div class="readout rv" role="group" aria-label="Campaign highlights"><header><span>' + e(h.readoutTitle) +
         '</span><span class="mono">' + e(h.readoutPeriod) + '</span></header><table><thead><tr><th>Account</th><th class="hide-sm">Channel</th><th class="n">Result</th></tr></thead><tbody>' +
         rows + "</tbody></table></div>" : "") +
-      "</div>" +
-      '<div class="orbit reveal d2" id="orbit">' +
-      (p.photo ? '<figure class="avatar"><img src="' + e(p.photo) + '" width="1086" height="1448" alt="' + e(p.photoAlt || p.name) +
-        '" fetchpriority="high"><figcaption><span>' + e(h.photoCaptionLeft) + "</span><span>" + e(h.photoCaptionRight) + "</span></figcaption></figure>" : "") +
-      orbitLinks(c) + "</div>" +
+      '<a class="scroll-cue" href="#' + e((a(c.sections).filter(function (x) { return x.visible !== false; })[0] || { id: "about" }).id) + '"><span>Scroll to take off</span><i aria-hidden="true"></i></a>' +
       "</div></section>";
-  }
-  /* Section links around the photo. The 3D scene draws these as orbiting nodes; without 3D they show as a ring of chips. */
-  function orbitLinks(c) {
-    var segs = [];
-    a(c.sections).forEach(function (x) { if (x.visible !== false && SEG_LABELS[x.id]) segs.push({ label: SEG_LABELS[x.id], href: "#" + x.id }); });
-    segs.splice(Math.min(3, segs.length), 0, { label: "Designs", href: "designs.html" });
-    return '<ul class="orbit-links" aria-label="Explore the site" style="--n:' + segs.length + '">' + segs.map(function (x, i) {
-      return '<li style="--i:' + i + '"><a href="' + e(x.href) + '">' + e(x.label) + "</a></li>";
-    }).join("") + "</ul>";
   }
   function stats(c) {
     var s = a(c.stats);
@@ -394,8 +391,8 @@
     o = o || {};
     var s = c.site || {}, url = s.url || "";
     var secs = a(c.sections).filter(function (x) { return x.visible !== false && S[x.id]; });
-    var main = secs.map(function (x, i) { return S[x.id](c, i % 2 === 1 ? " raised" : ""); }).join("");
-    var body = bg3d(c, false) + header(c, false) + "<main>" + hero(c) + stats(c) + main + "</main>" + footer(c, false) + "<script>" + SCRIPT + "</script>" +
+    var main = secs.map(function (x, i) { return gate(S[x.id](c, i % 2 === 1 ? " raised" : ""), GATE_LABELS[x.id] || x.id); }).join("");
+    var body = bg3d() + header(c, false) + "<main>" + hero(c) + stats(c) + main + "</main>" + footer(c, false) + "<script>" + SCRIPT + "</script>" +
       (o.preview ? "" : "<script>" + LOADER + "</script>");
     return wrapDoc(head(c, o, { home: true, title: s.title, description: s.description, canonical: url, schema: homeSchema(c) }), body, o);
   }
@@ -412,7 +409,7 @@
         return '<a class="ig-btn" href="' + e(x.url) + '" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.3" fill="currentColor"/></svg>' +
           e(x.label || "View on Instagram") + "</a>";
       }).join("");
-      return '<section class="band' + (ci % 2 ? " raised" : "") + ' cat" id="' + e(k.id) + '" aria-labelledby="' + e(k.id) + '-title"><div class="wrap">' +
+      return '<section data-gate="' + e(k.name) + '" class="band' + (ci % 2 ? " raised" : "") + ' cat" id="' + e(k.id) + '" aria-labelledby="' + e(k.id) + '-title"><div class="wrap">' +
         '<div class="cat-head"><div><span class="eyebrow">' + e(String(ci + 1).padStart(2, "0") + " · " + a(k.items).length + " designs") + '</span><h2 id="' + e(k.id) + '-title">' + e(k.name) + "</h2>" +
         (k.description ? "<p>" + e(k.description) + "</p>" : "") + "</div>" + (ig ? '<div class="ig-row"><span>Review on Instagram</span>' + ig + "</div>" : "") + "</div>" +
         '<div class="masonry">' + a(k.items).map(function (i) {
@@ -423,12 +420,12 @@
         }).join("") + "</div></div></section>";
     }).join("");
     var top = '<section class="page-hero" aria-labelledby="dp-title"><div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="./">' + e(p.name) + '</a><span aria-hidden="true">/</span><span>Designs</span></nav>' +
-      eyebrow(d.eyebrow) + '<h1 id="dp-title">' + e(d.heading) + "</h1>" + (d.intro ? '<p class="lede">' + e(d.intro) + "</p>" : "") +
+      eyebrow(d.eyebrow) + '<h1 id="dp-title">' + e(d.heading).replace(/(\S+)$/, "<em>$1</em>") + "</h1>" + (d.intro ? '<p class="lede">' + e(d.intro) + "</p>" : "") +
       (a(d.services).length ? '<ul class="dsvc" aria-label="Design services">' + a(d.services).map(function (t) { return "<li>" + e(t) + "</li>"; }).join("") + "</ul>" : "") +
       jump + "</div></section>";
-    var cta = '<section class="band raised"><div class="wrap contact"><h2>' + e((c.contact || {}).heading || "Let’s work together") + ' <em>' + e((c.contact || {}).headingAccent || "") +
+    var cta = '<section data-gate="Contact" class="band raised"><div class="wrap contact"><h2>' + e((c.contact || {}).heading || "Let’s work together") + ' <em>' + e((c.contact || {}).headingAccent || "") +
       '</em></h2><div class="cta-row"><a class="btn primary" href="./#contact">Contact me</a><a class="btn ghost" href="./#projects">See marketing projects</a></div></div></section>';
-    var body = bg3d(c, true) + header(c, true) + "<main>" + top + blocks + cta + "</main>" + footer(c, true) + LIGHTBOX + "<script>" + SCRIPT + "</script>" +
+    var body = bg3d() + header(c, true) + "<main>" + top + blocks + cta + "</main>" + footer(c, true) + LIGHTBOX + "<script>" + SCRIPT + "</script>" +
       (o.preview ? "" : "<script>" + LOADER + "</script>");
     return wrapDoc(head(c, o, { home: false, title: d.title, description: d.description, canonical: url + "designs.html", schema: designsSchema(c) }), body, o);
   }

@@ -160,7 +160,7 @@ code{font-family:var(--mono);font-size:.85em;background:var(--bg);border:1px sol
 "use strict";
 /* ============ state ============ */
 var C=null, PUBLISHED="", CSS="", cur="seo", DRAFT_KEY="mar-dashboard-draft-v2", CONN_KEY="mar-dashboard-github";
-var DEFAULT_THEME={bg:"#081633",bg2:"#0D1F45",accent:"#4A86FF",highlight:"#F2C46D"};
+var DEFAULT_THEME={bg:"#060D22",bg2:"#0A1533",accent:"#5B8CFF",highlight:"#E8C27A"};
 function ls(k,v){try{if(v===undefined)return localStorage.getItem(k);if(v===null)localStorage.removeItem(k);else localStorage.setItem(k,v);return true}catch(x){return false}}
 function clone(o){return JSON.parse(JSON.stringify(o))}
 function get(o,p){return p.split(".").reduce(function(x,k){return x==null?undefined:x[k]},o)}
