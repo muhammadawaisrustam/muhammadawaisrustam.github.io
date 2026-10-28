@@ -60,7 +60,8 @@
         .concat(a(c.skills && c.skills.toolkit).reduce(function (m, k) { return m.concat(a(k.items)); }, [])),
       makesOffer: services.map(function (x) { return { "@type": "Offer", itemOffered: { "@type": "Service", name: x.title, description: x.text } }; }),
       hasCredential: a(c.credentials && c.credentials.certifications).map(function (x) {
-        return { "@type": "EducationalOccupationalCredential", name: x.title, url: x.url || undefined,
+        return { "@type": "EducationalOccupationalCredential", name: x.title, url: x.url || undefined, credentialCategory: "certificate",
+          dateCreated: x.date || undefined, expires: x.expires || undefined, identifier: x.id || undefined,
           recognizedBy: x.meta ? { "@type": "Organization", name: String(x.meta).split("·")[0].trim() } : undefined };
       }),
       sameAs: [p.linkedin, p.instagram, p.behance].filter(Boolean)
@@ -225,7 +226,7 @@
     /* flight readout: current gate (section) and progress; slow parallax on the portrait */
     "var gates=[].slice.call(document.querySelectorAll('[data-gate]')),hn=document.getElementById('hudN'),hl=document.getElementById('hudL'),hp=document.getElementById('hudP'),pt=document.getElementById('portrait'),tk=0;" +
     "function hud(){tk=0;var y=scrollY,H=innerHeight,cur=-1;gates.forEach(function(g,i){if(g.getBoundingClientRect().top<H*.55)cur=i});" +
-    "if(hn){hn.textContent=cur<0?'00':String(cur+1).padStart(2,'0');hl.textContent=cur<0?'Runway':gates[cur].getAttribute('data-gate');hp.style.width=Math.min(100,y/Math.max(1,document.documentElement.scrollHeight-H)*100).toFixed(1)+'%'}" +
+    "if(hn){hn.textContent=cur<0?'00':String(cur+1).padStart(2,'0');hl.textContent=cur<0?'Intro':gates[cur].getAttribute('data-gate');hp.style.width=Math.min(100,y/Math.max(1,document.documentElement.scrollHeight-H)*100).toFixed(1)+'%'}" +
     "if(pt&&!still)pt.style.setProperty('--py',(y*.1).toFixed(1)+'px')}" +
     "addEventListener('scroll',function(){if(!tk)tk=requestAnimationFrame(hud)},{passive:true});hud();" +
     /* 3D tilt on cards (mouse and trackpad only) */
@@ -244,12 +245,12 @@
     "document.readyState==='complete'?idle():addEventListener('load',idle)})();";
   var GATE_LABELS = { about: "About", projects: "Projects", skills: "Services", experience: "Experience", brands: "Clients",
     guide: "Guide", faq: "FAQ", credentials: "Credentials", contact: "Contact" };
-  /* Fixed layers behind and above the page: the 3D runway canvas, a film-grain overlay,
+  /* Fixed layers behind and above the page: the 3D particle canvas, a film-grain overlay,
      an opening "curtain" and a small flight-progress readout. All decorative (aria-hidden). */
   function bg3d() {
     return '<div class="bg3d" aria-hidden="true"><canvas id="bg3d"></canvas></div>' +
       '<div class="grain" aria-hidden="true"></div><div class="curtain" aria-hidden="true"></div>' +
-      '<div class="hud" aria-hidden="true"><span class="hud-gate">Gate <b id="hudN">00</b></span><span id="hudL">Runway</span><span class="hud-bar"><i id="hudP"></i></span></div>';
+      '<div class="hud" aria-hidden="true"><span class="hud-gate"><b id="hudN">00</b> /</span><span id="hudL">Intro</span><span class="hud-bar"><i id="hudP"></i></span></div>';
   }
   function gate(html, label) { return html.replace(/^<section /, '<section data-gate="' + e(label) + '" '); }
 
@@ -275,7 +276,7 @@
       (rows ? '<div class="readout rv" role="group" aria-label="Campaign highlights"><header><span>' + e(h.readoutTitle) +
         '</span><span class="mono">' + e(h.readoutPeriod) + '</span></header><table><thead><tr><th>Account</th><th class="hide-sm">Channel</th><th class="n">Result</th></tr></thead><tbody>' +
         rows + "</tbody></table></div>" : "") +
-      '<a class="scroll-cue" href="#' + e((a(c.sections).filter(function (x) { return x.visible !== false; })[0] || { id: "about" }).id) + '"><span>Scroll to take off</span><i aria-hidden="true"></i></a>' +
+      '<a class="scroll-cue" href="#' + e((a(c.sections).filter(function (x) { return x.visible !== false; })[0] || { id: "about" }).id) + '"><span>Scroll to explore</span><i aria-hidden="true"></i></a>' +
       "</div></section>";
   }
   function stats(c) {
@@ -393,7 +394,7 @@
     var secs = a(c.sections).filter(function (x) { return x.visible !== false && S[x.id]; });
     var main = secs.map(function (x, i) { return gate(S[x.id](c, i % 2 === 1 ? " raised" : ""), GATE_LABELS[x.id] || x.id); }).join("");
     var body = bg3d() + header(c, false) + "<main>" + hero(c) + stats(c) + main + "</main>" + footer(c, false) + "<script>" + SCRIPT + "</script>" +
-      (o.preview ? "" : "<script>" + LOADER + "</script>");
+      (o.preview ? "" : "<script>" + LOADER + '</script><script type="module" src="motion.js"></script>');
     return wrapDoc(head(c, o, { home: true, title: s.title, description: s.description, canonical: url, schema: homeSchema(c) }), body, o);
   }
 
@@ -426,7 +427,7 @@
     var cta = '<section data-gate="Contact" class="band raised"><div class="wrap contact"><h2>' + e((c.contact || {}).heading || "Let’s work together") + ' <em>' + e((c.contact || {}).headingAccent || "") +
       '</em></h2><div class="cta-row"><a class="btn primary" href="./#contact">Contact me</a><a class="btn ghost" href="./#projects">See marketing projects</a></div></div></section>';
     var body = bg3d() + header(c, true) + "<main>" + top + blocks + cta + "</main>" + footer(c, true) + LIGHTBOX + "<script>" + SCRIPT + "</script>" +
-      (o.preview ? "" : "<script>" + LOADER + "</script>");
+      (o.preview ? "" : "<script>" + LOADER + '</script><script type="module" src="motion.js"></script>');
     return wrapDoc(head(c, o, { home: false, title: d.title, description: d.description, canonical: url + "designs.html", schema: designsSchema(c) }), body, o);
   }
 

@@ -194,6 +194,10 @@
       {
         "label": "Education",
         "value": "Bachelor’s in Marketing, Sarhad University"
+      },
+      {
+        "label": "Certified",
+        "value": "Google Ads Search (2026)"
       }
     ]
   },
@@ -297,7 +301,7 @@
     ]
   },
   "skills": {
-    "eyebrow": "Skills",
+    "eyebrow": "Services",
     "heading": "Digital marketing services",
     "intro": "Every service is planned around one number you care about: leads, cost per lead or return on ad spend.",
     "items": [
@@ -526,7 +530,46 @@
         "meta": "502 Model College · 2012–2014"
       }
     ],
-    "certifications": [],
+    "certifications": [
+      {
+        "title": "Google Ads Search Certification",
+        "meta": "Google · Sep 2026 – Sep 2027 · ID 195372515",
+        "url": "",
+        "date": "2026-09-28",
+        "expires": "2027-09-28",
+        "id": "195372515"
+      },
+      {
+        "title": "Google Ads for Beginners",
+        "meta": "Coursera · Sep 2026",
+        "url": "https://coursera.org/verify/DVABE85NIO3F",
+        "date": "2026-09-23"
+      },
+      {
+        "title": "Search Engine Optimization (SEO) with Squarespace",
+        "meta": "Coursera · Sep 2026",
+        "url": "https://coursera.org/verify/40FIC0FTWFDE",
+        "date": "2026-09-23"
+      },
+      {
+        "title": "Building a Business Presence With Facebook Marketing",
+        "meta": "Coursera · Sep 2026",
+        "url": "https://coursera.org/verify/AITA914BW7N8",
+        "date": "2026-09-24"
+      },
+      {
+        "title": "Digital Business Marketing with Easil",
+        "meta": "Coursera · Sep 2026",
+        "url": "https://coursera.org/verify/9N82AIV3CQWO",
+        "date": "2026-09-24"
+      },
+      {
+        "title": "Business Analysis & Process Management",
+        "meta": "Coursera · Sep 2026",
+        "url": "https://coursera.org/verify/O2P5WDO25OHR",
+        "date": "2026-09-23"
+      }
+    ],
     "certificationsEmpty": "Full list with credential links on LinkedIn",
     "linkedinButton": "View certifications on LinkedIn"
   },

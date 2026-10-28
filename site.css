@@ -274,9 +274,9 @@ footer .foot-links a:hover{color:var(--ink)}
 @media (max-width:520px){.masonry{columns:2;column-gap:10px}.masonry .tile{margin-bottom:10px}}
 
 /* =====================================================================
-   v4: "Digital runway"
-   A fixed WebGL runway (scene3d.js) sits behind the page and the camera
-   flies down it as you scroll. All readable content stays in HTML above
+   v4: "Data sculpture" (cinematic, technology theme)
+   A fixed WebGL particle sculpture (scene3d.js) sits behind the page and
+   re-forms into a new shape for each section as you scroll. All readable content stays in HTML above
    it. Without WebGL the gradient on .bg3d shows instead.
    ===================================================================== */
 :root{
@@ -323,7 +323,7 @@ h3{font-family:var(--f-body);font-weight:600;letter-spacing:-.005em}
 .eyebrow::before{background:var(--signal);width:34px}
 main{counter-reset:gate}
 section[data-gate]{counter-increment:gate}
-section[data-gate] .sec-head .eyebrow::before,section[data-gate] .contact>.eyebrow::before,section[data-gate] .cat-head .eyebrow::before{content:"Gate " counter(gate,decimal-leading-zero);width:auto;height:auto;background:none;color:var(--muted);padding-right:14px;margin-right:2px;border-right:1px solid var(--hair)}
+section[data-gate] .sec-head .eyebrow::before,section[data-gate] .about .prose>.eyebrow::before,section[data-gate] .contact>.eyebrow::before,section[data-gate] .cat-head .eyebrow::before{content:counter(gate,decimal-leading-zero) " /";width:auto;height:auto;background:none;color:var(--muted);padding-right:14px;margin-right:2px;border-right:1px solid var(--hair)}
 .sec-head p{font-size:1.12rem}
 
 /* nav: quiet text links */
@@ -375,7 +375,7 @@ section[data-gate] .sec-head .eyebrow::before,section[data-gate] .contact>.eyebr
 @keyframes settle{to{transform:scale(1)}}
 @media (max-width:920px){.hero-grid{grid-template-columns:1fr}.portrait{order:0;justify-self:start;max-width:340px}}
 
-/* campaign readout styled as a departures board */
+/* campaign readout */
 .readout{max-width:none;border:1px solid var(--hair);border-radius:var(--r);background:rgba(3,7,18,.62);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 .readout header{color:var(--signal);border-color:var(--hair)}
 .readout td{border-color:var(--hair);font-size:.98rem}
@@ -461,3 +461,10 @@ footer{border-color:var(--hair);padding-bottom:84px}
   .js .rv,.js .sec-head.rv h2,.js .sec-head.rv>*{opacity:1!important;transform:none!important;clip-path:none!important}
   .curtain{display:none}.portrait .frame,.portrait img,.hero h1 .ln>*{animation:none}
 }
+
+/* smooth scrolling (motion.js / Lenis) */
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+.lenis.lenis-stopped{overflow:hidden}
+/* softer, techier backdrop now that the scene is a particle sculpture */
+.bg3d{background:radial-gradient(60% 55% at 72% 45%,rgba(91,140,255,.16),transparent 70%),radial-gradient(50% 40% at 50% 100%,rgba(232,194,122,.10),transparent 70%),var(--navy)}
