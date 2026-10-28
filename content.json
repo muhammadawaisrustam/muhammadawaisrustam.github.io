@@ -426,10 +426,10 @@
         ]
       },
       {
-        "dates": "2024 – 2025",
-        "start": "2024",
+        "dates": "Jun 2024 – May 2025",
+        "start": "2024-06",
         "current": false,
-        "title": "Digital Marketing Specialist & Graphic Designer",
+        "title": "Digital Marketing Manager",
         "org": "Leaders Training Centre · Qatar",
         "bullets": [
           "Managed a QAR 60,000 monthly budget across Meta, Google, TikTok and LinkedIn.",
@@ -993,13 +993,13 @@
       {
         "type": "donut",
         "tag": "Leaders Training Centre",
-        "title": "Monthly ad budget split",
-        "caption": "QAR 60,000 a month, planned bottom-up from lead targets and cost per lead.",
+        "title": "Lead-generation budget managed by channel",
+        "caption": "Historical advertising budgets I managed (budgets, not revenue): QAR 45,000 on social media and QAR 15,000 on Google Ads.",
         "unit": "",
         "wide": false,
         "items": [
           {
-            "label": "Meta Ads",
+            "label": "Social media ads",
             "value": 45000,
             "display": "QAR 45,000 · 75%"
           },
@@ -1029,26 +1029,6 @@
             "display": "1,500–2,000"
           }
         ]
-      },
-      {
-        "type": "bar",
-        "tag": "Leaders Training Centre",
-        "title": "Approximate cost per lead",
-        "caption": "Monthly budget divided by monthly leads for each channel.",
-        "unit": "",
-        "wide": false,
-        "items": [
-          {
-            "label": "Meta Ads",
-            "value": 10.6,
-            "display": "≈ QAR 10–11"
-          },
-          {
-            "label": "Google Ads",
-            "value": 8.6,
-            "display": "≈ QAR 7.5–10"
-          }
-        ]
       }
     ],
     "tableHeading": "Results by account",
@@ -1062,7 +1042,7 @@
       },
       {
         "account": "Leaders Training Centre",
-        "period": "2024 – 2025",
+        "period": "Jun 2024 – May 2025",
         "channels": "Meta · Google · TikTok · LinkedIn",
         "goal": "Course enrolments",
         "result": "6,000+ leads / month"
