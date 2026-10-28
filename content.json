@@ -1,31 +1,31 @@
 {
   "site": {
     "url": "https://muhammadawaisrustam.github.io/",
-    "title": "Muhammad Awais Rustam | Digital Marketing Specialist in Qatar",
-    "description": "Muhammad Awais Rustam is a Doha-based digital marketing specialist with 7+ years in B2B lead generation, Meta & Google Ads, SEO and AI search.",
-    "keywords": "Muhammad Awais Rustam, Awais Rustam, digital marketing specialist Qatar, digital marketer Doha, B2B lead generation Qatar, performance marketing specialist, Meta Ads specialist, Google Ads expert, search engine marketing, SEM, SEO specialist Qatar, social media marketing Doha, content strategy, email marketing, WhatsApp marketing, PPC, lead generation expert, digital marketing Qatar, digital marketing agency Doha alternative, freelance digital marketer Qatar, AEO, GEO, AI search optimisation, answer engine optimisation, generative engine optimisation",
+    "title": "Muhammad Awais Rustam Malik | Digital Marketing Specialist",
+    "description": "Explore the digital marketing portfolio of Muhammad Awais Rustam Malik, featuring paid advertising, SEO, lead generation, creative marketing, and brand growth.",
+    "keywords": "Muhammad Awais Rustam Malik, Awais Rustam, digital marketing specialist Qatar, marketing specialist Doha, B2B lead generation Qatar, Google Ads Qatar, Meta Ads specialist, search engine marketing, SEO Qatar, social media marketing Doha, content strategy, graphic design, email marketing, WhatsApp marketing, lead generation, brand awareness, AEO, GEO",
     "ogImage": "og-avatar.jpg",
     "googleVerification": "",
     "serviceName": "Muhammad Awais Rustam – Digital Marketing Services",
     "areaServed": "Qatar, Worldwide"
   },
   "theme": {
-    "bg": "#060D22",
-    "bg2": "#0A1533",
-    "accent": "#5B8CFF",
-    "highlight": "#E8C27A"
+    "bg": "#F5F3EE",
+    "bg2": "#FFFFFF",
+    "accent": "#2747E0",
+    "highlight": "#14161B"
   },
   "profile": {
-    "name": "Muhammad Awais Rustam",
+    "name": "Muhammad Awais Rustam Malik",
     "shortName": "Awais Rustam",
-    "monogram": "MAR",
-    "jobTitle": "Digital Marketing Specialist & Graphic Designer",
+    "monogram": "AR",
+    "jobTitle": "Marketing Specialist",
     "location": "Doha, Qatar",
     "city": "Doha",
     "countryCode": "QA",
     "nationality": "",
     "photo": "muhammad-awais-rustam.jpg",
-    "photoAlt": "Muhammad Awais Rustam, Digital Marketer, in Doha",
+    "photoAlt": "Muhammad Awais Rustam Malik, Marketing Specialist in Qatar",
     "email": "awaisrustam001@gmail.com",
     "phone": "+974 3337 0737",
     "whatsapp": "97433370737",
@@ -34,34 +34,35 @@
     "behance": "",
     "employer": "Target Trading & Contracting",
     "employerUrl": "https://targetqatar.com",
-    "university": "Sarhad University",
-    "alternateNames": "Awais Rustam, Muhammad Awais Rustam Malik",
-    "knowsAbout": "Digital marketing, Performance marketing, Lead generation, Paid social advertising, Pay-per-click advertising, Search engine optimisation, Answer engine optimisation (AEO), Generative engine optimisation (GEO), Conversion rate optimisation, Marketing analytics, Social media marketing, Content marketing, WhatsApp marketing"
+    "university": "",
+    "alternateNames": "Awais Rustam, Muhammad Awais Rustam",
+    "knowsAbout": "Digital marketing, Lead generation, Google Ads, Search engine marketing, Meta Ads, Audience targeting, Search engine optimisation, Social media marketing, Brand awareness, Content planning, Graphic design, Video editing, Email marketing, WhatsApp marketing, Marketing reporting",
+    "cutout": "awais-rustam-cutout.webp"
   },
   "nav": [
     {
-      "label": "About me",
+      "label": "Home",
+      "href": "#top"
+    },
+    {
+      "label": "About",
       "href": "#about"
+    },
+    {
+      "label": "Expertise",
+      "href": "#skills"
     },
     {
       "label": "Projects",
       "href": "#projects"
     },
     {
-      "label": "Services",
-      "href": "#skills"
+      "label": "Experience",
+      "href": "#experience"
     },
     {
-      "label": "Guide",
-      "href": "#guide"
-    },
-    {
-      "label": "Designs",
-      "href": "designs.html"
-    },
-    {
-      "label": "LinkedIn",
-      "href": "https://www.linkedin.com/in/muhammad-awais-rustam-malik-4251a7258/"
+      "label": "Certifications",
+      "href": "#credentials"
     },
     {
       "label": "Contact",
@@ -74,11 +75,11 @@
       "visible": true
     },
     {
-      "id": "projects",
+      "id": "skills",
       "visible": true
     },
     {
-      "id": "skills",
+      "id": "projects",
       "visible": true
     },
     {
@@ -86,7 +87,11 @@
       "visible": true
     },
     {
-      "id": "brands",
+      "id": "credentials",
+      "visible": true
+    },
+    {
+      "id": "approach",
       "visible": true
     },
     {
@@ -98,343 +103,203 @@
       "visible": true
     },
     {
-      "id": "credentials",
+      "id": "contact",
       "visible": true
     },
     {
-      "id": "contact",
-      "visible": true
+      "id": "brands",
+      "visible": false
     }
   ],
   "hero": {
-    "status": "Open to projects & collaborations · Doha, Qatar",
-    "roleLine1": "Digital",
-    "roleLine2": "Marketer",
-    "lede": "I help businesses in Qatar and worldwide turn ad spend into qualified leads, with Meta and Google Ads, SEO for Google and AI search, and ad creatives I design myself.",
-    "cta1Label": "See my projects",
+    "label": "Digital Marketing | Brand Growth | Creative Strategy",
+    "headline": "Turning Marketing Strategy Into Meaningful Business Growth.",
+    "accentWords": "Meaningful Business Growth.",
+    "lede": "I'm Awais Rustam, a Marketing Specialist working across digital advertising, lead generation, brand awareness, and creative content. I combine strategic thinking with hands-on execution to help businesses reach the right audience and build stronger brands.",
+    "cta1Label": "Explore My Work",
     "cta1Link": "#projects",
-    "cta2Label": "View design work",
-    "cta2Link": "designs.html",
-    "navButton": "Hire me",
-    "readoutTitle": "Campaign readout",
-    "readoutPeriod": "Monthly",
-    "readout": [
+    "cta2Label": "Let's Connect",
+    "cta2Link": "#contact",
+    "location": "Marketing Specialist | Qatar",
+    "navButton": "Let's Work Together",
+    "frameWordLeft": "AWAIS",
+    "frameWordRight": "RUSTAM",
+    "cards": [
       {
-        "account": "Target Group",
-        "detail": "B2B lead generation",
-        "channel": "Meta · Google · WhatsApp",
-        "result": "200+ leads",
-        "live": true
+        "kicker": "Marketing strategy",
+        "title": "Strategy Meets Execution",
+        "text": "Planning and executing digital marketing activities aligned with brand awareness, lead generation, and business objectives.",
+        "icon": "target"
       },
       {
-        "account": "Leaders Training Centre",
-        "detail": "QAR 60,000 / month budget",
-        "channel": "Meta · Google",
-        "result": "6,000+ leads",
-        "live": false
+        "kicker": "Core strength",
+        "title": "Lead Generation and Brand Growth",
+        "text": "Combining audience targeting, paid campaigns, creative communication, and ongoing optimization to attract relevant prospects.",
+        "icon": "growth"
       },
       {
-        "account": "Fashion & accessories",
-        "detail": "Seasonal collections",
-        "channel": "Meta remarketing",
-        "result": "3x+ ROAS",
-        "live": false
+        "kicker": "Creative capability",
+        "title": "Data-Informed Creativity",
+        "text": "Bringing together advertising, graphic design, content creation, and performance analysis to support effective marketing.",
+        "icon": "spark"
       }
-    ],
-    "photoCaptionLeft": "Doha, Qatar",
-    "photoCaptionRight": "7+ yrs"
+    ]
   },
-  "stats": [
-    {
-      "value": "7+",
-      "label": "years in digital marketing and design"
-    },
-    {
-      "value": "200+",
-      "label": "B2B leads generated every month at Target Group"
-    },
-    {
-      "value": "6,000+",
-      "label": "leads a month at Leaders Training Centre"
-    },
-    {
-      "value": "60K",
-      "label": "QAR monthly ad budget managed"
-    }
-  ],
+  "stats": [],
   "about": {
-    "eyebrow": "About me",
-    "heading": "Who is Muhammad Awais Rustam?",
+    "eyebrow": "About",
+    "heading": "A Marketer Who Understands Both Strategy and Execution",
     "paragraphs": [
-      "Muhammad Awais Rustam is a digital marketing specialist based in Doha, Qatar, with more than seven years of experience in B2B lead generation, performance marketing, search engine marketing (SEM), SEO and social media marketing. He currently leads digital marketing for Target Group, where he generates more than 200 qualified B2B leads every month.",
-      "My work is measured in leads, cost per lead and revenue. I plan the strategy, set up and optimise Meta Ads and Google Ads campaigns, build content calendars, and follow leads through WhatsApp and email until they reach the sales team.",
-      "At Target Group I run marketing for three industrial companies: Target Metal Forming, Target Furniture Factory and Target Trading & Contracting. Before that, at Leaders Training Centre, I managed a QAR 60,000 monthly ad budget that produced more than 6,000 leads a month. I also design the ad creatives myself, so campaigns launch and get tested quickly."
+      "I'm Muhammad Awais Rustam Malik, a Marketing Specialist working in Qatar. I started my career in digital marketing in 2019, and since then my work has sat where strategy meets day-to-day execution: planning campaigns, running paid advertising, producing the creative and following through on the leads it brings in.",
+      "Today I work at Target Trading and Contracting, within the Target business structure that includes Target Furniture Factory and Target Metal Forming. I joined as Digital Marketing Executive and moved into my current role as Marketing Specialist, supporting marketing for furniture, wood-related and stainless steel products.",
+      "Before that I was Digital Marketing Manager at Leaders Training Center from June 2024 to May 2025, where I looked after SEO, Google Ads, social media, lead generation, content, design, video, email and WhatsApp broadcasts, and the marketing budget.",
+      "My approach is simple: understand what the business needs, reach the people who matter, communicate clearly, and judge the work by outcomes rather than clicks."
     ],
     "facts": [
       {
-        "label": "Based in",
-        "value": "Doha, Qatar"
-      },
-      {
         "label": "Role",
-        "value": "Digital Marketing Specialist, Target Group"
+        "value": "Marketing Specialist"
       },
       {
-        "label": "Experience",
-        "value": "7+ years"
+        "label": "Based in",
+        "value": "Qatar"
       },
       {
-        "label": "Specialism",
-        "value": "B2B lead generation, paid media (SEM & social), SEO"
+        "label": "In digital marketing since",
+        "value": "2019"
       },
       {
-        "label": "Also",
-        "value": "Freelance projects for brands worldwide"
+        "label": "Current employer",
+        "value": "Target Trading and Contracting"
       },
       {
-        "label": "Education",
-        "value": "Bachelor’s in Marketing, Sarhad University"
-      },
-      {
-        "label": "Certified",
-        "value": "Google Ads Search (2026)"
+        "label": "Focus",
+        "value": "Paid advertising, lead generation, brand awareness, creative"
       }
     ]
   },
   "projects": {
-    "eyebrow": "Projects",
-    "heading": "Digital marketing projects and results",
-    "intro": "Selected campaigns with the goal, the channels and the numbers.",
-    "items": [
-      {
-        "client": "Target Group · Qatar · 2025–present",
-        "big": "200+",
-        "bigLabel": "qualified B2B leads every month",
-        "title": "Building a B2B lead engine for an industrial group",
-        "paragraphs": [
-          "Target supplies stainless steel, wood panels, fit-out systems and CNC metal fabrication to Qatar’s construction and interiors market. Its buyers are contractors, fit-out companies and interior designers, not consumers. I run the full funnel for all three group companies: lead campaigns on Meta and Google, WhatsApp follow-up, lead qualification and hand-off to the sales team.",
-          "I also design every post on the group’s Instagram, keeping one consistent look across metals, wood and hardware product lines."
-        ],
-        "splitLabelA": "",
-        "splitPctA": 0,
-        "splitLabelB": "",
-        "splitNote": "",
-        "metrics": [
-          {
-            "label": "Audience",
-            "value": "B2B buyers"
-          },
-          {
-            "label": "Companies",
-            "value": "3 brands"
-          },
-          {
-            "label": "Role",
-            "value": "Marketing + design"
-          }
-        ],
-        "tags": [
-          "Meta Ads",
-          "Google Ads",
-          "WhatsApp Business",
-          "Lead nurturing",
-          "Social design"
-        ]
-      },
-      {
-        "client": "Leaders Training Centre · Qatar · 2024–2025",
-        "big": "6,000+",
-        "bigLabel": "leads a month across all courses",
-        "title": "Scaling enrolments on a QAR 60,000 monthly budget",
-        "paragraphs": [
-          "Leaders runs professional, safety, IT and language courses. I managed four ad accounts and a monthly budget of QAR 60,000, planned bottom-up from lead targets and cost per lead. I analysed more than 50 campaigns on CTR, CPC, CPL, ROAS and lead-to-sale ratio, and shifted budget and creative based on what converted."
-        ],
-        "splitLabelA": "Meta · QAR 45,000",
-        "splitPctA": 75,
-        "splitLabelB": "Google · 15K",
-        "splitNote": "Monthly budget split, 75% Meta and 25% Google. Meta delivered 4,000–4,500 leads a month and Google 1,500–2,000.",
-        "metrics": [
-          {
-            "label": "Ad accounts",
-            "value": "4 managed"
-          },
-          {
-            "label": "Lead growth",
-            "value": "20%+ monthly"
-          },
-          {
-            "label": "CPL",
-            "value": "Reduced steadily"
-          }
-        ],
-        "tags": []
-      },
-      {
-        "client": "Retail & e-commerce · Fashion, food, FMCG",
-        "big": "3x+",
-        "bigLabel": "return on ad spend on collection launches",
-        "title": "Retail campaigns that sell",
-        "paragraphs": [
-          "For fashion and jewellery brands including RJ’s Pret and Funky Fish, I ran Facebook and Instagram campaigns for seasonal and limited-edition collections that consistently returned more than three times their ad spend. Remarketing and product-focused content lifted conversion rates by 20%.",
-          "For Qatar retail brands such as Habari Hypermarket, I planned daily and seasonal campaign calendars for Ramadan, Eid and National Day, and ran hyperlocal ads that brought customers into stores."
-        ],
-        "splitLabelA": "",
-        "splitPctA": 0,
-        "splitLabelB": "",
-        "splitNote": "",
-        "metrics": [
-          {
-            "label": "ROAS",
-            "value": "3x and above"
-          },
-          {
-            "label": "Conversion",
-            "value": "+20%"
-          },
-          {
-            "label": "Channels",
-            "value": "Meta · TikTok · Google"
-          }
-        ],
-        "tags": []
-      }
-    ]
+    "eyebrow": "Selected projects",
+    "heading": "How I Approach Real Marketing Challenges",
+    "intro": "Each project shows the objective, the challenge, what I was responsible for and how I approached it. Verified results are marked; everything else is described qualitatively."
   },
   "skills": {
-    "eyebrow": "Services",
-    "heading": "Digital marketing services",
-    "intro": "Every service is planned around one number you care about: leads, cost per lead or return on ad spend.",
+    "eyebrow": "Expertise",
+    "heading": "What I Work On",
+    "intro": "Six areas I work across every week. No percentages, just the work itself.",
     "items": [
       {
-        "tag": "Lead generation",
-        "title": "B2B lead generation",
-        "text": "Lead campaigns, landing forms and follow-up flows that bring in qualified business buyers and hand clean leads to sales."
-      },
-      {
-        "tag": "SEM",
-        "title": "Google Ads & search engine marketing",
-        "text": "Search and display campaigns, keyword research, bidding and budget pacing tied to cost per lead."
-      },
-      {
-        "tag": "Paid social",
-        "title": "Meta Ads (Facebook & Instagram)",
-        "text": "Audience targeting, creative testing, retargeting and lead-form campaigns that scale without raising cost per lead."
-      },
-      {
-        "tag": "SEO",
-        "title": "Search engine optimisation",
-        "text": "Keyword research, on-page SEO and content that grows organic traffic you don’t pay for."
-      },
-      {
-        "tag": "AI search",
-        "title": "AEO & GEO (AI search visibility)",
-        "text": "Structured data, answer-first FAQ content and entity-rich pages so your brand is found and quoted in Google AI Overviews, ChatGPT, Gemini and Perplexity."
-      },
-      {
-        "tag": "Social",
-        "title": "Social media management",
-        "text": "Content calendars, community management and monthly reporting across Instagram, Facebook, TikTok, LinkedIn and YouTube."
-      },
-      {
-        "tag": "Retention",
-        "title": "Email & WhatsApp marketing",
-        "text": "Nurture sequences, broadcasts and WhatsApp Business follow-ups that turn enquiries into customers."
-      },
-      {
-        "tag": "Content",
-        "title": "Content strategy",
-        "text": "Messaging and formats matched to each stage of the funnel, from first impression to the sales call."
-      },
-      {
-        "tag": "Analytics",
-        "title": "Analytics & reporting",
-        "text": "Tracking and reporting on CTR, CPC, CPL, ROAS and lead-to-sale ratio, with clear recommendations."
-      },
-      {
-        "tag": "Creative",
-        "title": "Ad creative design",
-        "text": "Static and social ad creatives designed in-house in Photoshop, Illustrator and Canva."
-      }
-    ],
-    "toolkit": [
-      {
-        "title": "Ads & analytics",
-        "items": [
-          "Meta Ads Manager",
+        "icon": "ads",
+        "title": "Paid Advertising",
+        "text": "Campaigns that reach the right audience and bring relevant enquiries.",
+        "list": [
           "Google Ads",
-          "Google Analytics",
-          "HubSpot",
-          "SEMrush",
-          "Ahrefs",
-          "YouTube Studio"
+          "Search campaign strategy",
+          "Meta Ads",
+          "Audience targeting",
+          "Campaign optimization",
+          "Lead generation campaigns"
         ]
       },
       {
-        "title": "Design",
-        "items": [
+        "icon": "search",
+        "title": "Search and Organic Growth",
+        "text": "Helping people find the business on Google and in AI answers.",
+        "list": [
+          "Search engine optimization",
+          "Keyword research",
+          "On-page SEO",
+          "Content optimization",
+          "Search performance analysis"
+        ]
+      },
+      {
+        "icon": "social",
+        "title": "Social Media and Brand Awareness",
+        "text": "Consistent, recognisable communication across social channels.",
+        "list": [
+          "Social media marketing",
+          "Content planning",
+          "Brand communication",
+          "Campaign creative development",
+          "Audience engagement"
+        ]
+      },
+      {
+        "icon": "design",
+        "title": "Creative Production",
+        "text": "Designing and editing the creative myself, so ideas reach the market quickly.",
+        "list": [
+          "Graphic design",
           "Adobe Photoshop",
-          "Adobe Illustrator",
-          "Canva"
+          "Canva",
+          "Video editing and content production",
+          "Adobe Premiere Pro"
         ]
       },
       {
-        "title": "Channels",
-        "items": [
-          "Facebook",
-          "Instagram",
-          "TikTok",
-          "LinkedIn",
-          "YouTube",
-          "WhatsApp Business",
-          "Email"
+        "icon": "message",
+        "title": "Marketing Communications",
+        "text": "Keeping the conversation going after the first click.",
+        "list": [
+          "Email marketing",
+          "WhatsApp broadcasts",
+          "Campaign messaging",
+          "Lead follow-up support"
         ]
-      }
-    ],
-    "process": [
-      {
-        "title": "Audit",
-        "text": "Review accounts, tracking and past results to find what is working and what is wasting budget."
       },
       {
-        "title": "Plan",
-        "text": "Set targets for leads and cost per lead, then build the channel mix and budget from them."
-      },
-      {
-        "title": "Create",
-        "text": "Design the creatives and write the copy in-house, so testing starts in days, not weeks."
-      },
-      {
-        "title": "Optimise",
-        "text": "Read the data weekly, move budget to what converts and report results in plain numbers."
+        "icon": "chart",
+        "title": "Measurement and Strategy",
+        "text": "Reading the numbers and turning them into the next decision.",
+        "list": [
+          "Campaign performance analysis",
+          "Budget management",
+          "Lead quality assessment",
+          "Marketing reporting",
+          "Data-informed decision-making"
+        ]
       }
     ]
   },
   "experience": {
     "eyebrow": "Experience",
-    "heading": "Where I’ve worked",
+    "heading": "Professional Experience",
     "items": [
       {
-        "dates": "Oct 2025 – Present",
-        "start": "2025-10",
+        "dates": "Present",
+        "start": "",
         "current": true,
-        "title": "Digital Marketing Specialist & Graphic Designer",
-        "org": "Target Trading & Contracting (Target Group) · Doha, Qatar",
+        "title": "Marketing Specialist",
+        "org": "Target Trading and Contracting · Qatar",
+        "steps": [
+          "Digital Marketing Executive",
+          "Marketing Specialist"
+        ],
+        "note": "Marketing activities connected with Target Furniture Factory and Target Metal Forming, within a business structure that covers furniture, wood-related products and stainless steel products.",
         "bullets": [
-          "Generate 200+ B2B leads a month for Target Metal Forming, Target Furniture Factory and Target Trading & Contracting.",
-          "Qualify and follow up leads with the sales team, including WhatsApp nurturing.",
-          "Design all social media content for the group’s channels."
+          "Plan and run digital campaigns for brand awareness and lead generation.",
+          "Support B2B audience targeting and enquiry generation for furniture and wood-panel products.",
+          "Produce marketing graphics and social media content."
         ]
       },
       {
-        "dates": "2024 – 2025",
-        "start": "2024",
+        "dates": "Jun 2024 – May 2025",
+        "start": "2024-06",
         "current": false,
-        "title": "Digital Marketing Specialist & Graphic Designer",
-        "org": "Leaders Training Centre · Qatar",
+        "title": "Digital Marketing Manager",
+        "org": "Leaders Training Center · Qatar",
+        "steps": [],
+        "note": "",
         "bullets": [
-          "Managed a QAR 60,000 monthly budget across Meta, Google, TikTok and LinkedIn.",
-          "Generated 6,000+ leads a month with 20%+ growth and falling cost per lead.",
-          "Produced social creatives, workshop materials and course promotions."
+          "Overall digital marketing management",
+          "SEO and Google Ads",
+          "Social media marketing",
+          "Lead generation",
+          "Content creation and graphic design",
+          "Video production and editing",
+          "Email marketing and WhatsApp broadcasts",
+          "Marketing budget management"
         ]
       },
       {
@@ -444,9 +309,11 @@
         "title": "Digital Marketer & Graphic Designer",
         "org": "Al Habari Group & My Daar Real Estate · Qatar",
         "bullets": [
-          "Handled social media for five brands across retail, hypermarket and real estate.",
-          "Ran cross-channel property campaigns and seasonal retail promotions."
-        ]
+          "Social media for retail, hypermarket and real estate brands.",
+          "Property campaigns and seasonal retail promotions for Ramadan, Eid and National Day."
+        ],
+        "steps": [],
+        "note": ""
       },
       {
         "dates": "2021 – 2023",
@@ -455,9 +322,11 @@
         "title": "Marketing Executive",
         "org": "Marketing agencies",
         "bullets": [
-          "Performance marketing and brand positioning for education, retail, real estate and e-commerce clients.",
-          "Media and entertainment work for HUM TV, Dew Music, Gaane Shaane and artist channels on YouTube, Facebook and Instagram."
-        ]
+          "Digital marketing and brand positioning for education, retail, real estate and e-commerce clients.",
+          "Social media work for media and entertainment channels."
+        ],
+        "steps": [],
+        "note": ""
       }
     ]
   },
@@ -484,110 +353,122 @@
     "heading": "Frequently asked questions",
     "items": [
       {
-        "q": "Who is Muhammad Awais Rustam?",
-        "a": "Muhammad Awais Rustam is a digital marketing specialist in Doha, Qatar, with over seven years of experience in B2B lead generation, Meta and Google Ads, SEO and social media marketing. He leads digital marketing for Target Group and also takes freelance projects."
+        "q": "Who is Muhammad Awais Rustam Malik?",
+        "a": "Muhammad Awais Rustam Malik is a Marketing Specialist working in Qatar, in digital marketing since 2019. He works at Target Trading and Contracting across paid advertising, lead generation, brand awareness and creative content, and was previously Digital Marketing Manager at Leaders Training Center."
       },
       {
-        "q": "What digital marketing services do you offer?",
-        "a": "B2B lead generation, Google Ads and search engine marketing (SEM), Meta Ads on Facebook and Instagram, SEO, social media management, content strategy, email and WhatsApp marketing, analytics and reporting, and ad creative design."
+        "q": "What does Awais Rustam work on?",
+        "a": "Paid advertising on Google Ads and Meta Ads, search engine optimisation, social media and brand awareness, creative production and graphic design, email and WhatsApp communication, and campaign measurement and reporting."
       },
       {
         "q": "How do you generate B2B leads?",
-        "a": "I combine targeted Meta and Google lead campaigns with clear offers and fast WhatsApp and email follow-up, then qualify each lead before passing it to sales. At Target Group this produces more than 200 qualified B2B leads a month."
+        "a": "I combine targeted Meta and Google campaigns with clear product communication and prompt follow-up, then assess each enquiry for relevance, project timing and genuine buying signals before treating it as a strong or weak lead."
       },
       {
-        "q": "How large a budget can you manage?",
-        "a": "I have managed ad budgets of QAR 60,000 per month, split across Meta Ads and Google Ads, planned from lead targets and cost-per-lead goals."
+        "q": "What advertising budgets have you managed?",
+        "a": "At Leaders Training Center I managed lead-generation budgets of QAR 45,000 for social media and QAR 15,000 for Google Ads."
       },
       {
         "q": "Which tools and platforms do you use?",
         "a": "Meta Ads Manager, Google Ads, Google Analytics, HubSpot, SEMrush, Ahrefs and YouTube Studio for marketing, and Adobe Photoshop, Illustrator and Canva for creative."
       },
       {
-        "q": "Do you work with clients outside Qatar?",
-        "a": "Yes. Alongside my role in Doha I work on freelance projects for brands in other countries, fully remote."
+        "q": "Where are you based?",
+        "a": "I work in Qatar. You can reach me by email, WhatsApp or LinkedIn from anywhere."
       },
       {
         "q": "Do you also design the ad creatives?",
         "a": "Yes. I design social media posts, ad creatives, flyers and brand assets myself. You can see examples on my design portfolio page."
       },
       {
-        "q": "How can I hire you?",
-        "a": "Email awaisrustam001@gmail.com or message +974 3337 0737 on WhatsApp with your goals and budget, and I’ll reply with a plan."
+        "q": "How can I get in touch?",
+        "a": "Use the contact form on this page, email awaisrustam001@gmail.com, or message +974 3337 0737 on WhatsApp."
       }
     ]
   },
   "credentials": {
-    "eyebrow": "Credentials",
-    "heading": "Education & certifications",
-    "education": [
-      {
-        "title": "Bachelor’s in Marketing",
-        "meta": "Sarhad University · 2015–2019"
-      },
-      {
-        "title": "Intermediate in Computer Science",
-        "meta": "502 Model College · 2012–2014"
-      }
-    ],
+    "eyebrow": "Certifications",
+    "heading": "Certifications and Continuous Learning",
+    "education": [],
     "certifications": [
       {
-        "title": "Google Ads Search Certification",
-        "meta": "Google · Sep 2026 – Sep 2027 · ID 195372515",
+        "title": "Google Ads Search Certification (2026)",
+        "meta": "Google Skillshop · Issued Sep 2026 · Expires Sep 2027",
         "url": "",
         "date": "2026-09-28",
         "expires": "2027-09-28",
-        "id": "195372515"
+        "id": "195372515",
+        "image": "cert-google-ads-search-2026.jpg",
+        "issuer": "Google Skillshop"
       },
       {
         "title": "Google Ads for Beginners",
         "meta": "Coursera · Sep 2026",
         "url": "https://coursera.org/verify/DVABE85NIO3F",
-        "date": "2026-09-23"
+        "date": "2026-09-23",
+        "image": "cert-google-ads-for-beginners.jpg",
+        "issuer": "Coursera"
       },
       {
         "title": "Search Engine Optimization (SEO) with Squarespace",
         "meta": "Coursera · Sep 2026",
         "url": "https://coursera.org/verify/40FIC0FTWFDE",
-        "date": "2026-09-23"
+        "date": "2026-09-23",
+        "image": "cert-seo-with-squarespace.jpg",
+        "issuer": "Coursera"
       },
       {
         "title": "Building a Business Presence With Facebook Marketing",
         "meta": "Coursera · Sep 2026",
         "url": "https://coursera.org/verify/AITA914BW7N8",
-        "date": "2026-09-24"
+        "date": "2026-09-24",
+        "image": "cert-facebook-business-presence.jpg",
+        "issuer": "Coursera"
       },
       {
         "title": "Digital Business Marketing with Easil",
         "meta": "Coursera · Sep 2026",
         "url": "https://coursera.org/verify/9N82AIV3CQWO",
-        "date": "2026-09-24"
+        "date": "2026-09-24",
+        "image": "cert-digital-business-marketing-easil.jpg",
+        "issuer": "Coursera"
       },
       {
         "title": "Business Analysis & Process Management",
         "meta": "Coursera · Sep 2026",
         "url": "https://coursera.org/verify/O2P5WDO25OHR",
-        "date": "2026-09-23"
+        "date": "2026-09-23",
+        "image": "cert-business-analysis.jpg",
+        "issuer": "Coursera"
       }
     ],
     "certificationsEmpty": "Full list with credential links on LinkedIn",
-    "linkedinButton": "View certifications on LinkedIn"
+    "linkedinButton": "View certifications on LinkedIn",
+    "intro": "Certificates I have completed. Click one to view it, or follow the credential link to verify it."
   },
   "contact": {
     "eyebrow": "Contact",
-    "heading": "Need more qualified leads?",
-    "headingAccent": "Let’s talk."
+    "heading": "Have a Marketing Challenge in Mind?",
+    "headingAccent": "",
+    "text": "I'm interested in connecting with professionals and businesses who value thoughtful marketing, creative execution, and measurable business outcomes.",
+    "formEndpoint": "",
+    "enquiryTypes": [
+      "Professional opportunity",
+      "Digital marketing project",
+      "Collaboration",
+      "General enquiry"
+    ]
   },
   "footer": {
-    "left": "Digital Marketing Specialist",
-    "right": "Doha, Qatar · Working worldwide"
+    "left": "Marketing Specialist",
+    "right": "Qatar"
   },
   "designsPage": {
     "title": "Graphic Design Portfolio | Muhammad Awais Rustam",
     "description": "Social media and ad designs by Muhammad Awais Rustam for restaurants, real estate, training centres, household brands and Target Group in Qatar.",
     "eyebrow": "Design portfolio",
     "heading": "Designs that sell",
-    "intro": "Social media posts, ad creatives and page designs I made for brands across five industries. Open each brand’s Instagram to see the full feed.",
+    "intro": "Social media posts, ad creatives and page designs I made for brands across five industries. Scroll each category sideways, and tap any design to zoom in.",
     "services": [
       "Branding",
       "Social media posts",
@@ -598,7 +479,7 @@
     "categories": [
       {
         "id": "target",
-        "name": "Target Group",
+        "name": "Target Trading & Contracting",
         "description": "B2B product and service posts for Qatar’s stainless steel, wood panel and furniture hardware market. I design every post on the group’s Instagram.",
         "instagram": [
           {
@@ -856,7 +737,7 @@
   "guide": {
     "eyebrow": "Digital marketing guide",
     "heading": "Digital marketing, answered",
-    "intro": "Short, straight answers to the questions business owners in Qatar ask most, based on campaigns I run every week.",
+    "intro": "Short, straight answers to the questions business owners in Qatar ask most, based on the campaigns I work on.",
     "items": [
       {
         "id": "what-is-digital-marketing",
@@ -887,7 +768,7 @@
         "q": "How much should I spend on Meta and Google Ads?",
         "a": "Set your ad budget from your lead target: multiply the number of leads you need each month by your target cost per lead, then split it between channels based on where your buyers search and scroll.",
         "points": [
-          "Example: at Leaders Training Centre a QAR 60,000 monthly budget, 75% Meta and 25% Google, produced more than 6,000 leads a month.",
+          "Example: at Leaders Training Center I managed lead-generation budgets of QAR 45,000 on social media and QAR 15,000 on Google Ads.",
           "Start with a test budget for two to four weeks, then move spend to the ads with the lowest cost per qualified lead.",
           "Judge results by qualified leads and sales, not clicks or likes."
         ]
@@ -933,9 +814,335 @@
         "a": "Hire a specialist when you want one senior person who plans, runs and designs your campaigns and reports directly to you; choose an agency when you need a large team across many services at once.",
         "points": [
           "A specialist usually costs less and moves faster because strategy, ads and creative sit with one person.",
-          "Ask any candidate for real numbers from past campaigns, such as leads, CPL and ROAS."
+          "Ask any candidate how they measured past campaigns, and which results are verified."
         ]
       }
     ]
+  },
+  "results": {
+    "title": "Campaign Scope & Results | Awais Rustam",
+    "description": "Advertising budgets managed and documented campaign results from Muhammad Awais Rustam Malik, Marketing Specialist in Qatar.",
+    "eyebrow": "Results",
+    "heading": "Campaign scope and results",
+    "intro": "Budgets I have managed, shown as budgets and not as results. Verified campaign results will be added here as they are documented.",
+    "kpis": [
+      {
+        "value": "QAR 45,000",
+        "label": "social media lead-generation budget managed",
+        "source": "Leaders Training Center"
+      },
+      {
+        "value": "QAR 15,000",
+        "label": "Google Ads lead-generation budget managed",
+        "source": "Leaders Training Center"
+      }
+    ],
+    "chartsEyebrow": "Budgets",
+    "chartsHeading": "Budget managed by channel",
+    "chartsIntro": "Historical advertising budgets, not revenue or results.",
+    "charts": [
+      {
+        "type": "donut",
+        "tag": "Leaders Training Center",
+        "title": "Lead-generation budget managed by channel",
+        "caption": "Historical advertising budgets I managed (budgets, not revenue): QAR 45,000 on social media and QAR 15,000 on Google Ads.",
+        "unit": "",
+        "wide": true,
+        "items": [
+          {
+            "label": "Social media ads",
+            "value": 45000,
+            "display": "QAR 45,000 · 75%"
+          },
+          {
+            "label": "Google Ads",
+            "value": 15000,
+            "display": "QAR 15,000 · 25%"
+          }
+        ]
+      }
+    ],
+    "tableHeading": "Results by account",
+    "table": [],
+    "emptyNote": "Verified campaign results, such as documented leads or conversions with screenshots, will appear here once they are added."
+  },
+  "caseStudies": {
+    "title": "Marketing Projects & Case Studies | Awais Rustam",
+    "description": "Digital marketing case studies by Muhammad Awais Rustam Malik: B2B lead generation, Google Ads, social media and creative work in Qatar.",
+    "eyebrow": "Projects & case studies",
+    "heading": "Projects and Case Studies",
+    "intro": "How I approach real marketing challenges: the objective, the challenge, my responsibilities and the work itself. Verified results are clearly marked, and new case studies are added regularly.",
+    "items": [
+      {
+        "slug": "target-furniture-factory-b2b-lead-generation",
+        "date": "2026-10-28",
+        "order": 1,
+        "draft": false,
+        "title": "Digital marketing and B2B lead generation for Target Furniture Factory",
+        "client": "Target Furniture Factory",
+        "industry": "Furniture & wood products · B2B",
+        "image": "t07-polylac-table.jpg",
+        "summary": "Bringing relevant B2B enquiries to a furniture and wood-products business in Qatar through Meta advertising, clear product communication and careful audience targeting.",
+        "objective": "Generate relevant enquiries from businesses and project buyers for furniture, wood panels and related products, while building awareness of the brand in Qatar.",
+        "challenge": "The buyers are contractors, fit-out companies, interior designers and businesses, not general consumers. Reaching that small professional audience on social platforms, and telling a genuinely interested prospect apart from a casual click, needs careful targeting and honest lead assessment.",
+        "responsibilities": [
+          "Planning and running Meta advertising for the wood division",
+          "B2B audience targeting",
+          "Product and brand communication",
+          "Marketing graphics and social media content",
+          "Enquiry generation and lead quality assessment"
+        ],
+        "approach": [
+          "Built campaigns around specific product lines, such as wood panels and furniture, rather than one generic message.",
+          "Targeted business and project audiences, then refined targeting as enquiry quality became clearer.",
+          "Designed product-focused creatives that explain the product and its use in a fit-out.",
+          "Reviewed enquiries for relevance, project timing and product interest, not only volume."
+        ],
+        "tools": [
+          "Meta Ads Manager",
+          "Adobe Photoshop",
+          "Canva",
+          "WhatsApp Business"
+        ],
+        "gallery": [
+          {
+            "image": "t07-polylac-table.jpg",
+            "title": "Digital Polylac MDF table launch",
+            "client": "Target Furniture Factory"
+          },
+          {
+            "image": "t03-melamine-wood-panels.jpg",
+            "title": "Melamine wood panels post",
+            "client": "Target Trading & Contracting"
+          },
+          {
+            "image": "t09-kastamonu-panels.jpg",
+            "title": "Kastamonu panels new arrivals",
+            "client": "Target Trading & Contracting"
+          },
+          {
+            "image": "t06-curved-panels.jpg",
+            "title": "Curved wall panels campaign",
+            "client": "Target Trading & Contracting"
+          }
+        ],
+        "results": [],
+        "lessons": "In B2B, a prospect who is not ready to buy this month can still be a strong lead. Project timing and genuine product interest matter as much as speed to purchase.",
+        "url": "",
+        "linkedin": "",
+        "tags": [
+          "Meta Ads",
+          "B2B",
+          "Lead generation",
+          "Brand communication"
+        ]
+      },
+      {
+        "slug": "leaders-training-center-digital-marketing",
+        "date": "2026-10-21",
+        "order": 2,
+        "draft": false,
+        "title": "Managing digital marketing for Leaders Training Center",
+        "client": "Leaders Training Center",
+        "industry": "Education & training",
+        "image": "tc-leaders-training-instagram.jpg",
+        "summary": "Running the full digital marketing function for a training business, from SEO and Google Ads to social media, content, video and lead generation.",
+        "objective": "Generate enquiries for a wide range of courses and keep the brand visible across search and social channels.",
+        "challenge": "Many different courses, each with its own audience, competing for one marketing budget, with every channel needing to be planned, produced and followed up.",
+        "responsibilities": [
+          "Overall digital marketing management",
+          "SEO and Google Ads",
+          "Social media marketing",
+          "Lead generation",
+          "Content creation and graphic design",
+          "Video production and editing",
+          "Email marketing and WhatsApp broadcasts",
+          "Marketing budget management"
+        ],
+        "approach": [
+          "Split lead-generation budgets between social media and Google Ads according to where each audience searches and scrolls.",
+          "Produced course creatives, video content and social posts in-house.",
+          "Followed up enquiries through email and WhatsApp broadcasts.",
+          "Reviewed campaign performance and moved budget toward what worked."
+        ],
+        "tools": [
+          "Google Ads",
+          "Meta Ads Manager",
+          "Adobe Photoshop",
+          "Adobe Premiere Pro",
+          "Canva",
+          "WhatsApp Business"
+        ],
+        "gallery": [
+          {
+            "image": "tc-leaders-training-instagram.jpg",
+            "title": "Instagram feed",
+            "client": "Leaders Training Centre"
+          },
+          {
+            "image": "tc-leaders-languages-instagram.jpg",
+            "title": "Instagram feed",
+            "client": "Leaders Languages Centre"
+          },
+          {
+            "image": "tc-leaders-training-cover.jpg",
+            "title": "Facebook cover",
+            "client": "Leaders Training Centre"
+          }
+        ],
+        "results": [
+          {
+            "value": "QAR 45,000",
+            "label": "social media lead-generation budget managed",
+            "kind": "budget"
+          },
+          {
+            "value": "QAR 15,000",
+            "label": "Google Ads lead-generation budget managed",
+            "kind": "budget"
+          }
+        ],
+        "lessons": "Owning every channel at once makes consistency easier: the same message runs through the ad, the creative and the follow-up.",
+        "url": "",
+        "linkedin": "",
+        "tags": [
+          "Google Ads",
+          "Social media",
+          "SEO",
+          "Budget management"
+        ]
+      },
+      {
+        "slug": "google-ads-search-marketing",
+        "date": "2026-10-14",
+        "order": 3,
+        "draft": true,
+        "title": "Google Ads and search marketing",
+        "client": "Search advertising",
+        "industry": "Search marketing",
+        "image": "",
+        "summary": "How I structure search campaigns: keyword intent, campaign structure, conversion tracking and ongoing optimisation.",
+        "objective": "Reach people who are already searching for a product or service, and turn that intent into relevant enquiries.",
+        "challenge": "Search budgets are easy to waste on broad or irrelevant keywords, and results are only as reliable as the conversion tracking behind them.",
+        "responsibilities": [
+          "Search campaign strategy",
+          "Keyword research and intent mapping",
+          "Campaign structure",
+          "Conversion tracking setup",
+          "Ongoing optimisation"
+        ],
+        "approach": [
+          "Group keywords by intent so each ad group answers one kind of search.",
+          "Use negative keywords to keep spend on relevant searches.",
+          "Set up conversion tracking before scaling budget.",
+          "Review search terms and adjust bids and ads regularly."
+        ],
+        "tools": [
+          "Google Ads",
+          "Google Analytics",
+          "Google Tag Manager"
+        ],
+        "gallery": [],
+        "results": [],
+        "lessons": "Editable draft: campaign screenshots and verified results will be added here.",
+        "url": "",
+        "linkedin": "",
+        "tags": [
+          "Google Ads",
+          "Search",
+          "Conversion tracking"
+        ]
+      },
+      {
+        "slug": "creative-brand-communication",
+        "date": "2026-10-07",
+        "order": 4,
+        "draft": false,
+        "title": "Creative and brand communication",
+        "client": "Multiple brands",
+        "industry": "Graphic design & social media",
+        "image": "06-habari-perfume.jpg",
+        "summary": "Marketing graphics, social media creatives and promotional campaigns for brands across furniture, retail, real estate, food and training.",
+        "objective": "Give each brand a clear, consistent visual voice that supports its campaigns.",
+        "challenge": "Very different industries, from industrial B2B products to restaurants and real estate, each needing its own look while staying on-brand.",
+        "responsibilities": [
+          "Graphic design",
+          "Social media creatives",
+          "Promotional campaign visuals",
+          "Visual communication"
+        ],
+        "approach": [
+          "Start from the campaign message, then design the visual around it.",
+          "Keep a consistent look per brand across posts, covers and ads.",
+          "Adapt each design for the format it will run in."
+        ],
+        "tools": [
+          "Adobe Photoshop",
+          "Canva",
+          "Adobe Premiere Pro"
+        ],
+        "gallery": [
+          {
+            "image": "06-habari-perfume.jpg",
+            "title": "Perfume collection offer",
+            "client": "Habari Hypermarket"
+          },
+          {
+            "image": "rs-mandi-sultan-instagram.jpg",
+            "title": "Instagram feed",
+            "client": "Mandi Sultan"
+          },
+          {
+            "image": "09-regal-residency.jpg",
+            "title": "",
+            "client": ""
+          },
+          {
+            "image": "t05-cnc-laser-cutting.jpg",
+            "title": "CNC laser cutting service post",
+            "client": "Target Metal Forming"
+          }
+        ],
+        "results": [],
+        "lessons": "Good creative starts with a clear message; the design is how that message gets noticed.",
+        "url": "designs.html",
+        "urlLabel": "See the full design portfolio",
+        "linkedin": "",
+        "tags": [
+          "Graphic design",
+          "Social media",
+          "Brand communication"
+        ]
+      }
+    ]
+  },
+  "approach": {
+    "eyebrow": "My marketing approach",
+    "heading": "Understand, Plan, Execute, Measure, Improve",
+    "intro": "Effective marketing is not only about generating clicks or collecting enquiries. It starts with the business objective, reaches relevant audiences, communicates value clearly, measures outcomes that matter, and improves based on evidence.",
+    "steps": [
+      {
+        "title": "Understand",
+        "text": "Start with the business objective, the product and who actually buys it, before choosing a channel."
+      },
+      {
+        "title": "Plan",
+        "text": "Set the audience, message, channels and budget around that objective, with clear measures of success."
+      },
+      {
+        "title": "Execute",
+        "text": "Build the campaigns, produce the creative and keep communication consistent across every touchpoint."
+      },
+      {
+        "title": "Measure",
+        "text": "Look past clicks to enquiry quality, follow-up and the outcomes the business cares about."
+      },
+      {
+        "title": "Improve",
+        "text": "Adjust targeting, creative and budget based on evidence, then repeat."
+      }
+    ],
+    "noteTitle": "On B2B lead quality",
+    "note": "A B2B prospect is not automatically a poor lead just because they are not ready to buy today. Relevance, project timing, product interest and genuine buying signals matter too. A contractor planning a fit-out six months from now can be one of the most valuable enquiries a campaign brings in, as long as the follow-up keeps the conversation alive."
   }
 }
