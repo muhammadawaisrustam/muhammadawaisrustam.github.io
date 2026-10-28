@@ -2,16 +2,18 @@
   "site": {
     "url": "https://muhammadawaisrustam.github.io/",
     "title": "Muhammad Awais Rustam | Digital Marketing Specialist in Qatar",
-    "description": "Muhammad Awais Rustam is a Doha-based digital marketing specialist with 7+ years in B2B lead generation, Meta & Google Ads (SEM), SEO and social media.",
-    "keywords": "Muhammad Awais Rustam, Awais Rustam, digital marketing specialist Qatar, digital marketer Doha, B2B lead generation Qatar, performance marketing specialist, Meta Ads specialist, Google Ads expert, search engine marketing, SEM, SEO specialist Qatar, social media marketing Doha, content strategy, email marketing, WhatsApp marketing, PPC, lead generation expert",
+    "description": "Muhammad Awais Rustam is a Doha-based digital marketing specialist with 7+ years in B2B lead generation, Meta & Google Ads, SEO and AI search.",
+    "keywords": "Muhammad Awais Rustam, Awais Rustam, digital marketing specialist Qatar, digital marketer Doha, B2B lead generation Qatar, performance marketing specialist, Meta Ads specialist, Google Ads expert, search engine marketing, SEM, SEO specialist Qatar, social media marketing Doha, content strategy, email marketing, WhatsApp marketing, PPC, lead generation expert, digital marketing Qatar, digital marketing agency Doha alternative, freelance digital marketer Qatar, AEO, GEO, AI search optimisation, answer engine optimisation, generative engine optimisation",
     "ogImage": "og-avatar.jpg",
-    "googleVerification": ""
+    "googleVerification": "",
+    "serviceName": "Muhammad Awais Rustam – Digital Marketing Services",
+    "areaServed": "Qatar, Worldwide"
   },
   "theme": {
-    "bg": "#081633",
-    "bg2": "#0D1F45",
-    "accent": "#4A86FF",
-    "highlight": "#F2C46D"
+    "bg": "#060D22",
+    "bg2": "#0A1533",
+    "accent": "#5B8CFF",
+    "highlight": "#E8C27A"
   },
   "profile": {
     "name": "Muhammad Awais Rustam",
@@ -33,7 +35,8 @@
     "employer": "Target Trading & Contracting",
     "employerUrl": "https://targetqatar.com",
     "university": "Sarhad University",
-    "alternateNames": "Awais Rustam, Muhammad Awais Rustam Malik"
+    "alternateNames": "Awais Rustam, Muhammad Awais Rustam Malik",
+    "knowsAbout": "Digital marketing, Performance marketing, Lead generation, Paid social advertising, Pay-per-click advertising, Search engine optimisation, Answer engine optimisation (AEO), Generative engine optimisation (GEO), Conversion rate optimisation, Marketing analytics, Social media marketing, Content marketing, WhatsApp marketing"
   },
   "nav": [
     {
@@ -45,8 +48,12 @@
       "href": "#projects"
     },
     {
-      "label": "Skills",
+      "label": "Services",
       "href": "#skills"
+    },
+    {
+      "label": "Guide",
+      "href": "#guide"
     },
     {
       "label": "Designs",
@@ -83,6 +90,10 @@
       "visible": true
     },
     {
+      "id": "guide",
+      "visible": true
+    },
+    {
       "id": "faq",
       "visible": true
     },
@@ -96,10 +107,10 @@
     }
   ],
   "hero": {
-    "status": "Open to projects & collaborations",
+    "status": "Open to projects & collaborations · Doha, Qatar",
     "roleLine1": "Digital",
     "roleLine2": "Marketer",
-    "lede": "I help businesses turn ad spend into qualified leads. Seven years of B2B lead generation, Meta and Google Ads, SEO and social media marketing across Qatar and international markets.",
+    "lede": "I help businesses in Qatar and worldwide turn ad spend into qualified leads, with Meta and Google Ads, SEO for Google and AI search, and ad creatives I design myself.",
     "cta1Label": "See my projects",
     "cta1Link": "#projects",
     "cta2Label": "View design work",
@@ -183,6 +194,10 @@
       {
         "label": "Education",
         "value": "Bachelor’s in Marketing, Sarhad University"
+      },
+      {
+        "label": "Certified",
+        "value": "Google Ads Search (2026)"
       }
     ]
   },
@@ -286,8 +301,8 @@
     ]
   },
   "skills": {
-    "eyebrow": "Skills",
-    "heading": "Digital marketing skills",
+    "eyebrow": "Services",
+    "heading": "Digital marketing services",
     "intro": "Every service is planned around one number you care about: leads, cost per lead or return on ad spend.",
     "items": [
       {
@@ -309,6 +324,11 @@
         "tag": "SEO",
         "title": "Search engine optimisation",
         "text": "Keyword research, on-page SEO and content that grows organic traffic you don’t pay for."
+      },
+      {
+        "tag": "AI search",
+        "title": "AEO & GEO (AI search visibility)",
+        "text": "Structured data, answer-first FAQ content and entity-rich pages so your brand is found and quoted in Google AI Overviews, ChatGPT, Gemini and Perplexity."
       },
       {
         "tag": "Social",
@@ -510,7 +530,46 @@
         "meta": "502 Model College · 2012–2014"
       }
     ],
-    "certifications": [],
+    "certifications": [
+      {
+        "title": "Google Ads Search Certification",
+        "meta": "Google · Sep 2026 – Sep 2027 · ID 195372515",
+        "url": "",
+        "date": "2026-09-28",
+        "expires": "2027-09-28",
+        "id": "195372515"
+      },
+      {
+        "title": "Google Ads for Beginners",
+        "meta": "Coursera · Sep 2026",
+        "url": "https://coursera.org/verify/DVABE85NIO3F",
+        "date": "2026-09-23"
+      },
+      {
+        "title": "Search Engine Optimization (SEO) with Squarespace",
+        "meta": "Coursera · Sep 2026",
+        "url": "https://coursera.org/verify/40FIC0FTWFDE",
+        "date": "2026-09-23"
+      },
+      {
+        "title": "Building a Business Presence With Facebook Marketing",
+        "meta": "Coursera · Sep 2026",
+        "url": "https://coursera.org/verify/AITA914BW7N8",
+        "date": "2026-09-24"
+      },
+      {
+        "title": "Digital Business Marketing with Easil",
+        "meta": "Coursera · Sep 2026",
+        "url": "https://coursera.org/verify/9N82AIV3CQWO",
+        "date": "2026-09-24"
+      },
+      {
+        "title": "Business Analysis & Process Management",
+        "meta": "Coursera · Sep 2026",
+        "url": "https://coursera.org/verify/O2P5WDO25OHR",
+        "date": "2026-09-23"
+      }
+    ],
     "certificationsEmpty": "Full list with credential links on LinkedIn",
     "linkedinButton": "View certifications on LinkedIn"
   },
@@ -790,6 +849,91 @@
             "title": "Ramadan campaign",
             "client": "Frank’s RedHot"
           }
+        ]
+      }
+    ]
+  },
+  "guide": {
+    "eyebrow": "Digital marketing guide",
+    "heading": "Digital marketing, answered",
+    "intro": "Short, straight answers to the questions business owners in Qatar ask most, based on campaigns I run every week.",
+    "items": [
+      {
+        "id": "what-is-digital-marketing",
+        "tag": "Basics",
+        "q": "What is digital marketing?",
+        "a": "Digital marketing is promoting a business through online channels, such as Google search, social media, email, WhatsApp and websites, to reach buyers, generate leads and drive sales that can be measured.",
+        "points": [
+          "Paid channels: Google Ads, Meta Ads (Facebook and Instagram), TikTok and LinkedIn ads.",
+          "Owned channels: your website, SEO content, email lists and WhatsApp Business.",
+          "Every campaign is tracked by numbers such as cost per lead (CPL), return on ad spend (ROAS) and lead-to-sale ratio."
+        ]
+      },
+      {
+        "id": "best-channels-qatar",
+        "tag": "Qatar",
+        "q": "Which digital marketing channels work best in Qatar?",
+        "a": "For most businesses in Qatar, Meta Ads (Instagram and Facebook) and Google Ads bring the most leads, with WhatsApp as the main follow-up channel. B2B companies also benefit from Google Search and LinkedIn.",
+        "points": [
+          "Instagram and Facebook lead forms work well for training, retail, real estate and services.",
+          "Google Search captures buyers who are already looking, which suits B2B and high-value services.",
+          "Fast WhatsApp follow-up is what turns a lead into a sale in the Gulf market.",
+          "Plan seasonal campaigns for Ramadan, Eid and Qatar National Day early."
+        ]
+      },
+      {
+        "id": "ad-budget",
+        "tag": "Budget",
+        "q": "How much should I spend on Meta and Google Ads?",
+        "a": "Set your ad budget from your lead target: multiply the number of leads you need each month by your target cost per lead, then split it between channels based on where your buyers search and scroll.",
+        "points": [
+          "Example: at Leaders Training Centre a QAR 60,000 monthly budget, 75% Meta and 25% Google, produced more than 6,000 leads a month.",
+          "Start with a test budget for two to four weeks, then move spend to the ads with the lowest cost per qualified lead.",
+          "Judge results by qualified leads and sales, not clicks or likes."
+        ]
+      },
+      {
+        "id": "seo-aeo-geo",
+        "tag": "Search",
+        "q": "What is the difference between SEO, AEO and GEO?",
+        "a": "SEO helps your website rank in Google’s results, AEO (answer engine optimisation) helps your content become the direct answer in featured snippets and voice search, and GEO (generative engine optimisation) helps AI tools like ChatGPT, Gemini and Perplexity mention and cite your brand.",
+        "points": [
+          "SEO: keywords, fast pages, helpful content and links from other websites.",
+          "AEO: question-led headings, one-sentence answers and FAQ structured data.",
+          "GEO: clear facts about who you are, consistent profiles across the web, and content AI tools can read and quote."
+        ]
+      },
+      {
+        "id": "trends-2026",
+        "tag": "Trends",
+        "q": "Which digital marketing trends matter most right now?",
+        "a": "The trends that move results today are AI search visibility, AI-assisted creative testing, short-form video, WhatsApp conversations, and first-party data with privacy-safe tracking.",
+        "points": [
+          "Buyers now ask AI assistants for recommendations, so brands need AEO and GEO, not only SEO.",
+          "Testing many ad creatives quickly, with AI helping on variations, keeps cost per lead down.",
+          "Reels and TikTok-style video reach the most people per riyal on social.",
+          "Conversions API and Google consent mode keep ad tracking accurate as cookies disappear."
+        ]
+      },
+      {
+        "id": "measure-results",
+        "tag": "Analytics",
+        "q": "How do I know if my digital marketing is working?",
+        "a": "Digital marketing is working when cost per qualified lead falls and the share of leads that become customers rises. Track CPL, lead-to-sale ratio and return on ad spend every week, not just clicks and likes.",
+        "points": [
+          "CTR and CPC show if the ad gets attention.",
+          "CPL and lead quality show if the offer and targeting are right.",
+          "Lead-to-sale ratio and ROAS show if marketing is making money."
+        ]
+      },
+      {
+        "id": "freelancer-or-agency",
+        "tag": "Hiring",
+        "q": "Should I hire a digital marketing specialist or an agency?",
+        "a": "Hire a specialist when you want one senior person who plans, runs and designs your campaigns and reports directly to you; choose an agency when you need a large team across many services at once.",
+        "points": [
+          "A specialist usually costs less and moves faster because strategy, ads and creative sit with one person.",
+          "Ask any candidate for real numbers from past campaigns, such as leads, CPL and ROAS."
         ]
       }
     ]
