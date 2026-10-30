@@ -94,6 +94,19 @@ p { margin: 0 0 1em; }
 .stage-pill { position: absolute; z-index: 3; left: 50%; bottom: 12%; translate: -50% 0; display: inline-flex; align-items: center; gap: 10px; padding: 11px 20px; border-radius: 999px; background: var(--ink); color: #fff; font: 600 14px/1 var(--body); white-space: nowrap; box-shadow: 0 12px 30px -10px rgba(20, 22, 27, .5); }
 .stage-pill i { width: 8px; height: 8px; border-radius: 50%; background: #7C93FF; box-shadow: 0 0 0 4px rgba(124, 147, 255, .25); }
 
+/* cover mode: the photo fills the stage, the name sits in front of it on the open navy side */
+.stage.cover { background: #071A3D; }
+.stage.cover picture, .stage-photo { position: absolute; inset: 0; width: 100%; height: 100%; }
+.stage-photo { object-fit: cover; object-position: 70% 30%; transform: scale(calc(1.02 + var(--hp) * .06)); transform-origin: 70% 30%; }
+.stage.cover::before { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: linear-gradient(90deg, rgba(3, 14, 36, .55) 0%, rgba(3, 14, 36, .2) 38%, rgba(3, 14, 36, 0) 55%), linear-gradient(0deg, rgba(3, 14, 36, .45) 0%, rgba(3, 14, 36, 0) 30%); }
+.cover-copy { position: absolute; z-index: 3; left: 5.5%; bottom: 11%; display: flex; flex-direction: column; align-items: flex-start; gap: 2.4cqw; }
+.stage.cover .stage-word { position: static; display: flex; flex-direction: column; align-items: flex-start; gap: 0; font-size: 9cqw; line-height: .84; letter-spacing: -.035em; color: #fff; text-shadow: 0 10px 40px rgba(2, 10, 28, .35); }
+.stage.cover .stage-word .w1, .stage.cover .stage-word .w2 { transform: translateY(calc(var(--hp) * -12%)); }
+.stage.cover .stage-word .w2 { color: #8FB0FF; }
+.stage.cover .stage-pill { position: static; translate: none; background: #fff; color: #0B1F45; box-shadow: 0 12px 30px -12px rgba(0, 0, 0, .5); }
+.stage.cover .stage-pill i { background: var(--accent); box-shadow: 0 0 0 4px rgba(39, 71, 224, .2); }
+
 /* three fanned cards under the stage */
 .hl-cards { list-style: none; padding: 0; margin: -44px auto 0; position: relative; z-index: 5; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; width: min(1100px, 100% - 48px); }
 .hl-card { background: var(--surface); border-radius: var(--r); padding: 26px 26px 24px; box-shadow: var(--shadow-lg); border: 1px solid var(--line); transition: transform .5s var(--ease), box-shadow .5s var(--ease); }
@@ -475,6 +488,10 @@ html.lenis, html.lenis body { height: auto; }
   .stage-word .w1, .stage-word .w2 { transform: none; }
   .stage-person { height: 92%; bottom: -2%; transform: translateX(-46%); }
   .stage-pill { bottom: 4.5%; font-size: 13px; padding: 10px 16px; }
+  .stage.cover .stage-word { font-size: 17cqw; flex-direction: column; }
+  .stage-photo { object-position: 50% 0; transform-origin: 50% 0; }
+  .stage.cover::before { background: linear-gradient(0deg, rgba(3, 14, 36, .85) 0%, rgba(3, 14, 36, .35) 32%, rgba(3, 14, 36, 0) 50%); }
+  .cover-copy { left: 6%; bottom: 6%; gap: 14px; }
   .hl-cards { grid-template-columns: 1fr; margin-top: 20px; width: 100%; gap: 14px; }
   .hl-card, .hl-card:nth-child(n) { transform: none; }
   .hl-card:hover { transform: translateY(-4px); }

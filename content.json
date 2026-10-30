@@ -25,7 +25,7 @@
     "countryCode": "QA",
     "nationality": "",
     "photo": "muhammad-awais-rustam.jpg",
-    "photoAlt": "Muhammad Awais Rustam Malik, Marketing Specialist in Qatar",
+    "photoAlt": "Muhammad Awais Rustam Malik, Marketing Specialist in Qatar, in a navy suit",
     "email": "awaisrustam001@gmail.com",
     "phone": "+974 3337 0737",
     "whatsapp": "97433370737",
@@ -37,7 +37,9 @@
     "university": "",
     "alternateNames": "Awais Rustam, Muhammad Awais Rustam",
     "knowsAbout": "Digital marketing, Lead generation, Google Ads, Search engine marketing, Meta Ads, Audience targeting, Search engine optimisation, Social media marketing, Brand awareness, Content planning, Graphic design, Video editing, Email marketing, WhatsApp marketing, Marketing reporting",
-    "cutout": "awais-rustam-cutout.webp"
+    "cutout": "awais-rustam-cutout.webp",
+    "cover": "awais-rustam-cover.jpg",
+    "coverPortrait": "awais-rustam-cover-portrait.jpg"
   },
   "nav": [
     {

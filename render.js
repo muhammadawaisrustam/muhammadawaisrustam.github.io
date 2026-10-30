@@ -161,7 +161,7 @@
       '<link rel="alternate" type="text/plain" href="llms.txt" title="Plain-text summary for AI assistants">' +
       '<link rel="icon" href="favicon.svg" type="image/svg+xml">' +
       '<link rel="apple-touch-icon" href="' + e(s.ogImage || p.photo) + '">' +
-      (meta.home && (p.cutout || p.photo) ? '<link rel="preload" as="image" href="' + e(p.cutout || p.photo) + '">' : "") +
+      (meta.home && (p.cover || p.cutout || p.photo) ? '<link rel="preload" as="image" href="' + e(p.cover || p.cutout || p.photo) + '"' + (p.cover && p.coverPortrait ? ' media="(min-width: 761px)"' : "") + ">" : "") +
       FONTS +
       (o.css ? "<style>" + o.css + "</style>" : '<link rel="stylesheet" href="site.css">') +
       "<style>:root{--bg:" + hexOk(t.bg, "#F5F3EE") + ";--surface:" + hexOk(t.bg2, "#FFFFFF") +
@@ -316,7 +316,12 @@
     var hl = e(h.headline || "");
     if (h.accentWords && (h.headline || "").indexOf(h.accentWords) > -1) hl = hl.replace(e(h.accentWords), "<em>" + e(h.accentWords) + "</em>");
     var person = p.cutout || p.photo;
-    var stage = person ? '<figure class="stage rv" aria-label="' + e(p.photoAlt || p.name) + '"><div class="stage-word" aria-hidden="true"><span class="w1">' + e(h.frameWordLeft || "") + '</span><span class="w2">' + e(h.frameWordRight || "") + "</span></div>" +
+    /* cover mode: a full photo fills the stage and the name sits in front of it */
+    var stage = p.cover ? '<figure class="stage cover rv" aria-label="' + e(p.photoAlt || p.name) + '"><picture>' +
+      (p.coverPortrait ? '<source media="(max-width: 760px)" srcset="' + e(p.coverPortrait) + '" width="864" height="1080">' : "") +
+      '<img class="stage-photo" src="' + e(p.cover) + '" alt="' + e(p.photoAlt || p.name) + '" width="1920" height="1080" fetchpriority="high" decoding="async"></picture>' +
+      '<div class="cover-copy"><div class="stage-word" aria-hidden="true"><span class="w1">' + e(h.frameWordLeft || "") + '</span><span class="w2">' + e(h.frameWordRight || "") + "</span></div>" +
+      (h.location ? '<figcaption class="stage-pill"><i aria-hidden="true"></i>' + e(h.location) + "</figcaption>" : "") + "</div></figure>" : person ? '<figure class="stage rv" aria-label="' + e(p.photoAlt || p.name) + '"><div class="stage-word" aria-hidden="true"><span class="w1">' + e(h.frameWordLeft || "") + '</span><span class="w2">' + e(h.frameWordRight || "") + "</span></div>" +
       '<img class="stage-person' + (p.cutout ? "" : " photo") + '" src="' + e(person) + '" alt="' + e(p.photoAlt || p.name) + '" fetchpriority="high" decoding="async"' + (p.cutout ? ' width="683" height="1300"' : ' width="1086" height="1448"') + ">" +
       (h.location ? '<figcaption class="stage-pill"><i aria-hidden="true"></i>' + e(h.location) + "</figcaption>" : "") + "</figure>" : "";
     var cards = a(h.cards).length ? '<ul class="hl-cards" aria-label="Highlights">' + a(h.cards).map(function (k, i) {
